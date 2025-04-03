@@ -1,9 +1,7 @@
 import Home from '@/pages/Home';
 import Layout from '@/pages/Layout';
-import ReactQuery from '@/pages/ReactQuery';
 import { Routes, Route } from 'react-router';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import ReactQueryDetails from '@/pages/ReactQueryDetails';
 
 export default function App() {
   return (
@@ -11,8 +9,16 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/react-query" element={<ReactQuery />} />
-          <Route path="/react-query/:userId" element={<ReactQueryDetails />} />
+          <Route path="/seminar" element={<Seminar />} />
+          <Route path="/seminar/articleId" element={<SeminarDetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/video/:articleId" element={<VideoDetails />} />
+          <Route path="/linker/:articleId" element={<Linker />} />
+          <Route path="/series" element={<Series />} />
+          <Route path="/series/:articleId" element={<SeriesDetails />} />
+          <Route path="/article" element={<Article />} />
+          <Route path="/article/:articleId" element={<ArticleDetails />} />
+          <Route path="/video" element={<Video />} />
         </Route>
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} />
