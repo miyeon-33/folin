@@ -9,7 +9,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/seminar" element={<Seminar />} />
+          {/* <Route path="/seminar" element={<Seminar />} />
           <Route path="/seminar/articleId" element={<SeminarDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/video/:articleId" element={<VideoDetails />} />
@@ -18,7 +18,7 @@ export default function App() {
           <Route path="/series/:articleId" element={<SeriesDetails />} />
           <Route path="/article" element={<Article />} />
           <Route path="/article/:articleId" element={<ArticleDetails />} />
-          <Route path="/video" element={<Video />} />
+          <Route path="/video" element={<Video />} /> */}
         </Route>
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} />
