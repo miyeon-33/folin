@@ -1,4 +1,5 @@
 import Gnb from '@/components/home/Gnb';
+import Sidemenu from '@/components/Sidemenu';
 import { useState } from 'react';
 
 const logo = 'src/assets/images/logo.png';
@@ -16,7 +17,7 @@ export default function Header() {
 
   return (
     <header
-      className="w-full h-[48px] flex items-center mt-[4px] relative
+      className="fixed w-full h-[48px] flex items-center mt-[4px] 
     mx-auto max-w-[1200px] bg-point1 p-[8px] rounded-[6px]"
     >
       <button type="button" className="" onClick={handleToggle}>
