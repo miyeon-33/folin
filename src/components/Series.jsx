@@ -12,9 +12,8 @@ export default function Series() {
   if (isError) return <>{error.meeage}</>;
 
   return (
-    <main className="bg-[#ebedec]">
-      <div className="max-w-[1248px] pt-[52px] px-[24px] border">
-        <h2>Series page</h2>
+    <main className="bg-[#ebedec] h-[1500px]">
+      <div className="max-w-[1248px] mx-auto pt-[52px] px-[24px] border">
         <div className="flex justify-between">
           <div className=" flex gap-[4px]">
             <button
