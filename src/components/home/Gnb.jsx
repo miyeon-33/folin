@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 const menus = [
   { path: '/', menu: 'Home' },
-  { path: '/react-query', menu: 'React Query' },
+  { path: '/series', menu: 'Series' },
 ];
 
 export default function Gnb() {
