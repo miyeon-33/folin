@@ -1,3 +1,9 @@
+import Subscribe from '@/components/Subscribe';
+
 export default function Home() {
-  return <main className="bg-[#ddd] h-[500px] p-[30px]">홈페이지 내용</main>;
+  return (
+    <main className="h-[1000px] mt-[56px]">
+      <Subscribe />
+    </main>
+  );
 }
