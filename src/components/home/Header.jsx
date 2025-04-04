@@ -16,44 +16,54 @@ export default function Header() {
   const SeeToggle = () => setIsSee(!isSee);
 
   return (
-    <header
-      className="fixed left-1/2 transform -translate-x-1/2 
-    w-full h-[48px] flex items-center mt-[4px] max-w-[1200px] bg-point1 
-    p-[8px] rounded-[6px]"
-    >
-      <button type="button" className="" onClick={handleToggle}>
-        <img
-          src={isToggled ? icon2 : icon1}
-          alt="Toggle Icon"
-          className="w-[32px] h-[32px] mr-[16px]"
-        />
-        {isToggled && <Sidemenu />}
-      </button>
-      <Gnb />
-      <button
-        type="button"
-        className="w-[86px] h-[28px] absolute left-1/2 top-1/2
-        transform -translate-x-1/2 -translate-y-1/2"
+    <div className="fixed left-0 top-[4px] max-sm:top-[8px] w-full px-[24px]">
+      <header
+        className=" max-w-[1200px] h-[48px] flex items-center bg-point1 
+    p-[8px] rounded-[6px] mx-auto relative"
       >
-        <img src={logo} alt="logo" />
-      </button>
-      <div className="flex items-center gap-[6px] absolute right-[6px]">
+        <button type="button" className="" onClick={handleToggle}>
+          <img
+            src={isToggled ? icon2 : icon1}
+            alt="Toggle Icon"
+            className="w-[32px] h-[32px] mr-[16px] "
+          />
+        </button>
+        {isToggled ? (
+          <Sidemenu />
+        ) : (
+          <div className="max-sm:hidden block">
+            <Gnb />
+          </div>
+        )}
         <button
-          className="btn text-[12px] font-bold text-[#fff] bg-[#111] rounded-[9px] 
-        h-[28px] py-[6px] px-[10px] border-0"
+          type="button"
+          className="w-[86px] h-[28px] absolute left-1/2 max-sm:top-1/2
+        -translate-x-1/2 max-sm:-translate-y-1/2 max-sm:left-[90px] "
         >
-          멤버십 구독
+          <img src={logo} alt="logo" />
         </button>
-        <button
-          className="btn text-[12px] font-bold text-[#111] bg-[#fff] rounded-[9px] 
+        <div className="flex items-center gap-[6px] absolute right-[6px]">
+          <button
+            className="btn text-[12px] font-bold text-[#fff] bg-[#111] rounded-[9px] 
+        leading-[16px] py-[6px] px-[10px] border-0 max-sm:hidden block"
+          >
+            멤버십 구독
+          </button>
+          <button
+            className="btn text-[12px] font-bold text-[#111] bg-[#fff] rounded-[9px] 
         h-[28px] py-[6px] px-[10px] border-0"
-        >
-          로그인
-        </button>
-        <button type="button" className="w-[32px] h-[32px]" onClick={SeeToggle}>
-          <img src={isSee ? notSee : see} />
-        </button>
-      </div>
-    </header>
+          >
+            로그인
+          </button>
+          <button
+            type="button"
+            className="w-[32px] h-[32px]"
+            onClick={SeeToggle}
+          >
+            <img src={isSee ? notSee : see} />
+          </button>
+        </div>
+      </header>
+    </div>
   );
 }

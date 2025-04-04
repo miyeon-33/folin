@@ -15,7 +15,7 @@ export default function Gnb() {
           <li key={item.menu} className=" flex items-center">
             <Link
               to={item.path}
-              className="text-[18px] text-[#111] font-semiboldbold"
+              className="text-[18px] text-[#111] font-semibold"
             >
               {item.menu}
             </Link>
