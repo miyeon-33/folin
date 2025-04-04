@@ -17,8 +17,9 @@ export default function Header() {
 
   return (
     <header
-      className="fixed w-full h-[48px] flex items-center mt-[4px] 
-    mx-auto max-w-[1200px] bg-point1 p-[8px] rounded-[6px]"
+      className="fixed left-1/2 transform -translate-x-1/2 
+    w-full h-[48px] flex items-center mt-[4px] max-w-[1200px] bg-point1 
+    p-[8px] rounded-[6px]"
     >
       <button type="button" className="" onClick={handleToggle}>
         <img
@@ -26,6 +27,7 @@ export default function Header() {
           alt="Toggle Icon"
           className="w-[32px] h-[32px] mr-[16px]"
         />
+        {isToggled && <Sidemenu />}
       </button>
       <Gnb />
       <button
