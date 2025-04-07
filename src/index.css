@@ -4,37 +4,37 @@
   --color-point2: #fbb900;
   --color-gray-400: #999;
   --color-gray-500: #666;
-  --color-gray-600: #222;
+  --color-gray-600: #111;
   --breakpoint-md: 1025px;
   --breakpoint-sm: 768px;
 }
 
 @font-face {
-  font-family: 'Pretendard';
+  font-family: 'SUIT';
   font-style: normal;
   font-weight: 400;
-  src: url(/fonts/Pretendard-Regular.eot);
-  src: url(/fonts/Pretendard-Regular.eot?#iefix) format('embedded-opentype'),
-    url(/fonts/Pretendard-Regular.woff) format('woff'),
-    url(/fonts/Pretendard-Regular.ttf) format('truetype');
+  src: url(/fonts/SUIT-Regular.eot);
+  src: url(/fonts/SUIT-Regular.eot?#iefix) format('embedded-opentype'),
+    url(/fonts/SUIT-Regular.woff) format('woff'),
+    url(/fonts/SUIT-Regular.ttf) format('truetype');
 }
 @font-face {
-  font-family: 'Pretendard';
+  font-family: 'SUIT';
   font-style: normal;
   font-weight: 500;
-  src: url(/fonts/Pretendard-Medium.eot);
-  src: url(/fonts/Pretendard-Medium.eot?#iefix) format('embedded-opentype'),
-    url(/fonts/Pretendard-Medium.woff) format('woff'),
-    url(/fonts/Pretendard-Medium.ttf) format('truetype');
+  src: url(/fonts/SUIT-Medium.eot);
+  src: url(/fonts/SUIT-Medium.eot?#iefix) format('embedded-opentype'),
+    url(/fonts/SUIT-Medium.woff) format('woff'),
+    url(/fonts/SUIT-Medium.ttf) format('truetype');
 }
 @font-face {
-  font-family: 'Pretendard';
+  font-family: 'SUIT';
   font-style: normal;
   font-weight: 700;
-  src: url(/fonts/Pretendard-Bold.eot);
-  src: url(/fonts/Pretendard-Bold.eot?#iefix) format('embedded-opentype'),
-    url(/fonts/Pretendard-Bold.woff) format('woff'),
-    url(/fonts/Pretendard-Bold.ttf) format('truetype');
+  src: url(/fonts/SUIT-Bold.eot);
+  src: url(/fonts/SUIT-Bold.eot?#iefix) format('embedded-opentype'),
+    url(/fonts/SUIT-Bold.woff) format('woff'),
+    url(/fonts/SUIT-Bold.ttf) format('truetype');
 }
 
 @layer components {
@@ -48,11 +48,11 @@
   /* 컬러 변수 */
   /* :root는 html을 의미 */
   :root {
-    --point-color1: #32a13c;
+    --point-color1: #00d48d;
     --point-color2: #fbb900;
-    --gray-400: #999;
+    --gray-400: #ebedec;
     --gray-500: #666;
-    --gray-600: #222;
+    --gray-600: #111;
   }
 
   /* rem단위사용시 주석풀고 사용 */
@@ -250,14 +250,15 @@
   textarea,
   button,
   table {
-    font-family: 'Pretendard', '맑은 고딕', 'malgun gothic',
-      'Apple SD Gothic Neo', sans-serif;
+    font-family: 'SUIT', '맑은 고딕', 'malgun gothic', 'Apple SD Gothic Neo',
+      sans-serif;
     /* font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', '맑은 고딕',
     helvetica, 'Apple SD Gothic Neo', sans-serif; */
-    font-size: 16px;
-    color: var(--gray-500);
+    font-size: 15px;
+    color: var(--gray-600);
     /* 테일윈드 줄간격 기본값(1.5) 초기화 */
     line-height: normal;
+    letter-spacing: -0.3px;
   }
 
   /* 스킵 네비 */
