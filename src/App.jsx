@@ -7,6 +7,7 @@ import SeriesDetails from '@/pages/SeriesDetails';
 import Article from '@/pages/Article';
 import ArticleDetails from '@/pages/ArticleDetails';
 import Video from '@/pages/Video';
+import Seminar from '@/components/Seminar';
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          {/* <Route path="/seminar" element={<Seminar />} /> */}
+          <Route path="/seminar" element={<Seminar />} />
           {/* <Route path="/seminar/articleId" element={<SeminarDetails />} /> */}
           {/* <Route path="/login" element={<Login />} /> */}
           {/* <Route path="/video/:articleId" element={<VideoDetails />} /> */}
