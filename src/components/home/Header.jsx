@@ -2,11 +2,11 @@ import Gnb from '@/components/home/Gnb';
 import Sidemenu from '@/components/Sidemenu';
 import { useState } from 'react';
 
-const logo = 'src/assets/images/logo.png';
-const icon1 = '/src/assets/images/icon/hamburger.png';
-const icon2 = '/src/assets/images/icon/closebutton.png';
-const see = '/src/assets/images/icon/seemorebutton.png';
-const notSee = '/src/assets/images/icon/closebutton.png';
+import logo from '@/assets/images/logo.png';
+import icon1 from '@/assets/images/icon/hamburger.png';
+import icon2 from '@/assets/images/icon/closebutton.png';
+import see from '@/assets/images/icon/seemorebutton.png';
+import notSee from '@/assets/images/icon/closebutton.png';
 
 export default function Header() {
   const [isToggled, setIsToggled] = useState(false);
@@ -16,10 +16,10 @@ export default function Header() {
   const SeeToggle = () => setIsSee(!isSee);
 
   return (
-    <div className="fixed left-0 top-[4px] max-sm:top-[8px] w-full px-[24px]">
+    <div className="fixed left-0 top-[4px] max-sm:top-[8px] w-full px-[24px] z-20 max-sm:px-[8px]">
       <header
         className=" max-w-[1200px] h-[48px] flex items-center bg-point1 
-    p-[8px] rounded-[6px] mx-auto relative"
+    p-[8px] rounded-[6px] mx-auto relative "
       >
         <button type="button" className="" onClick={handleToggle}>
           <img
