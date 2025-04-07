@@ -8,6 +8,7 @@ import {
   QueryClientProvider,
   QueryCache,
 } from '@tanstack/react-query';
+
 async function enableMocking() {
   // 환경변수로 개발중일때만 서비스워커 활성화
   if (process.env.NODE_ENV !== 'development') {

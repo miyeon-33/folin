@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "image": "https://www.folin.co/images///20250401/1743492471977_s_10519-m.jpg",
+    "title": "\"브랜드와 부동산은 하나\" 힙한 브랜드의 공간 전략",
+    "name": "우창균",
+    "subtitle": "작가 ‧ 브릭스인베스트먼트 부장",
+    "caption": "그외 1명",
+    "buttonLabel": "신청하기",
+    "categories": ["전체", "신청 가능"]
+  },
+  {
+    "id": 2,
+    "image": "image2.jpg",
+    "title": "세미나 2",
+    "name": "누구누구",
+    "subtitle": "다시보기 세션",
+    "caption": "두 번째 세부 설명입니다.",
+    "buttonLabel": "다시보기",
+    "categories": ["전체", "다시보기"]
+  },
+  {
+    "id": 3,
+    "image": "image3.jpg",
+    "title": "세미나 3",
+    "name": "구구",
+    "subtitle": "완료된 세션",
+    "caption": "세 번째 세부 설명입니다.",
+    "buttonLabel": "완료",
+    "categories": ["전체", "완료"]
+  }
+]
