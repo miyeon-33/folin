@@ -2,11 +2,11 @@ import Home from '@/pages/Home';
 import Layout from '@/pages/Layout';
 import { Routes, Route } from 'react-router';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import Series from '@/components/Series';
-import SeriesDetails from '@/components/SeriesDetails';
-import Article from '@/components/Article';
-import ArticleDetails from '@/components/ArticleDetails';
-import Video from '@/components/Video';
+import Series from '@/pages/Series';
+import SeriesDetails from '@/pages/SeriesDetails';
+import Article from '@/pages/Article';
+import ArticleDetails from '@/pages/ArticleDetails';
+import Video from '@/pages/Video';
 
 export default function App() {
   return (
