@@ -45,7 +45,7 @@ export default function SeriesBox() {
           className={styles.slider}
         >
           <SwiperSlide className="">
-            <Link className="block transition-all  text-[#111] hover:text-point1 hover:-translate-y-[16px]">
+            <Link className="block transition-all  text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300">
               <div className="">
                 <img
                   src={newBtn}
