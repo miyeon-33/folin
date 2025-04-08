@@ -98,7 +98,7 @@ export default function NewSeries() {
                 key={item.path}
                 to={item.path}
                 className="hover:-translate-x-5 transition-transform group  pl-[16px] 
-         duration-500  flex w-full items-center gap-[8px] mb-[4px] py-[8px] px-[10px]
+        duration-500  flex w-full items-center gap-[8px] mb-[4px] py-[8px] px-[10px]
             bg-[#fff] rounded-[6px]"
               >
                 <div
