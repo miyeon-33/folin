@@ -2,26 +2,7 @@
   padding-top: 20px;
 }
 
-/* Swiper 기본 버튼 스타일 변경 */
 .swiper-button-prev,
 .swiper-button-next {
-  background-size: contain; /* 이미지 크기를 버튼 영역에 맞게 조정 */
-  background-repeat: no-repeat; /* 이미지 반복 방지 */
-  background-position: center; /* 버튼 내부에 이미지 정렬 */
-}
-
-/* 이전 버튼 이미지 적용 */
-.swiper-button-prev {
-  background-image: url('/src/assets/images/rhr/SlideOnL.png'); /* 왼쪽 방향 이미지 */
-}
-
-/* 다음 버튼 이미지 적용 */
-.swiper-button-next {
-  background-image: url('/src/assets/images/rhr/SlideOnR.png'); /* 오른쪽 방향 이미지 */
-}
-
-/* 기본 화살표 제거 */
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  content: none;
+  display: none; /* 기본 버튼을 숨깁니다 */
 }

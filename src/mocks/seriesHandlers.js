@@ -1,31 +1,42 @@
+// mocks / seriesHandler.js
 import { http, HttpResponse } from 'msw';
-import detail from './seriesDummy.json';
+import series from './series.json';
 
-let maxId = Math.max(...people.map((item) => item.id));
+// topicId 별로 그룹화
+const groupByTopicId = (data) => {
+  return data.reduce((acc, item) => {
+    const { topicId } = item;
+
+    if (!acc[topicId]) {
+      acc[topicId] = [];
+    }
+    acc[topicId].push(item);
+    return acc;
+  }, {});
+};
+const page = 1; // 페이지 번호
 
 export const seriesHandlers = [
   // GET
-  http.get('/detail', async () => {
+  http.get('/series', async () => {
     await sleep(200);
-    return HttpResponse.json(detail);
-  }),
-  http.get('/detail/:id', async ({ params }) => {
-    await sleep(200);
-    const { id } = params;
+    const groupedData = groupByTopicId(series);
 
-    return HttpResponse.json(
-      detail.filter((person) => person.id === parseInt(id))
-    );
-  }),
+    // 페이지별 데이터 가져오기
+    const getDataByPage = (groupedData, page, itemsPerPage = 2) => {
+      const mergedData = Object.values(groupedData);
+      // 뒤집기
+      mergedData.reverse();
+      const totalPages = Math.ceil(mergedData.length / itemsPerPage);
 
-  // POST
-  http.post('/detail', async ({ request }) => {
-    await sleep(200);
-    const item = await request.json();
-    maxId++;
-    detail.push({ ...item, id: maxId });
+      const startIndex = (page - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      return mergedData.slice(startIndex, endIndex);
+    };
 
-    return HttpResponse.json(detail);
+    const result = getDataByPage(groupedData, page);
+    console.log(result);
+    return HttpResponse.json(series);
   }),
 ];
 

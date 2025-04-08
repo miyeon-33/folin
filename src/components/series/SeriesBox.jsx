@@ -2,9 +2,9 @@
 import arrow from '@/assets/images/rhr/arrow.png';
 import arrowG from '@/assets/images/rhr/arrow_g.png';
 import newBtn from '@/assets/images/icon/newBtn.svg';
-import img1 from '@/assets/images/rhr/1743333644564_a_id-m2.jpg';
-import slideOffL from '@/assets/images/rhr/slideOffL.png';
-import slideOffR from '@/assets/images/rhr/slideOffR.png';
+import img1 from '@/assets/images/rhr/1stBrands/1743333644564_a_id-m2.jpg';
+import navigationPrev from '@/assets/images/rhr/slideOffL.png';
+import navigationNext from '@/assets/images/rhr/slideOffR.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -13,7 +13,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 
-export default function SeriesBox() {
+export default function SeriesBox({ topicId }) {
   const [isToggle, setIsToggle] = useState(true);
 
   return (
@@ -39,7 +39,7 @@ export default function SeriesBox() {
           modules={[Navigation]}
           spaceBetween={24}
           slidesPerView={3}
-          navigation
+          navigation={true}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
           className={styles.slider}
@@ -84,8 +84,8 @@ export default function SeriesBox() {
               </div>
             </Link>
           </SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide></SwiperSlide>
+          <SwiperSlide></SwiperSlide>
           <SwiperSlide>Slide 4</SwiperSlide>
           <SwiperSlide>Slide 5</SwiperSlide>
           <SwiperSlide>Slide 6</SwiperSlide>
