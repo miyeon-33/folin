@@ -2,28 +2,28 @@
 import { http, HttpResponse } from 'msw';
 import series from './series.json';
 
-// topicId 별로 그룹화
-const groupByTopicId = (data) => {
-  return data.reduce((acc, item) => {
-    const { topicId } = item;
-
-    if (!acc[topicId]) {
-      acc[topicId] = [];
-    }
-    acc[topicId].push(item);
-    return acc;
-  }, {});
-};
-const page = 1; // 페이지 번호
-
 export const seriesHandlers = [
   // GET
   http.get('/series', async () => {
     await sleep(200);
+
+    // topicId 별로 그룹화
+    const groupByTopicId = (data) => {
+      return data.reduce((acc, item) => {
+        const { topicId } = item;
+
+        if (!acc[topicId]) {
+          acc[topicId] = [];
+        }
+        acc[topicId].push(item);
+        return acc;
+      }, {});
+    };
+    const page = 1; // 페이지 번호
     const groupedData = groupByTopicId(series);
 
     // 페이지별 데이터 가져오기
-    const getDataByPage = (groupedData, page, itemsPerPage = 2) => {
+    const getDataByPage = (groupedData, page, itemsPerPage = 10) => {
       const mergedData = Object.values(groupedData);
       // 뒤집기
       mergedData.reverse();
@@ -36,7 +36,7 @@ export const seriesHandlers = [
 
     const result = getDataByPage(groupedData, page);
     console.log(result);
-    return HttpResponse.json(series);
+    return HttpResponse.json(result);
   }),
 ];
 

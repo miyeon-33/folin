@@ -33,7 +33,9 @@ export default function Series() {
           </div>
         </div>
         <div className="pt-[64px]">
-          <SeriesBox data={data} />
+          {data.map((topic) => (
+            <SeriesBox key={data.topicId} data={topic} />
+          ))}
         </div>
       </div>
     </main>
