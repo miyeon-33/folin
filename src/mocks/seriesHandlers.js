@@ -1,7 +1,7 @@
 import { http, HttpResponse } from 'msw';
 import detail from './seriesDummy.json';
 
-let maxId = Math.max(...people.map((item) => item.id));
+// let maxId = Math.max(...people.map((item) => item.id));
 
 export const seriesHandlers = [
   // GET
