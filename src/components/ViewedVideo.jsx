@@ -90,7 +90,7 @@ export default function ViewedVideo() {
                 >
                   <div className="">
                     <img
-                      src="/public/images/ymy/viewedarticle.jpg"
+                      src="/images/ymy/viewedarticle.jpg"
                       className="rounded-[6px] block w-full h-auto object-cover"
                     />
                     <svg
