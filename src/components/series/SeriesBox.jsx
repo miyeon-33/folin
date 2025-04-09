@@ -47,7 +47,9 @@ export default function SeriesBox({ topic }) {
           modules={[Navigation]}
           spaceBetween={39}
           slidesPerView={3}
-          navigation={true}
+          navigation={{
+            prevEl: prevRef(),
+          }}
           autoplay={{}}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
