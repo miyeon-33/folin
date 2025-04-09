@@ -2,27 +2,44 @@
 import arrow from '@/assets/images/rhr/arrow.png';
 import arrowG from '@/assets/images/rhr/arrow_g.png';
 import newBtn from '@/assets/images/icon/newBtn.svg';
-import navigationPrev from '@/assets/images/rhr/slideOffL.png';
-import navigationNext from '@/assets/images/rhr/slideOffR.png';
+import Prev_g from '@/assets/images/rhr/slideOffL.png';
+import Prev_b from '@/assets/images/rhr/SlideOnL.png';
+import Next_g from '@/assets/images/rhr/slideOffR.png';
+import Next_b from '@/assets/images/rhr/SlideOnR.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 
 export default function SeriesBox({ topic }) {
   const [isToggle, setIsToggle] = useState(true);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
     topic?.sort(
       (a, b) => parseInt(b.tag.match(/\d+/)) - parseInt(a.tag.match(/\d+/))
     );
-  }, [topic]);
+  }, []);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      setIsBeginning(swiperRef.current.isBeginning);
+      setIsEnd(swiperRef.current.isEnd);
+
+      swiperRef.current.on('slideChange', () => {
+        setIsBeginning(swiperRef.current.isBeginning);
+        setIsEnd(swiperRef.current.isEnd);
+      });
+    }
+  }, []);
 
   return (
     <div className="mb-[104px]">
@@ -42,15 +59,21 @@ export default function SeriesBox({ topic }) {
         </Link>
       </div>
 
-      <div>
+      <div className="relative">
         <Swiper
           modules={[Navigation]}
           spaceBetween={39}
           slidesPerView={3}
+          autoplay={false}
           navigation={{
-            prevEl: prevRef(),
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
           }}
-          autoplay={{}}
+          onBeforeInit={(swiper) => {
+            swiperRef.current = swiper;
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+          }}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
           className={styles.slider}
@@ -67,7 +90,7 @@ export default function SeriesBox({ topic }) {
                   <img
                     src={item.thumbnail}
                     alt="썸네일"
-                    className="w-[calc(100% - 16px)] h-full aspect-w-4 aspect-h-3 object-cover rounded-[6px]"
+                    className="w-[calc(100% - 16px)] h-full object-cover rounded-[6px]"
                   />
                 </div>
                 <div className="relative w-[calc(100% - 16px)] h-[auto] p-[10px] top-[-15px] right-[-15px] bg-white rounded-[6px]">
@@ -98,6 +121,30 @@ export default function SeriesBox({ topic }) {
             </SwiperSlide>
           ))}
         </Swiper>
+        <div>
+          <button
+            className="absolute -left-[55px] top-1/2"
+            ref={prevRef}
+            disabled={isBeginning}
+          >
+            <img
+              src={isBeginning ? Prev_g : Prev_b}
+              alt="prev"
+              className="w-[24px] h-[24px]"
+            />
+          </button>
+          <button
+            className="absolute -right-[55px] top-1/2"
+            ref={nextRef}
+            disabled={isEnd}
+          >
+            <img
+              src={isEnd ? Next_g : Next_b}
+              alt="next"
+              className="w-[24px] h-[24px]"
+            />
+          </button>
+        </div>
       </div>
     </div>
   );
