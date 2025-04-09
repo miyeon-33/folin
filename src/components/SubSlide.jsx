@@ -9,18 +9,18 @@ const menus = [
   {
     path: '/2024interviewzip',
     menu: 'interview',
-    img: '/public/images/ymy/subslide1.jpg',
+    img: '/images/ymy/subslide1.jpg',
   },
-  { path: '/b2b', menu: 'B2B', img: '/public/images/ymy/subslide2.jpg' },
+  { path: '/b2b', menu: 'B2B', img: '/images/ymy/subslide2.jpg' },
   {
     path: '/membership#app',
     menu: 'app',
-    img: '/public/images/ymy/subslide3.jpg',
+    img: '/images/ymy/subslide3.jpg',
   },
   {
     path: '/mypage/notice/artidle:id',
     menu: 'notice',
-    img: '/public/images/ymy/subslide4.jpg',
+    img: '/images/ymy/subslide4.jpg',
   },
 ];
 
