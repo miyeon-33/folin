@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/seminar" element={<Seminar />} />
-          {/* <Route path="/seminar/articleId" element={<SeminarDetails />} /> */}
+          {/* <Route path="/seminar/:articleId" element={<SeminarDetails />} /> */}
           {/* <Route path="/login" element={<Login />} /> */}
           {/* <Route path="/video/:articleId" element={<VideoDetails />} /> */}
           {/* <Route path="/linker/:articleId" element={<Linker />} /> */}
