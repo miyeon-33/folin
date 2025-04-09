@@ -18,8 +18,9 @@ export default function Header() {
   return (
     <div className="fixed left-0 top-[4px] max-sm:top-[8px] w-full px-[24px] z-20 max-sm:px-[8px]">
       <header
-        className=" max-w-[1200px] h-[48px] flex items-center bg-point1 
-    p-[8px] rounded-[6px] mx-auto relative "
+        className="max-w-[1200px] h-[48px] flex items-center bg-point1 
+    p-[8px] rounded-[6px] mx-auto relative before:absolute before:top-[-4px] before:left-0 before:w-full
+    before:h-[10px] before:-z-1 before:bg-[#ebedec]"
       >
         <button type="button" className="" onClick={handleToggle}>
           <img
