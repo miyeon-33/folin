@@ -7,7 +7,12 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 
 export default function Series() {
-  const { isLoding, data, isError, error } = useQuery({
+  const {
+    isLoading,
+    data = [],
+    isError,
+    error,
+  } = useQuery({
     queryKey: ['series'],
     queryFn: () => fetch('/series').then((res) => res.json()),
   });
@@ -17,9 +22,9 @@ export default function Series() {
   }, []);
 
   return (
-    <main className=" max-w-[1248px]  w-full pt-[52px] px-[24px] bg-[#ebedec] mx-auto  h-[1500px] mt-0">
+    <main className=" max-w-[1248px]  w-full pt-[52px] px-[24px] bg-[#ebedec] mx-auto  h-auto mt-0">
       <div className="w-full max-w-[1200px] border border-amber-500">
-        <div className="flex w-full max-w-[1200px] justify-between pt-[4px] border">
+        <div className="flex w-full max-w-[1200px] justify-between pt-[4px]">
           <div>
             <TopMenu />
           </div>
@@ -34,7 +39,7 @@ export default function Series() {
         </div>
         <div className="pt-[64px]">
           {data.map((topic) => (
-            <SeriesBox key={data.topicId} data={topic} />
+            <SeriesBox key={topic.topicId} topic={topic} />
           ))}
         </div>
       </div>
