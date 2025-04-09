@@ -19,8 +19,8 @@ export default function Pagination({ page, totalPage, setPage }) {
         <img
           src={
             page > 1
-              ? 'src/assets/images/bhj/L-active-arrow.svg'
-              : 'src/assets/images/bhj/L-arrow.svg'
+              ? '/images/bhj/L-active-arrow.svg'
+              : '/images/bhj/L-arrow.svg'
           }
           alt="이전"
         />
@@ -59,8 +59,8 @@ export default function Pagination({ page, totalPage, setPage }) {
         <img
           src={
             page < totalPage
-              ? 'src/assets/images/bhj/R-active-arrow.svg'
-              : 'src/assets/images/bhj/R-arrow.svg'
+              ? '/images/bhj/R-active-arrow.svg'
+              : '/images/bhj/R-arrow.svg'
           }
           alt="다음"
         />

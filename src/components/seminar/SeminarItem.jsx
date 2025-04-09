@@ -9,15 +9,15 @@ export default function SeminarItem({ seminar }) {
 
   return (
     <li
-      className="relative w-[360px] h-[646px] hover:text-[#00AA73] group"
+      className="relative w-[calc(25%-20px)] h-[646px] hover:text-[#00AA73] group cursor-pointer"
       onClick={() => navigate(`/seminar/${seminar.id}`)}
     >
       {isReplay && (
         <div className="flex">
           <img
-            src="src/assets/images/bhj/i-vod.png"
+            src="/images/bhj/i-vod.png"
             alt="다시보기"
-            className="absolute z-1 top-[15px] left-[15px] h-[32px] w-[62px] "
+            className="absolute z-1 top-[15px] left-[15px] h-[32px] w-[62px]"
           />
         </div>
       )}
@@ -32,11 +32,11 @@ export default function SeminarItem({ seminar }) {
         <h2 className="text-[18px] font-extrabold m-[10px_0_10px_0] w-[600px] truncate">
           {seminar.title}
         </h2>
-        <p className="mb-[20px] text-[12px] ">
+        <p className="mb-[20px] text-[12px] truncate w-[300px]">
           <strong className="font-bold mr-[10px]">{seminar.name}</strong>
           {seminar.subtitle}
           <br />
-          <span className="block mt-[10px] min-h-[15px]">
+          <span className="block mt-[10px] min-h-[15px] ">
             {seminar.caption || ''}
           </span>
         </p>

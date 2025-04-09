@@ -60,13 +60,13 @@ export default function Seminar() {
 
   return (
     <>
-      <div className="w-full h-full bg-[#ebedec]">
-        <div className=" m-[0_8px] p-[56px_8px_0] ">
-          <div className="flex justify-end">
+      <div className=" w-full h-full bg-[#ebedec]  p-[56px_8px_0]">
+        <div className=" m-[0_8px] max-w-[1200px] mx-auto">
+          <div className="flex justify-end max-sm:justify-center">
             <button
               type="button"
               onClick={handleTabs}
-              className={`btn relative h-[37px] w-[178px] flex justify-between text-[12px] rounded-[8px] bg-white ${
+              className={`btn relative h-[37px] w-[178px] flex justify-between text-[12px] rounded-[8px] bg-white max-sm:w-[100%] max-sm:mt-[4px] ${
                 showTabs ? 'border-[#00D48D]' : 'border-transparent'
               }`}
             >
@@ -79,7 +79,7 @@ export default function Seminar() {
               />
             </button>
             {showTabs && (
-              <ul className="z-1 absolute right-[16px] top-[80px] mt-[20px] w-[178px] text-[12px] ">
+              <ul className="z-2 absolute right-[300px] top-[80px] mt-[20px] w-[178px] text-[12px] max-sm:w-[95%] max-sm:right-[2.5%] ">
                 {menus.map((menu) => (
                   <li
                     key={menu}
