@@ -7,7 +7,8 @@ import SeriesDetails from '@/pages/SeriesDetails';
 import Article from '@/pages/Article';
 import ArticleDetails from '@/pages/ArticleDetails';
 import Video from '@/pages/Video';
-import Seminar from '@/components/Seminar';
+import Seminar from '@/components/seminar/Seminar';
+import SeminarDetails from '@/components/seminar/SeminarDetails';
 
 export default function App() {
   return (
