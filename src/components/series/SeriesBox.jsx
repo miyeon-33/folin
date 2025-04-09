@@ -14,6 +14,10 @@ import styles from './SeriesBox.module.css';
 
 export default function SeriesBox({ topic }) {
   const [isToggle, setIsToggle] = useState(true);
+
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
   useEffect(() => {
     topic?.sort(
       (a, b) => parseInt(b.tag.match(/\d+/)) - parseInt(a.tag.match(/\d+/))
@@ -43,7 +47,9 @@ export default function SeriesBox({ topic }) {
           modules={[Navigation]}
           spaceBetween={39}
           slidesPerView={3}
-          navigation={true}
+          navigation={{
+            prevEl: prevRef(),
+          }}
           autoplay={{}}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
