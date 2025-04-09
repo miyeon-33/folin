@@ -90,7 +90,7 @@ export default function Subscribe() {
         </p>
         <p
           className="text-[15px] text-gray-600 mb-[24px] leading-[22.5px]
-         -tracking-tight font-semibold break-keep"
+        -tracking-tight font-semibold break-keep"
         >
           폴인은 일에 진심은 사람들을 위한 콘텐츠 구독 서비스입니다.
           <br />
