@@ -7,23 +7,26 @@ export default function ArrayButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
   const [seletedOption, setSelectedOption] = useState('최신순');
+  const [hasBorder, setHasBorder] = useState(false); // border 상태 추가
 
   function toggleDrop() {
     setIsOpen(!isOpen);
     setIsRotated(!isRotated);
+    setHasBorder(!isOpen); // open 상태에 따라 border 설정
   }
 
   function handleOptionClick(option) {
     setSelectedOption(option);
     setIsOpen(false);
+    setHasBorder(false); // 선택 후 border 제거
   }
 
   return (
     <div className="relative">
       <button
         type="button"
-        className="btn w-[171px] h-[32px] bg-white border-point1 
-                  rounded-[6px] px-[16px] flex justify-between"
+        className={`btn w-[171px] h-[32px] bg-white rounded-[6px] px-[16px] flex justify-between
+          ${hasBorder ? 'border-point1 ' : 'border-0'}`}
         onClick={toggleDrop}
       >
         <p className="text-[12px]">{seletedOption}</p>

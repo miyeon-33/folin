@@ -10,36 +10,18 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 
 export default function SeriesBox({ topic }) {
   const [isToggle, setIsToggle] = useState(true);
-  const [isBeginning, setIsBeginning] = useState(true);
-  const [isEnd, setIsEnd] = useState(false);
 
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const swiperRef = useRef(null);
-
-  useEffect(() => {
-    topic?.sort(
-      (a, b) => parseInt(b.tag.match(/\d+/)) - parseInt(a.tag.match(/\d+/))
-    );
-  }, []);
-
-  useEffect(() => {
-    if (swiperRef.current) {
-      setIsBeginning(swiperRef.current.isBeginning);
-      setIsEnd(swiperRef.current.isEnd);
-
-      swiperRef.current.on('slideChange', () => {
-        setIsBeginning(swiperRef.current.isBeginning);
-        setIsEnd(swiperRef.current.isEnd);
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   topic?.sort(
+  //     (a, b) => parseInt(b.tag.match(/\d+/)) - parseInt(a.tag.match(/\d+/))
+  //   );
+  // }, []);
 
   return (
     <div className="mb-[104px]">
@@ -65,15 +47,7 @@ export default function SeriesBox({ topic }) {
           spaceBetween={39}
           slidesPerView={3}
           autoplay={false}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          onBeforeInit={(swiper) => {
-            swiperRef.current = swiper;
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }}
+          navigation
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
           className={styles.slider}
@@ -81,7 +55,7 @@ export default function SeriesBox({ topic }) {
           {topic.map((item) => (
             <SwiperSlide key={item.id}>
               <Link className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300">
-                <div>
+                <div className="w-[calc(100% - 16px)] h-full">
                   <img
                     src={newBtn}
                     alt="새로운게시물"
@@ -90,20 +64,26 @@ export default function SeriesBox({ topic }) {
                   <img
                     src={item.thumbnail}
                     alt="썸네일"
-                    className="w-[calc(100% - 16px)] h-full object-cover rounded-[6px]"
+                    className="w-full h-full object-cover rounded-[6px]"
                   />
                 </div>
-                <div className="relative w-[calc(100% - 16px)] h-[auto] p-[10px] top-[-15px] right-[-15px] bg-white rounded-[6px]">
+                <div className="relative w-[calc(100% - 16px)] h-[auto] p-[10px] -translate-y-[16px] translate-x-[16px] bg-white rounded-[6px]">
                   <div className="flex items-center gap-[2px]">
                     <div
-                      className="max-w-[calc(100% - 35px)] bg-[#F2EC72] border border-[#F2EC72] rounded-[6px] py-[6px] px-[8px]
-                    text-[#111] text-[12px] font-bold"
+                      className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                      style={{
+                        backgroundColor: item.color,
+                        border: `1px solid ${item.color}`,
+                      }}
                     >
                       {item.topic}
                     </div>
                     <div
-                      className="inline-block bg-white border border-[#F2EC72] rounded-[6px] py-[6px] px-[8px]
-                    text-[#111] text-[12px] font-bold"
+                      className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                      style={{
+                        backgroundColor: '#fff',
+                        border: `1px solid ${item.color}`,
+                      }}
                     >
                       {item.tag}
                     </div>
@@ -121,30 +101,6 @@ export default function SeriesBox({ topic }) {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div>
-          <button
-            className="absolute -left-[55px] top-1/2"
-            ref={prevRef}
-            disabled={isBeginning}
-          >
-            <img
-              src={isBeginning ? Prev_g : Prev_b}
-              alt="prev"
-              className="w-[24px] h-[24px]"
-            />
-          </button>
-          <button
-            className="absolute -right-[55px] top-1/2"
-            ref={nextRef}
-            disabled={isEnd}
-          >
-            <img
-              src={isEnd ? Next_g : Next_b}
-              alt="next"
-              className="w-[24px] h-[24px]"
-            />
-          </button>
-        </div>
       </div>
     </div>
   );
