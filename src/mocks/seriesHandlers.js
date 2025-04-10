@@ -19,7 +19,7 @@ export const seriesHandlers = [
         return acc;
       }, {});
     };
-    const page = 1; // 페이지 번호
+    const page = 2; // 페이지 번호
     const groupedData = groupByTopicId(series);
 
     // 페이지별 데이터 가져오기

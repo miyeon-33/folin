@@ -1,11 +1,10 @@
 // components /Article.jsx
+import ArrayButton from '@/components/series/ArrayButton';
+import TopMenu from '@/components/series/TopMenu';
 import { useUser } from '@/hooks/useUser';
 
 export default function Article() {
-  const { isLoading, data, isError, error } = useUser();
-
-  if (isLoading) return <>Loading...</>;
-  if (isError) return <>{error.meeage}</>;
+  const { isLoading, data = [], isError, error } = useUser();
 
   return (
     <div className=" bg-[#ebedec] border">
