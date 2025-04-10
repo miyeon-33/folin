@@ -1,9 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Link } from 'react-router';
+import subButton1 from '@/assets/images/icon/subslidebutton1.png';
+import subButton2 from '@/assets/images/icon/subslidebutton2.png';
 
 const menus = [
   {
@@ -28,15 +30,19 @@ export default function SubSlide() {
   const subSlide = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
 
   return (
-    <div className=" px-[24px] max-sm:px-[8px] max-w-[1248px] mb-[104px] mx-auto">
+    <div className=" px-[24px] max-sm:px-[8px] max-w-[1248px] mb-[104px] mx-auto relative">
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         navigation={{
           nextEl: '.subslide-custom-go',
           prevEl: '.subslide-custom-back',
         }}
         spaceBetween={24}
         slidesPerView={1}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         className=""
       >
         {subSlide.map((subslide, index) => (
@@ -46,12 +52,23 @@ export default function SubSlide() {
                 <img
                   src={menus[index].img}
                   alt={menus[index].menu}
-                  className="object-cover w-full h-full rounded-[6px] "
+                  className="object-cover w-full h-full rounded-[6px]  "
                 />
               </Link>
             </div>
           </SwiperSlide>
         ))}
+        <div
+          className="border absolute top-[10px] right-[10px] w-[95px] h-[24px] z-2
+        rounded-[24px] bg-[#111] flex justify-center px-[8px] py-[3px]"
+        >
+          <button className="subslide-custom-back px-[6px] z-10">
+            <img src={subButton1} className="w-[16px]" />
+          </button>
+          <button className="subslide-custom-go px-[6px] z-10">
+            <img src={subButton2} className="w-[16px]" />
+          </button>
+        </div>
       </Swiper>
     </div>
   );

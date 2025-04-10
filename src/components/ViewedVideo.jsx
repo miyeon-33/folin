@@ -13,6 +13,7 @@ import { Link } from 'react-router';
 const menus = [{ path: '/article/:articleId', menu: '아티클' }];
 
 export default function ViewedVideo() {
+  // 아티클데이터 받아야함
   const videos = [
     { id: 1 },
     { id: 2 },
