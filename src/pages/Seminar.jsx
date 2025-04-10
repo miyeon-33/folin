@@ -1,13 +1,13 @@
 import open from '@/assets/images/rhr/open.png';
 import check from '@/assets/images/rhr/check.png';
 import { useState, useEffect } from 'react';
-import seminarDummy from '@/mocks/seminarDummy.json';
+import seminarData from '@/mocks/seminarData.json';
 import SeminarList from '@/components/seminar/SeminarList';
 import SeminarPagination from '@/components/seminar/SeminarPagination';
 
 export default function Seminar() {
   const [selectedMenu, setSelectedMenu] = useState('전체');
-  const [filteredData, setFilteredData] = useState(seminarDummy);
+  const [filteredData, setFilteredData] = useState(seminarData);
   const [showTabs, setShowTabs] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -16,6 +16,21 @@ export default function Seminar() {
   const totalPage = Math.ceil(filteredData.length / itemsPerPage);
 
   const menus = ['전체', '신청 가능', '다시보기 가능', '신청마감'];
+
+  useEffect(() => {
+    fetch('/seminars')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setSeminarData(data.seminars || []);
+        setFilteredData(data.seminars || []);
+      })
+      .catch((error) => console.error('API 요청 실패:', error));
+  }, []);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -42,25 +57,25 @@ export default function Seminar() {
 
   function filterSeminarData(menuName) {
     if (menuName === '전체') {
-      setFilteredData(seminarDummy);
+      setFilteredData(seminarData);
     } else if (menuName === '신청 가능') {
       setFilteredData(
-        seminarDummy.filter((item) => item.categories.includes('신청가능'))
+        seminarData.filter((item) => item.categories.includes('신청가능'))
       );
     } else if (menuName === '다시보기 가능') {
       setFilteredData(
-        seminarDummy.filter((item) => item.categories.includes('다시보기'))
+        seminarData.filter((item) => item.categories.includes('다시보기'))
       );
     } else if (menuName === '신청마감') {
       setFilteredData(
-        seminarDummy.filter((item) => item.categories.includes('신청마감'))
+        seminarData.filter((item) => item.categories.includes('신청마감'))
       );
     }
   }
 
   return (
     <>
-      <div className=" w-full h-full bg-[#ebedec]  p-[56px_8px_0]">
+      <main className=" w-full h-full bg-[#ebedec]  p-[56px_8px_0]">
         <div className=" m-[0_8px] max-w-[1200px] mx-auto">
           <div className="flex justify-end max-sm:justify-center">
             <button
@@ -79,7 +94,7 @@ export default function Seminar() {
               />
             </button>
             {showTabs && (
-              <ul className="z-2 absolute right-[300px] top-[80px] mt-[20px] w-[178px] text-[12px] max-sm:w-[95%] max-sm:right-[2.5%] ">
+              <ul className="z-2 absolute right-auto top-[80px] mt-[20px] w-[178px] text-[12px] max-sm:w-[95%] max-sm:right-[2.5%] ">
                 {menus.map((menu) => (
                   <li
                     key={menu}
@@ -110,7 +125,7 @@ export default function Seminar() {
             setPage={setCurrentPage}
           />
         </div>
-      </div>
+      </main>
     </>
   );
 }

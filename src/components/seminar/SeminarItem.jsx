@@ -9,7 +9,7 @@ export default function SeminarItem({ seminar }) {
 
   return (
     <li
-      className="relative w-[calc(25%-20px)] h-[646px] hover:text-[#00AA73] group cursor-pointer"
+      className="relative w-[calc(25%-20px)] h-[646px] hover:text-[#00AA73] group cursor-pointer max-sm:h-[500px] max-sm:w-[calc(40%-40px)] "
       onClick={() => navigate(`/seminar/${seminar.id}`)}
     >
       {isReplay && (
