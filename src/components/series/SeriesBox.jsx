@@ -2,8 +2,10 @@
 import arrow from '@/assets/images/rhr/arrow.png';
 import arrowG from '@/assets/images/rhr/arrow_g.png';
 import newBtn from '@/assets/images/icon/newBtn.svg';
-import navigationPrev from '@/assets/images/rhr/slideOffL.png';
-import navigationNext from '@/assets/images/rhr/slideOffR.png';
+import Prev_g from '@/assets/images/rhr/slideOffL.png';
+import Prev_b from '@/assets/images/rhr/SlideOnL.png';
+import Next_g from '@/assets/images/rhr/slideOffR.png';
+import Next_b from '@/assets/images/rhr/SlideOnR.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -15,14 +17,11 @@ import styles from './SeriesBox.module.css';
 export default function SeriesBox({ topic }) {
   const [isToggle, setIsToggle] = useState(true);
 
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-
-  useEffect(() => {
-    topic?.sort(
-      (a, b) => parseInt(b.tag.match(/\d+/)) - parseInt(a.tag.match(/\d+/))
-    );
-  }, [topic]);
+  // useEffect(() => {
+  //   topic?.sort(
+  //     (a, b) => parseInt(b.tag.match(/\d+/)) - parseInt(a.tag.match(/\d+/))
+  //   );
+  // }, []);
 
   return (
     <div className="mb-[104px]">
@@ -42,15 +41,13 @@ export default function SeriesBox({ topic }) {
         </Link>
       </div>
 
-      <div>
+      <div className="relative">
         <Swiper
           modules={[Navigation]}
           spaceBetween={39}
           slidesPerView={3}
-          navigation={{
-            prevEl: prevRef(),
-          }}
-          autoplay={{}}
+          autoplay={false}
+          navigation
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
           className={styles.slider}
@@ -58,7 +55,7 @@ export default function SeriesBox({ topic }) {
           {topic.map((item) => (
             <SwiperSlide key={item.id}>
               <Link className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300">
-                <div>
+                <div className="w-[calc(100% - 16px)] h-full">
                   <img
                     src={newBtn}
                     alt="새로운게시물"
@@ -67,20 +64,26 @@ export default function SeriesBox({ topic }) {
                   <img
                     src={item.thumbnail}
                     alt="썸네일"
-                    className="w-[calc(100% - 16px)] h-full aspect-w-4 aspect-h-3 object-cover rounded-[6px]"
+                    className="w-full h-full object-cover rounded-[6px]"
                   />
                 </div>
-                <div className="relative w-[calc(100% - 16px)] h-[auto] p-[10px] top-[-15px] right-[-15px] bg-white rounded-[6px]">
+                <div className="relative w-[calc(100% - 16px)] h-[auto] p-[10px] -translate-y-[16px] translate-x-[16px] bg-white rounded-[6px]">
                   <div className="flex items-center gap-[2px]">
                     <div
-                      className="max-w-[calc(100% - 35px)] bg-[#F2EC72] border border-[#F2EC72] rounded-[6px] py-[6px] px-[8px]
-                    text-[#111] text-[12px] font-bold"
+                      className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                      style={{
+                        backgroundColor: item.color,
+                        border: `1px solid ${item.color}`,
+                      }}
                     >
                       {item.topic}
                     </div>
                     <div
-                      className="inline-block bg-white border border-[#F2EC72] rounded-[6px] py-[6px] px-[8px]
-                    text-[#111] text-[12px] font-bold"
+                      className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                      style={{
+                        backgroundColor: '#fff',
+                        border: `1px solid ${item.color}`,
+                      }}
                     >
                       {item.tag}
                     </div>
