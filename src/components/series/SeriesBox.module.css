@@ -4,21 +4,17 @@
 }
 .slider [class*='swiper-button-prev'] {
   left: -50px;
-  background: url(/src/assets/images/rhr/slideOffL.png) center / 24px 24px
-    no-repeat;
+  background: url(@/assets/images/rhr/slideOnL.png) center / 24px 24px no-repeat;
   object-fit: contain;
 }
 .slider [class*='swiper-button-next'] {
   right: -50px;
-  background: url(/src/assets/images/rhr/slideOffR.png) center / 24px 24px
-    no-repeat;
+  background: url(@/assets/images/rhr/slideOnR.png) center / 24px 24px no-repeat;
 }
 .slider [class*='swiper-button-lock'] {
   display: block;
 }
-.slider [class*='swiper-button-disabled'] {
-  opacity: 1;
-}
+
 .slider [class*='swiper-button-prev']::after,
 .slider [class*='swiper-button-next']::after {
   display: none;

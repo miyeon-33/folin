@@ -21,6 +21,9 @@ export default function Series() {
     data?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   }, []);
 
+  let maxId = Math.max(...data?.map((item) => item[0].topicId));
+  console.log(maxId);
+
   return (
     <main className="bg-[#ebedec]">
       <div className=" max-w-[1248px]  w-full pt-[52px] px-[24px] bg-[#ebedec] mx-auto  h-auto mt-0">
@@ -40,7 +43,7 @@ export default function Series() {
           </div>
           <div className="pt-[64px]">
             {data.map((topic) => (
-              <SeriesBox key={topic.topicId} topic={topic} />
+              <SeriesBox key={topic.id} topic={topic} maxId={maxId} />
             ))}
           </div>
         </div>
