@@ -38,6 +38,15 @@ export const seriesHandlers = [
     console.log(result);
     return HttpResponse.json(result);
   }),
+
+  // GET topicId=18
+  http.get('/series/18', async () => {
+    await sleep(200);
+
+    const filteredData = series.filter((item) => item.topicId === 18);
+
+    return HttpResponse.json(filteredData);
+  }),
 ];
 
 // 데이터 전송시 시간이 걸리므로 지연시간 걸어 서버환경과 비슷하게 동작하게 하는 함수
