@@ -7,18 +7,18 @@ import prevAll from '@/assets/images/icon/prevgray.png';
 import next from '@/assets/images/icon/nextblack.png';
 import prev from '@/assets/images/icon/prevblack.png';
 import nextAll from '@/assets/images/icon/nextgray.png';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function Shorts() {
   const shorts = [
-    { id: 1, videoSrc: 'path-to-video1.mp4' },
-    { id: 2, videoSrc: 'path-to-video2.mp4' },
-    { id: 3, videoSrc: 'path-to-video3.mp4' },
-    { id: 4, videoSrc: 'path-to-video4.mp4' },
-    { id: 5, videoSrc: 'path-to-video5.mp4' },
-    { id: 6, videoSrc: 'path-to-video6.mp4' },
-    { id: 7, videoSrc: 'path-to-video7.mp4' },
-    { id: 8, videoSrc: 'path-to-video8.mp4' },
+    { id: 1, videoSrc: '/videos/example.mp4' },
+    { id: 2, videoSrc: '/videos/example.mp4' },
+    { id: 3, videoSrc: '/videos/example.mp4' },
+    { id: 4, videoSrc: '/videos/example.mp4' },
+    { id: 5, videoSrc: '/videos/example.mp4' },
+    { id: 6, videoSrc: '/videos/example.mp4' },
+    { id: 7, videoSrc: '/videos/example.mp4' },
+    { id: 8, videoSrc: '/videos/example.mp4' },
   ];
 
   const [prevButtonImg, setPrevButtonImg] = useState(prevAll);
@@ -39,6 +39,22 @@ export default function Shorts() {
     } else {
       setNextButtonImg(next);
     }
+  };
+
+  const handleMouseEnter = (videoRef) => {
+    const playPromise = videoRef.current.play();
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(function () {
+          // Automatic playback started!
+          videoRef.current.play();
+        })
+        .catch(function (error) {});
+    }
+  };
+  const handleMouseLeave = (videoRef) => {
+    videoRef.current.pause();
   };
 
   return (
@@ -63,18 +79,29 @@ export default function Shorts() {
         onSlideChange={handleSlideChange}
         className="z-10"
       >
-        {shorts.map((slide, index) => (
-          <SwiperSlide
-            key={index}
-            className="flex items-center justify-center max-w-[282px]"
-          >
-            <video
-              src={slide.videoSrc}
-              controls
-              className="h-[451px] rounded-[6px]"
-            ></video>
-          </SwiperSlide>
-        ))}
+        {shorts.map((slide, index) => {
+          const videoRef = useRef(null);
+          return (
+            <SwiperSlide
+              key={index}
+              className="flex items-center justify-center max-w-[282px]"
+            >
+              <div
+                className=""
+                onMouseEnter={() => handleMouseEnter(videoRef)}
+                onMouseLeave={() => handleMouseLeave(videoRef)}
+              >
+                <video
+                  ref={videoRef}
+                  src={slide.videoSrc}
+                  controls
+                  muted
+                  className="h-[451px] rounded-[6px] object-cover w-full"
+                ></video>
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
       <div className="max-md:absolute max-md:top-0 max-md:right-[20px]">
         <button className="custom-prev w-[36px] h-[36px] px-[6px] absolute left-[-24px] top-1/2 translate-y-1/2 max-md:static">
