@@ -2,15 +2,11 @@
 import arrow from '@/assets/images/rhr/arrow.png';
 import arrowG from '@/assets/images/rhr/arrow_g.png';
 import newBtn from '@/assets/images/icon/newBtn.svg';
-import Prev_g from '@/assets/images/rhr/slideOffL.png';
-import Prev_b from '@/assets/images/rhr/SlideOnL.png';
-import Next_g from '@/assets/images/rhr/slideOffR.png';
-import Next_b from '@/assets/images/rhr/SlideOnR.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 

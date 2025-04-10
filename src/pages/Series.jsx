@@ -22,25 +22,27 @@ export default function Series() {
   }, []);
 
   return (
-    <main className=" max-w-[1248px]  w-full pt-[52px] px-[24px] bg-[#ebedec] mx-auto  h-auto mt-0">
-      <div className="w-full max-w-[1200px] border border-amber-500">
-        <div className="flex w-full max-w-[1200px] justify-between pt-[4px]">
-          <div>
-            <TopMenu />
-          </div>
-          <div className="flex justify-between mt-0">
+    <main className="bg-[#ebedec]">
+      <div className=" max-w-[1248px]  w-full pt-[52px] px-[24px] bg-[#ebedec] mx-auto  h-auto mt-0">
+        <div className="w-full max-w-[1200px] border border-amber-500">
+          <div className="flex w-full max-w-[1200px] justify-between pt-[4px]">
             <div>
-              <ArrayButton />
+              <TopMenu />
             </div>
-            <div>
-              <SeriesView />
+            <div className="flex justify-between mt-0">
+              <div>
+                <ArrayButton />
+              </div>
+              <div>
+                <SeriesView />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="pt-[64px]">
-          {data.map((topic) => (
-            <SeriesBox key={topic.topicId} topic={topic} />
-          ))}
+          <div className="pt-[64px]">
+            {data.map((topic) => (
+              <SeriesBox key={topic.topicId} topic={topic} />
+            ))}
+          </div>
         </div>
       </div>
     </main>
