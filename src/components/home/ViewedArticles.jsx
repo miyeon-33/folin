@@ -3,66 +3,31 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import offAll from '@/assets/images/icon/prevgray.png';
-import off from '@/assets/images/icon/prevblack.png';
-import on from '@/assets/images/icon/nextblack.png';
-import onAll from '@/assets/images/icon/nextgray.png';
-import { useState } from 'react';
 import { Link } from 'react-router';
-import arrow from '@/assets/images/icon/homearrow.png';
-import harrow from '@/assets/images/icon/homearrowcolor.png';
 import { useQuery } from '@tanstack/react-query';
-import styles from './HomeSeries.module.css';
+import styles from './Slides.module.css';
 
-const menus = [{ path: '/article/:articleId', menu: '아티클' }];
-const arrowMenus = [{ path: '/series/:articleId', menu: '시리즈' }];
-
-export default function HomeSeries() {
-  const [hovered, setHovered] = useState(false);
-
+export default function ViewedArticles() {
+  // 아티클데이터 가져오기
   const { data, isLoading, error, isError } = useQuery({
-    queryKey: ['series18'],
-    queryFn: () => fetch('/series/18').then((res) => res.json()),
+    queryKey: ['/articles'],
+    queryFn: () => fetch('/articles').then((res) => res.json()),
   });
 
-  const [offButtonImg, setOffButtonImg] = useState(offAll);
-  const [onButtonImg, setOnButtonImg] = useState(on);
+  const slides = data?.articles
+    ? data.articles.sort((a, b) => b.favorit - a.favorit).slice(0, 15)
+    : [];
 
-  const handleOnSlide = (swiper) => {
-    const startIndex = swiper.activeIndex;
-    const endIndex = startIndex + swiper.params.slidesPerView;
-
-    if (startIndex <= 0) {
-      setOffButtonImg(offAll);
-    } else {
-      setOffButtonImg(off);
-    }
-
-    if (endIndex >= data.length) {
-      setOnButtonImg(onAll);
-    } else {
-      setOnButtonImg(on);
-    }
-  };
-
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+  if (isError) {
+    return <p>Error...</p>;
+  }
 
   return (
     <div className="px-[24px] max-sm:px-[8px] max-w-[1200px] mb-[104px] mx-auto relative">
-      <div className="max-md:flex max-md:justify-between max-md:items-center">
-        <Link
-          to={arrowMenus[0].path}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          className="flex items-center gap-[4px] hover:translate-x-5 transition-transform duration-500 group"
-        >
-          <h1 className="text-[24px] text-gray-600 font-bold group-hover:text-[#00d48d]">
-            토스팀에게 듣다: 토스 10주년 '10 to 100'
-          </h1>
-          <img src={hovered ? harrow : arrow} className="w-[52px] h-[24px]" />
-        </Link>
-      </div>
+      <h1 className="text-[24px] font-bold">최근 많이 본 아티클</h1>
       <Swiper
         modules={[Navigation]}
         navigation
@@ -76,10 +41,9 @@ export default function HomeSeries() {
             slidesPerView: 3,
           },
         }}
-        onSlideChange={handleOnSlide}
-        className={styles.slider}
+        className={styles.articleslider}
       >
-        {data.map((slide) => (
+        {slides.map((slide, index) => (
           <SwiperSlide
             key={slide.id}
             className="flex items-center justify-center pt-[36px]"
@@ -90,12 +54,13 @@ export default function HomeSeries() {
             >
               <Link
                 key={slide.id}
-                to={`/series/${slide.id}`}
+                to={`/articles/${slide.id}`}
                 className="text-[18px] text-[#111] font-semibold block relative "
               >
                 <div className="">
                   <img
                     src={slide.thumbnail}
+                    alt={slide.topic}
                     className="rounded-[6px] block w-full h-auto object-cover"
                   />
                   <svg
@@ -116,13 +81,13 @@ export default function HomeSeries() {
                 >
                   <div className="flex gap-[2.5px] h-[32px] items-center ">
                     <div
-                      className=" rounded-[6px]  py-[6px] px-[8px] text-[#111] text-[12px] leading-[20px]"
+                      className=" rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] leading-[20px]"
                       style={{ backgroundColor: slide.color }}
                     >
                       {slide.topic}
                     </div>
                     <div
-                      className="border text-[12px] py-[6px] px-[8px] rounded-[6px] leading-[20px]"
+                      className="text-[12px] py-[6px] px-[8px] rounded-[6px] leading-[20px]"
                       style={{ border: `1px solid ${slide.color}` }}
                     >
                       {slide.tag}
