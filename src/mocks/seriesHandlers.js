@@ -46,7 +46,7 @@ export const seriesHandlers = [
 
     // 페이지 정보를 응답에 포함
     return HttpResponse.json({
-      data: result,
+      data: result.data,
       pagination: {
         currentPage: page,
         totalPages: result.totalPages,

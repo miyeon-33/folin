@@ -2,60 +2,37 @@ import TopMenu from '@/components/series/TopMenu';
 import ArrayButton from '@/components/series/ArrayButton';
 import SeriesView from '@/components/series/SeriesView';
 import SeriesBox from '@/components/series/SeriesBox';
-import SeriesPagination from '@/components/series/SeriesPagination';
+import SeriesPagination from '@/components/series/SeriesPagination'; // 새로운 pagination 컴포넌트 import
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Series() {
-  // URL에서 페이지 파라미터 가져오기
-  const getCurrentPage = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const pageParam = urlParams.get('page');
-    return pageParam ? parseInt(pageParam, 10) : 1;
-  };
+  // 현재 페이지 상태 추가
+  const [page, setPage] = useState(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    return parseInt(queryParams.get('page'), 10) || 1; // URL에서 페이지 번호 추출
+  });
 
-  const [currentPage, setCurrentPage] = useState(getCurrentPage());
-
-  // URL 변경 감지를 위한 이벤트 리스너
-  useEffect(() => {
-    const handleUrlChange = () => {
-      setCurrentPage(getCurrentPage());
-    };
-
-    // popstate 이벤트는 브라우저의 뒤로가기/앞으로가기 버튼 클릭 시 발생
-    window.addEventListener('popstate', handleUrlChange);
-
-    return () => {
-      window.removeEventListener('popstate', handleUrlChange);
-    };
-  }, []);
   const {
     isLoading,
     data: response,
     isError,
     error,
   } = useQuery({
-    queryKey: ['series', currentPage],
-    queryFn: () =>
-      fetch(`/series?page=${currentPage}`).then((res) => res.json()),
+    // 페이지 정보를 쿼리 키에 포함
+    queryKey: ['series', page],
+    // 페이지 파라미터 전달
+    queryFn: () => fetch(`/series?page=${page}`).then((res) => res.json()),
   });
 
   // 응답에서 데이터와 페이지 정보 추출
   const data = response?.data || [];
   const pagination = response?.pagination || { currentPage: 1, totalPages: 1 };
 
-  // 날짜별 정렬
+  // 스와이프 각 날짜별 정렬
   useEffect(() => {
-    if (data.length > 0) {
-      data.forEach((topicGroup) => {
-        if (Array.isArray(topicGroup)) {
-          topicGroup.sort(
-            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-          );
-        }
-      });
-    }
-  }, [data]);
+    data?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  }, []);
 
   // maxId 계산 - 페이지가 1일 때만 계산
   let maxId = 0;
@@ -77,10 +54,6 @@ export default function Series() {
     '최대 ID:',
     maxId
   );
-
-  if (isLoading) return <div className="text-center py-10">로딩 중...</div>;
-  if (isError)
-    return <div className="text-center py-10">에러 발생: {error.message}</div>;
 
   return (
     <main className="bg-[#ebedec]">
@@ -108,12 +81,13 @@ export default function Series() {
               />
             ))}
           </div>
-
-          {/* 페이지네이션 컴포넌트는 이제 page와 totalPage만 전달받음 */}
-          <SeriesPagination
-            page={pagination.currentPage}
-            totalPage={pagination.totalPages}
-          />
+          <div>
+            <SeriesPagination
+              page={pagination.currentPage}
+              totalPages={pagination.totalPages}
+              setPage={setPage}
+            />
+          </div>
         </div>
       </div>
     </main>
