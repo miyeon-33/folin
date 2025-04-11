@@ -1,0 +1,13 @@
+.articleslider {
+  border: 1px solid red;
+  overflow: visible;
+}
+.articleslider [class*='swiper-button-prev'] {
+  border: 1px solid blue;
+}
+.articleslider [class*='swiper-button-next'] {
+  border: 1px solid yellow;
+  width: 36px;
+  height: 36px;
+  right: -50px;
+}

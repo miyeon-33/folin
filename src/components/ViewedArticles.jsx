@@ -10,21 +10,28 @@ import goAll from '@/assets/images/icon/nextgray.png';
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
+import styles from './HomeSeries.module.css';
 
 export default function ViewedArticles() {
   const [backButtonImg, setBackButtonImg] = useState(backAll);
   const [goButtonImg, setGoButtonImg] = useState(go);
 
-  // 아티클데이터 받아야함
+  // 아티클데이터 받아오기
   const { data, isLoading, error, isError } = useQuery({
-    queryKey: ['/series'],
-    queryFn: () => fetch('/series').then((res) => res.json()),
+    queryKey: ['/articles'],
+    queryFn: () => fetch('/articles').then((res) => res.json()),
   });
 
-  const slides = data
-    ?.sort((a, b) => (a.favorit > b.favorit ? -1 : 1))
-    .slice(0, 15);
-  console.log(slides, '================================');
+  const slides = data?.articles
+    ? data.articles.sort((a, b) => b.favorit - a.favorit).slice(0, 15)
+    : [];
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+  if (isError) {
+    return <p>Error...</p>;
+  }
 
   const handleSlide = (swiper) => {
     const startIndex = swiper.activeIndex;
@@ -43,18 +50,12 @@ export default function ViewedArticles() {
     }
   };
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
-
   return (
     <div className="px-[24px] max-sm:px-[8px] max-w-[1200px] mb-[104px] mx-auto relative">
       <h1 className="text-[24px] font-bold">최근 많이 본 아티클</h1>
       <Swiper
         modules={[Navigation]}
-        navigation={{
-          nextEl: '.custom-go',
-          prevEl: '.custom-back',
-        }}
+        navigation
         spaceBetween={24}
         slidesPerView={2}
         breakpoints={{
@@ -65,8 +66,8 @@ export default function ViewedArticles() {
             slidesPerView: 3,
           },
         }}
+        className={styles.articleslider}
         onSlideChange={handleSlide}
-        className="z-10"
       >
         {slides.map((slide, index) => (
           <SwiperSlide
@@ -105,10 +106,16 @@ export default function ViewedArticles() {
               "
                 >
                   <div className="flex gap-[2.5px] h-[32px] items-center ">
-                    <div className=" rounded-[6px] bg-[#a3cfff]  py-[6px] px-[8px] text-[#111] text-[12px] leading-[20px]">
+                    <div
+                      className=" rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] leading-[20px]"
+                      style={{ backgroundColor: slide.color }}
+                    >
                       {slide.topic}
                     </div>
-                    <div className="border border-[#a3cfff] text-[12px] py-[6px] px-[8px] rounded-[6px] leading-[20px]">
+                    <div
+                      className="text-[12px] py-[6px] px-[8px] rounded-[6px] leading-[20px]"
+                      style={{ border: `1px solid ${slide.color}` }}
+                    >
                       {slide.tag}
                     </div>
                   </div>
@@ -124,14 +131,6 @@ export default function ViewedArticles() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="max-md:absolute max-md:top-0 max-md:right-[20px]">
-        <button className="custom-back w-[36px] h-[36px] px-[6px] absolute left-[-24px] top-1/2 translate-y-1/2 max-md:static">
-          <img src={backButtonImg} />
-        </button>
-        <button className="custom-go w-[36px] h-[36px] px-[6px] absolute right-[-24px] top-1/2 translate-y-1/2 max-md:static">
-          <img src={goButtonImg} />
-        </button>
-      </div>
     </div>
   );
 }

@@ -12,6 +12,7 @@ import { Link } from 'react-router';
 import arrow from '@/assets/images/icon/homearrow.png';
 import harrow from '@/assets/images/icon/homearrowcolor.png';
 import { useQuery } from '@tanstack/react-query';
+import styles from './HomeSeries.module.css';
 
 const menus = [{ path: '/article/:articleId', menu: '아티클' }];
 const arrowMenus = [{ path: '/series/:articleId', menu: '시리즈' }];
@@ -76,7 +77,7 @@ export default function HomeSeries() {
           },
         }}
         onSlideChange={handleOnSlide}
-        className="z-10"
+        className={styles.slider}
       >
         {data.map((slide) => (
           <SwiperSlide
