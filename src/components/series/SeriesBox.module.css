@@ -19,3 +19,21 @@
 .slider [class*='swiper-button-next']::after {
   display: none;
 }
+
+@media (max-width: 1440px) {
+  .slider [class*='swiper-button'] {
+    top: -35px;
+  }
+  .slider [class*='swiper-button-prev'] {
+    left: auto;
+    right: 35px;
+  }
+  .slider [class*='swiper-button-next'] {
+    right: 0;
+  }
+}
+@media (max-width: 599px) {
+  .slider [class*='swiper-button'] {
+    display: none;
+  }
+}

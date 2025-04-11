@@ -22,12 +22,12 @@ export default function SeriesBox({ topic, maxId }) {
     <div className="mb-[104px]">
       <div className="flex items-center mb-[20px]">
         <Link
-          className="flex items-center w-full text-[#111] hover:text-point1 hover:translate-x-[16px]
-          transition-transform duration-400"
+          className="flex items-center w-full text-[#111] px-[8px] hover:text-point1 hover:translate-x-[16px]
+          transition-transform duration-400 max-md:w-[calc(100%-60px)]"
           onMouseEnter={() => setIsToggle(false)}
           onMouseLeave={() => setIsToggle(true)}
         >
-          <h3 className="text-[24px]  font-bold">{topic[0].topic}</h3>
+          <h3 className="text-[24px] font-bold">{topic[0].topic}</h3>
           <img
             src={isToggle ? arrow : arrowG}
             alt="showSeriesDetails"
@@ -40,14 +40,22 @@ export default function SeriesBox({ topic, maxId }) {
         <Swiper
           modules={[Navigation]}
           spaceBetween={39}
-          slidesPerView={3}
+          slidesPerView="auto"
           autoplay={false}
           navigation
+          breakpoints={{
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
           // SeriesBox.module.css
           className={styles.slider}
         >
           {topic.map((item) => (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={item.id} className="max-sm:!w-[calc(80%)]">
               <Link className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300">
                 <div className="w-[calc(100% - 16px)] h-full relative mr-[16px]">
                   <div className="absolute flex z-2 top-[10px] left-[10px] gap-[2px]">

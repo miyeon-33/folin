@@ -22,14 +22,15 @@ export default function ArrayButton() {
   }
 
   return (
-    <div className="relative">
+    <div className="relative max-sm:w-full">
       <button
         type="button"
-        className={`btn w-[171px] h-[32px] bg-white rounded-[6px] px-[16px] flex justify-between
+        className={`btn w-[171px] h-[32px] bg-white rounded-[6px] px-[16px] flex justify-between 
+          max-sm:w-full
           ${hasBorder ? 'border-point1 ' : 'border-0'}`}
         onClick={toggleDrop}
       >
-        <p className="text-[12px]">{seletedOption}</p>
+        <span className="text-[12px] font-medium">{seletedOption}</span>
         <img
           src={open}
           alt="최신순.인기순"
