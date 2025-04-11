@@ -15,7 +15,8 @@ import styles from './SeriesBox.module.css';
 export default function SeriesBox({ topic, maxId }) {
   const [isToggle, setIsToggle] = useState(true);
 
-  topic.sort((a, b) => (a.tag > b.tag ? -1 : 1));
+  // 각 슬라이드별 최신화순 정렬
+  topic.sort((a, b) => parseInt(b.tag) - parseInt(a.tag));
 
   return (
     <div className="mb-[104px]">
@@ -42,6 +43,7 @@ export default function SeriesBox({ topic, maxId }) {
           slidesPerView={3}
           autoplay={false}
           navigation
+          // SeriesBox.module.css
           className={styles.slider}
         >
           {topic.map((item) => (
