@@ -10,9 +10,13 @@ export default function NewSeries() {
 
   // const latest = data?.[0].sort((a, b) => (a.tag > b.tag ? -1 : 1))[0];
   // 이중배열 중 마지막 요소 추출
-  const latest = data?.[0][data[0].length - 1];
-  const latestItems = data?.[0]
-    .sort((a, b) => (a.tag > b.tag ? 1 : -1))
+  // const latest = data?.[0][data[0].length - 1];
+  const latest = data?.data?.[0]?.[data?.data[0]?.length - 1];
+  // const latestItems = data?.[0]
+  //   .sort((a, b) => (a.tag > b.tag ? 1 : -1))
+  //   .slice(0, 3);
+  const latestItems = data?.data?.[0]
+    ?.sort((a, b) => (a.tag > b.tag ? 1 : -1))
     .slice(0, 3);
 
   if (isLoading) return <p>Loading...</p>;
