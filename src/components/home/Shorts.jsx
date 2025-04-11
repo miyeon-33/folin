@@ -3,11 +3,9 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import prevAll from '@/assets/images/icon/prevgray.png';
-import next from '@/assets/images/icon/nextblack.png';
-import prev from '@/assets/images/icon/prevblack.png';
-import nextAll from '@/assets/images/icon/nextgray.png';
-import { useState, useRef } from 'react';
+import styles from './Slides.module.css';
+
+import { useRef } from 'react';
 
 export default function Shorts() {
   const shorts = [
@@ -20,26 +18,6 @@ export default function Shorts() {
     { id: 7, videoSrc: '/videos/example.mp4' },
     { id: 8, videoSrc: '/videos/example.mp4' },
   ];
-
-  const [prevButtonImg, setPrevButtonImg] = useState(prevAll);
-  const [nextButtonImg, setNextButtonImg] = useState(next);
-
-  const handleSlideChange = (swiper) => {
-    const startIndex = swiper.activeIndex;
-    const endIndex = startIndex + swiper.params.slidesPerView;
-
-    if (startIndex <= 0) {
-      setPrevButtonImg(prevAll);
-    } else {
-      setPrevButtonImg(prev);
-    }
-
-    if (endIndex >= shorts.length) {
-      setNextButtonImg(nextAll);
-    } else {
-      setNextButtonImg(next);
-    }
-  };
 
   const handleMouseEnter = (videoRef) => {
     const playPromise = videoRef.current.play();
@@ -62,10 +40,7 @@ export default function Shorts() {
       <h1 className="h-[36px] text-[24px] font-bold mb-[40px]">폴인 쇼츠</h1>
       <Swiper
         modules={[Navigation]}
-        navigation={{
-          nextEl: '.custom-next',
-          prevEl: '.custom-prev',
-        }}
+        navigation
         spaceBetween={24}
         slidesPerView={1}
         breakpoints={{
@@ -76,8 +51,7 @@ export default function Shorts() {
             slidesPerView: 4,
           },
         }}
-        onSlideChange={handleSlideChange}
-        className="z-10"
+        className={styles.articleslider}
       >
         {shorts.map((slide, index) => {
           const videoRef = useRef(null);
@@ -103,14 +77,6 @@ export default function Shorts() {
           );
         })}
       </Swiper>
-      <div className="max-md:absolute max-md:top-0 max-md:right-[20px]">
-        <button className="custom-prev w-[36px] h-[36px] px-[6px] absolute left-[-24px] top-1/2 translate-y-1/2 max-md:static">
-          <img src={prevButtonImg} />
-        </button>
-        <button className="custom-next w-[36px] h-[36px] px-[6px] absolute right-[-24px] top-1/2 translate-y-1/2 max-md:static">
-          <img src={nextButtonImg} />
-        </button>
-      </div>
     </div>
   );
 }

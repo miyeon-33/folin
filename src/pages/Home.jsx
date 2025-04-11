@@ -1,15 +1,17 @@
-import HomeSeries from '@/components/HomeSeries';
-import Keyword from '@/components/Keyword';
-import NewSeries from '@/components/NewSeries';
-import Shorts from '@/components/Shorts';
-import Subscribe from '@/components/Subscribe';
-import SubSlide from '@/components/SubSlide';
-import ViewedArticles from '@/components/ViewedArticles';
-import ViewedVideo from '@/components/ViewedVideo';
+import HomeSeries from '@/components/home/HomeSeries';
+import Keyword from '@/components/home/Keyword';
+import NewSeries from '@/components/home/NewSeries';
+import NextSeminar from '@/components/home/NextSeminar';
+import Shorts from '@/components/home/Shorts';
+import Subscribe from '@/components/home/Subscribe';
+import SubSlide from '@/components/home/SubSlide';
+import UnderLine from '@/components/home/UnderLine';
+import ViewedArticles from '@/components/home/ViewedArticles';
+import ViewedVideo from '@/components/home/ViewedVideo';
 
 export default function Home() {
   return (
-    <main className="h-[5000px] pt-[56px] max-sm:mt-[60px] bg-[#ebedec]">
+    <main className="h-[8000px] pt-[56px] max-sm:mt-[60px] bg-[#ebedec]">
       <Subscribe />
       <NewSeries />
       <Keyword />
@@ -18,6 +20,8 @@ export default function Home() {
       <ViewedVideo />
       <HomeSeries />
       <SubSlide />
+      <NextSeminar />
+      <UnderLine />
     </main>
   );
 }

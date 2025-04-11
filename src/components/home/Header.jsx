@@ -1,5 +1,5 @@
 import Gnb from '@/components/home/Gnb';
-import Sidemenu from '@/components/Sidemenu';
+import Sidemenu from '@/components/home/Sidemenu';
 import { useState } from 'react';
 
 import logo from '@/assets/images/logo.png';
