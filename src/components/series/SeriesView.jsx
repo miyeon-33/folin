@@ -26,14 +26,14 @@ export default function SeriesView() {
         <img
           src={isBoxView ? menu1_g : menu1_b}
           alt="박스로보기"
-          className="w-[32px] align-top"
+          className="min-w-[32px] align-top"
         />
       </button>
       <button type="button" onClick={handleListView}>
         <img
           src={isBoxView ? menu2_b : menu2_g}
           alt="줄로보기"
-          className="w-[32px] align-top"
+          className="min-w-[32px] align-top"
         />
       </button>
     </div>

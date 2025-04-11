@@ -2,7 +2,7 @@ import { http, HttpResponse } from 'msw';
 import series from './series.json';
 
 export const seriesHandlers = [
-  // GET
+  // GET / series
   http.get('/series', async ({ request }) => {
     await sleep(200);
 
@@ -54,11 +54,20 @@ export const seriesHandlers = [
     });
   }),
 
-  // 다른 핸들러는 그대로 유지
+  // GET / topicId=18
   http.get('/series/18', async () => {
     await sleep(200);
     const filteredData = series.filter((item) => item.topicId === 18);
     return HttpResponse.json(filteredData);
+  }),
+
+  //GET / article
+  http.get('/article', async () => {
+    await sleep(200);
+
+    const articleData = series.filter((item) => item.video === 'N');
+    console.log(articleData);
+    return HttpResponse.json(articleData);
   }),
 ];
 

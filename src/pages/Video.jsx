@@ -20,7 +20,7 @@ export default function Video() {
               </div>
             </div>
           </div>
-          <div>비디오만 보기</div>
+          <div>비디오만 보기page</div>
         </div>
       </main>
     </div>

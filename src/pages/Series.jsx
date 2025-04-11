@@ -1,3 +1,4 @@
+//pages / Series.jsx
 import TopMenu from '@/components/series/TopMenu';
 import ArrayButton from '@/components/series/ArrayButton';
 import SeriesView from '@/components/series/SeriesView';
@@ -57,19 +58,15 @@ export default function Series() {
 
   return (
     <main className="bg-[#ebedec]">
-      <div className="max-w-[1248px] w-full pt-[52px] px-[24px] bg-[#ebedec] mx-auto h-auto mt-0">
+      <div className="max-w-[1248px] w-full pt-[52px] px-[24px] bg-[#ebedec] mx-auto h-auto mt-0 max-md:px-[8px] max-sm:pt-[56px]">
         <div className="w-full max-w-[1200px] border border-amber-500">
-          <div className="flex w-full max-w-[1200px] justify-between pt-[4px]">
+          <div className="flex w-full max-w-[1200px] justify-between pt-[4px] max-sm:block">
             <div>
               <TopMenu />
             </div>
-            <div className="flex justify-between mt-0">
-              <div>
-                <ArrayButton />
-              </div>
-              <div>
-                <SeriesView />
-              </div>
+            <div className="flex justify-between mt-0 max-sm:pt-[4px] max-sm:w-full">
+              <ArrayButton />
+              <SeriesView />
             </div>
           </div>
           <div className="pt-[64px]">
