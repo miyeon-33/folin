@@ -94,15 +94,15 @@
   {
     "id": 8,
     "topic": "일잘러의 취미생활",
-    "tag": "7화",
+    "tag": "6화",
     "color": "#a45eeb",
-    "title": "\"테니스 코트 위에선 용기 얻고 고충 잊는다\" 손현 작가",
+    "title": "경쟁에 지친 에디터, 다시 테니스 코트에 서다",
     "author": "손현",
-    "thumbnail": "/images/rhr/workhobby/1743963450146_30.jpg",
+    "thumbnail": "/images/rhr/workhobby/1743055413269_10507_m.jpg",
     "video": "N",
     "free": "N",
-    "favorit": 14,
-    "createdAt": "2025-04-03"
+    "favorit": 18,
+    "createdAt": "2025-03-28"
   },
   {
     "id": 9,
@@ -131,7 +131,7 @@
     "createdAt": "2025-03-26"
   },
   {
-    "id": 12,
+    "id": 11,
     "topic": "호명사회: 이름으로 불리는 사람들",
     "tag": "11화",
     "color": "#e5c58a",
@@ -144,33 +144,20 @@
     "createdAt": "2025-03-25"
   },
   {
+    "id": 12,
+    "topic": "성장하는 팀의 DNA",
+    "tag": "10화",
+    "color": "#ff595f ",
+    "title": "\"왜 다들 네이버페이 쓸까?\" 국민 서비스 된 비결 3가지",
+    "author": "이승배",
+    "thumbnail": "/images/rhr/dna/1742368574904_a_10456-m1.jpg",
+    "video": "N",
+    "free": "N",
+    "favorit": 19,
+    "createdAt": "2025-03-24"
+  },
+  {
     "id": 13,
-    "topic": "성장하는 팀의 DNA",
-    "tag": "10화",
-    "color": "#ff595f ",
-    "title": "\"왜 다들 네이버페이 쓸까?\" 국민 서비스 된 비결 3가지",
-    "author": "이승배",
-    "thumbnail": "/images/rhr/name/1742790545960_a_10476-m.jpg",
-    "video": "N",
-    "free": "N",
-    "favorit": 19,
-    "createdAt": "2025-03-24"
-  },
-  {
-    "id": 14,
-    "topic": "성장하는 팀의 DNA",
-    "tag": "10화",
-    "color": "#ff595f ",
-    "title": "\"왜 다들 네이버페이 쓸까?\" 국민 서비스 된 비결 3가지",
-    "author": "이승배",
-    "thumbnail": "/images/rhr/name/1742790545960_a_10476-m.jpg",
-    "video": "N",
-    "free": "N",
-    "favorit": 19,
-    "createdAt": "2025-03-24"
-  },
-  {
-    "id": 15,
     "topic": "토스팀에게 듣다: 토스 10주년 '10 to 100'",
     "tag": "6화",
     "color": "#25aacf",
@@ -183,7 +170,7 @@
     "createdAt": "2025-04-10"
   },
   {
-    "id": 16,
+    "id": 14,
     "topic": "토스팀에게 듣다: 토스 10주년 '10 to 100'",
     "tag": "7화",
     "color": "#25aacf",
@@ -196,7 +183,7 @@
     "createdAt": "2025-04-12"
   },
   {
-    "id": 17,
+    "id": 15,
     "topic": "토스팀에게 듣다: 토스 10주년 '10 to 100'",
     "tag": "4화",
     "color": "#25aacf",
@@ -209,7 +196,7 @@
     "createdAt": "2025-04-07"
   },
   {
-    "id": 18,
+    "id": 16,
     "topic": "토스팀에게 듣다: 토스 10주년 '10 to 100'",
     "tag": "5화",
     "color": "#25aacf",
@@ -222,7 +209,7 @@
     "createdAt": "2025-04-09"
   },
   {
-    "id": 19,
+    "id": 17,
     "topic": "토스팀에게 듣다: 토스 10주년 '10 to 100'",
     "tag": "3화",
     "color": "#25aacf",
@@ -235,7 +222,7 @@
     "createdAt": "2025-04-05"
   },
   {
-    "id": 20,
+    "id": 18,
     "topic": "토스팀에게 듣다: 토스 10주년 '10 to 100'",
     "tag": "2화",
     "color": "#25aacf",
@@ -248,7 +235,7 @@
     "createdAt": "2025-04-03"
   },
   {
-    "id": 21,
+    "id": 19,
     "topic": "토스팀에게 듣다: 토스 10주년 '10 to 100'",
     "tag": "1화",
     "color": "#25AACF",
@@ -261,7 +248,20 @@
     "createdAt": "2025-04-01"
   },
   {
-    "id": 22,
+    "id": 20,
+    "topic": "폴인이 만난 사람",
+    "tag": "51화",
+    "color": "#25aacf",
+    "title": "최재천·나태주… 왜 이 사람 택했을까? 김영사 편집팀장의 제안법",
+    "author": "김성태",
+    "thumbnail": "/images/rhr/folinpepole/1741834027053_a_10375-2.jpg",
+    "video": "N",
+    "free": "N",
+    "favorit": 30,
+    "createdAt": "2025-03-13"
+  },
+  {
+    "id": 21,
     "topic": "사장의 멘탈관리",
     "tag": "3화",
     "color": "#ff595f",
@@ -274,7 +274,7 @@
     "createdAt": "2025-03-30"
   },
   {
-    "id": 23,
+    "id": 22,
     "topic": "해외 이직, 나도 할 수 있을까?",
     "tag": "8화",
     "color": "#ff595f",
@@ -287,7 +287,7 @@
     "createdAt": "2025-03-11"
   },
   {
-    "id": 24,
+    "id": 23,
     "topic": "직장인의 무기: 말·글·태도",
     "tag": "8화",
     "color": "#F2EC72",
@@ -300,7 +300,7 @@
     "createdAt": "2025-03-10"
   },
   {
-    "id": 25,
+    "id": 24,
     "topic": "초개인화: 오직 1명을 위한 경험 설계",
     "tag": "2화",
     "color": "#25aacf",
@@ -313,7 +313,7 @@
     "createdAt": "2025-03-28"
   },
   {
-    "id": 26,
+    "id": 25,
     "topic": "직장인의 무기: 말·글·태도",
     "tag": "7화",
     "color": "#F2EC72",
@@ -326,7 +326,7 @@
     "createdAt": "2025-03-05"
   },
   {
-    "id": 27,
+    "id": 26,
     "topic": "집요한 설계, 고객경험의 승리",
     "tag": "7화",
     "color": "#F2EC72",
@@ -339,7 +339,7 @@
     "createdAt": "2025-03-04"
   },
   {
-    "id": 28,
+    "id": 27,
     "topic": "폴인이 고른 책",
     "tag": "43화",
     "color": "#a3cfff",
@@ -352,7 +352,7 @@
     "createdAt": "2025-02-27"
   },
   {
-    "id": 29,
+    "id": 28,
     "topic": "초개인화: 오직 1명을 위한 경험 설계",
     "tag": "1화",
     "color": "#25aacf",
@@ -363,6 +363,19 @@
     "free": "N",
     "favorit": 16,
     "createdAt": "2025-03-28"
+  },
+  {
+    "id": 29,
+    "topic": "허들을 넘은 예술가들",
+    "tag": "2화",
+    "color": "#ff595f",
+    "title": "평창올림픽 안무감독 차진엽, 커리어 정점에서 멈춘 이유",
+    "author": "차진엽",
+    "thumbnail": "/images/rhr/artist/1740457934355_a_10234-m2.jpg",
+    "video": "N",
+    "free": "N",
+    "favorit": 14,
+    "createdAt": "2025-03-29"
   },
   {
     "id": 30,
@@ -379,45 +392,32 @@
   },
   {
     "id": 31,
-    "topic": "허들을 넘은 예술가들",
-    "tag": "2화",
-    "color": "#ff595f",
-    "title": "평창올림픽 안무감독 차진엽, 커리어 정점에서 멈춘 이유",
-    "author": "차진엽",
-    "thumbnail": "/images/rhr/artist/1740457934355_a_10234-m2.jpg",
+    "topic": "폴인이 고른 책",
+    "tag": "42화",
+    "color": "#a3cfff",
+    "title": "\"엔비디아는 내 마지막 회사\" 젠슨 황이 엔비디아를 혁신한 비결",
+    "author": "김혜림",
+    "thumbnail": "/images/rhr/folinbook/1739750466425_a_10202-m.jpg",
     "video": "N",
     "free": "N",
-    "favorit": 14,
-    "createdAt": "2025-03-29"
+    "favorit": 18,
+    "createdAt": "2025-02-20"
   },
   {
     "id": 32,
-    "topic": "폴인이 고른 책",
-    "tag": "42화",
-    "color": "#a3cfff",
-    "title": "\"엔비디아는 내 마지막 회사\" 젠슨 황이 엔비디아를 혁신한 비결",
-    "author": "김혜림",
-    "thumbnail": "/images/rhr/folinbook/1739750466425_a_10202-m.jpg",
+    "topic": "허들을 넘은 예술가들",
+    "tag": "1화",
+    "color": "#ff595f",
+    "title": "\"슬럼프? 원치 않아도 찾아온다\" 국가대표 연출가의 브랜딩",
+    "author": "양정웅 김용주",
+    "thumbnail": "/images/rhr/artist/1739947888081_a_10021-m2.jpg",
     "video": "N",
     "free": "N",
-    "favorit": 18,
-    "createdAt": "2025-02-20"
+    "favorit": 21,
+    "createdAt": "2025-03-27"
   },
   {
     "id": 33,
-    "topic": "폴인이 고른 책",
-    "tag": "42화",
-    "color": "#a3cfff",
-    "title": "\"엔비디아는 내 마지막 회사\" 젠슨 황이 엔비디아를 혁신한 비결",
-    "author": "김혜림",
-    "thumbnail": "/images/rhr/folinbook/1739750466425_a_10202-m.jpg",
-    "video": "N",
-    "free": "N",
-    "favorit": 18,
-    "createdAt": "2025-02-20"
-  },
-  {
-    "id": 34,
     "topic": "해외 이직, 나도 할 수 있을까?",
     "tag": "7화",
     "color": "#a3cfff",
@@ -430,7 +430,7 @@
     "createdAt": "2025-02-18"
   },
   {
-    "id": 35,
+    "id": 34,
     "topic": "호명사회: 이름으로 불리는 사람들",
     "tag": "9화",
     "color": "#e5c58a",
@@ -443,7 +443,7 @@
     "createdAt": "2025-03-16"
   },
   {
-    "id": 36,
+    "id": 35,
     "topic": "폴인이 고른 책",
     "tag": "41화",
     "color": "#a3cfff",
@@ -456,7 +456,7 @@
     "createdAt": "2025-02-14"
   },
   {
-    "id": 37,
+    "id": 36,
     "topic": "집요한 설계, 고객경험의 승리",
     "tag": "6화",
     "color": "#F2EC72",
@@ -469,7 +469,7 @@
     "createdAt": "2025-02-13"
   },
   {
-    "id": 38,
+    "id": 37,
     "topic": "리테일테크, 어디까지 왔나",
     "tag": "6화",
     "color": "#25aacf",
@@ -482,7 +482,46 @@
     "createdAt": "2025-02-12"
   },
   {
+    "id": 38,
+    "topic": "컨퍼런스 기획자들: 브랜드의 무기를 만들다",
+    "tag": "3화",
+    "color": "#F2EC72",
+    "title": "'참석자 만족도 98%' 트렌드 컨퍼런스 티콘 12년 흥행 비결",
+    "author": "권수인",
+    "thumbnail": "/images/rhr/conterence/1738899215937_a_10170-m2.jpg",
+    "video": "N",
+    "free": "N",
+    "favorit": 11,
+    "createdAt": "2025-03-26"
+  },
+  {
     "id": 39,
+    "topic": "집요한 설계, 고객경험의 승리",
+    "tag": "5화",
+    "color": "#F2EC72",
+    "title": "컬리, 리브랜딩 두 달 만에 100만 명 가입시킨 멤버십 전략",
+    "author": "오유미",
+    "thumbnail": "/images/rhr/designing/1739335443436_a_10192-m.jpg",
+    "video": "N",
+    "free": "N",
+    "favorit": 20,
+    "createdAt": "2025-02-13"
+  },
+  {
+    "id": 40,
+    "topic": "오늘의 비주얼 브랜딩",
+    "tag": "5화",
+    "color": "#a3cfff",
+    "title": "'어워드 휩쓰는 디자인 회사' 플러스엑스의 디자인 스텝 3",
+    "author": "장기원",
+    "thumbnail": "/images/rhr/visual/1738721425544_a_10157-m.jpg",
+    "video": "Y",
+    "free": "N",
+    "favorit": 31,
+    "createdAt": "2025-02-06"
+  },
+  {
+    "id": 41,
     "topic": "AI시대의 마케팅",
     "tag": "7화",
     "color": "#F2EC72",
@@ -495,7 +534,7 @@
     "createdAt": "2025-02-05"
   },
   {
-    "id": 40,
+    "id": 42,
     "topic": "폴인 PICK 요즘 이 브랜드 2.0",
     "tag": "21화",
     "color": "#e5c58a",
@@ -508,7 +547,7 @@
     "createdAt": "2025-02-04"
   },
   {
-    "id": 41,
+    "id": 43,
     "topicId": 4,
     "topic": "호명사회: 이름으로 불리는 사람들",
     "tag": "7화",
@@ -522,7 +561,7 @@
     "createdAt": "2025-03-14"
   },
   {
-    "id": 42,
+    "id": 44,
     "topic": "폴인이 고른 책",
     "tag": "40화",
     "color": "#a3cfff",
@@ -535,7 +574,7 @@
     "createdAt": "2025-01-27"
   },
   {
-    "id": 43,
+    "id": 45,
     "topic": "[한화손해보험×폴인] 장르가 된 여자들",
     "tag": "14화",
     "color": "#ff595f",
@@ -548,7 +587,7 @@
     "createdAt": "2025-01-24"
   },
   {
-    "id": 44,
+    "id": 46,
     "topic": "도시의 재발견: 뜨는 동네를 주목하다",
     "tag": "6화",
     "color": "#ff595f",
@@ -561,7 +600,7 @@
     "createdAt": "2025-01-23"
   },
   {
-    "id": 45,
+    "id": 47,
     "topic": "콘텐츠 비즈니스 설계자들 2025",
     "tag": "1화",
     "color": "#a3cfff",
@@ -574,7 +613,7 @@
     "createdAt": "2025-03-26"
   },
   {
-    "id": 46,
+    "id": 48,
     "topic": "[한화손해보험×폴인] 장르가 된 여자들",
     "tag": "10화",
     "color": "#ff595f",
@@ -587,7 +626,7 @@
     "createdAt": "2025-01-17"
   },
   {
-    "id": 47,
+    "id": 49,
     "topic": "폴인 PICK 요즘 이 브랜드 2.0",
     "tag": "19화",
     "color": "#e5c58a",
@@ -600,7 +639,7 @@
     "createdAt": "2025-01-26"
   },
   {
-    "id": 48,
+    "id": 50,
     "topic": "폴인 PICK 요즘 이 브랜드 2.0",
     "tag": "18화",
     "color": "#e5c58a",
@@ -613,7 +652,7 @@
     "createdAt": "2025-01-15"
   },
   {
-    "id": 49,
+    "id": 51,
     "topic": "스포츠 마케팅 플레이어",
     "tag": "2화",
     "color": "#a45eeb",
@@ -626,7 +665,7 @@
     "createdAt": "2025-03-26"
   },
   {
-    "id": 50,
+    "id": 52,
     "topic": "스포츠 마케팅 플레이어",
     "tag": "1화",
     "color": "#a45eeb",
@@ -639,7 +678,7 @@
     "createdAt": "2025-03-24"
   },
   {
-    "id": 51,
+    "id": 53,
     "topic": "성장하는 팀의 DNA",
     "tag": "9화",
     "color": "#ff595f",
@@ -652,7 +691,7 @@
     "createdAt": "2025-01-09"
   },
   {
-    "id": 52,
+    "id": 54,
     "topic": "링커의 새해: 스케일업, 도약의 순간",
     "tag": "3화",
     "color": "#25aacf",
@@ -665,7 +704,7 @@
     "createdAt": "2025-03-23"
   },
   {
-    "id": 53,
+    "id": 55,
     "topic": "컨퍼런스 기획자들: 브랜드의 무기를 만들다",
     "tag": "2화",
     "color": "#F2EC72",
@@ -678,7 +717,7 @@
     "createdAt": "2025-03-24"
   },
   {
-    "id": 54,
+    "id": 56,
     "topic": "컨퍼런스 기획자들: 브랜드의 무기를 만들다",
     "tag": "1화",
     "color": "#F2EC72",
@@ -691,20 +730,20 @@
     "createdAt": "2025-03-21"
   },
   {
-    "id": 55,
+    "id": 57,
     "topic": "링커의 새해: 스케일업, 도약의 순간",
-    "tag": "1화",
+    "tag": "2화",
     "color": "#25aacf",
-    "title": "\"일도, 인생도 세일즈\" 벤츠 윤미애 이사의 스케일업",
-    "author": "윤미애",
-    "thumbnail": "/images/rhr/linker/1735524569172_a_9856-m.jpg",
+    "title": "\"28년만에 사원→대표\" 이현정 LG아트센터장 스케일업 모먼트3",
+    "author": "이현정",
+    "thumbnail": "/images/rhr/linker/1735800956907_a_9892-m.jpg",
     "video": "N",
     "free": "N",
-    "favorit": 19,
-    "createdAt": "2025-03-20"
+    "favorit": 15,
+    "createdAt": "2025-03-21"
   },
   {
-    "id": 56,
+    "id": 58,
     "topic": "폴인을 만드는 사람들",
     "tag": "11화",
     "color": "#a45eeb",
@@ -717,20 +756,7 @@
     "createdAt": "2025-12-31"
   },
   {
-    "id": 57,
-    "topic": "pick&taste : 오늘 뭐 읽지?",
-    "tag": "31화",
-    "color": "#a3cfff",
-    "title": "2024년 하반기, 멤버들이 가장 많이 밑줄 친 아티클 7",
-    "author": "폴인",
-    "thumbnail": "/images/rhr/taste/1735278271670_a_9886-m2.jpg",
-    "video": "N",
-    "free": "Y",
-    "favorit": 22,
-    "createdAt": "2024-12-30"
-  },
-  {
-    "id": 58,
+    "id": 59,
     "topic": "[한화손해보험×폴인] 장르가 된 여자들",
     "tag": "12화",
     "color": "#ff595f",
@@ -743,7 +769,7 @@
     "createdAt": "2025-01-20"
   },
   {
-    "id": 59,
+    "id": 60,
     "topic": "링커의 새해: 스케일업, 도약의 순간",
     "tag": "1화",
     "color": "#25aacf",
@@ -756,7 +782,20 @@
     "createdAt": "2025-03-20"
   },
   {
-    "id": 60,
+    "id": 61,
+    "topic": "pick&taste : 오늘 뭐 읽지?",
+    "tag": "31화",
+    "color": "#a3cfff",
+    "title": "2024년 하반기, 멤버들이 가장 많이 밑줄 친 아티클 7",
+    "author": "폴인",
+    "thumbnail": "/images/rhr/taste/1735278271670_a_9886-m2.jpg",
+    "video": "N",
+    "free": "Y",
+    "favorit": 22,
+    "createdAt": "2024-12-30"
+  },
+  {
+    "id": 62,
     "topic": "도시의 재발견: 뜨는 동네를 주목하다",
     "tag": "5화",
     "color": "#ff595f",
