@@ -29,10 +29,18 @@ export default function Seminar() {
   }, [selectedMenu, data]);
 
   function filterSeminarData(menuName) {
-    if (menuName === '전체') {
+    const categoryMapping = {
+      전체: null,
+      '신청 가능': '신청가능',
+      '다시보기 가능': '다시보기',
+      신청마감: '신청마감',
+    };
+
+    const category = categoryMapping[menuName];
+
+    if (!category) {
       setFilteredData(data?.seminars || []);
     } else {
-      const category = menuName === '신청 가능' ? '신청가능' : menuName;
       setFilteredData(
         data?.seminars.filter((item) => item.categories.includes(category)) ||
           []
