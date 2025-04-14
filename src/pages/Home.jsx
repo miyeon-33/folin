@@ -11,7 +11,7 @@ import ViewedVideo from '@/components/home/ViewedVideo';
 
 export default function Home() {
   return (
-    <main className="h-[8000px] pt-[56px] max-sm:mt-[60px] bg-[#ebedec]">
+    <main className="h-[6000px] pt-[56px] max-sm:mt-[60px] bg-[#ebedec]">
       <Subscribe />
       <NewSeries />
       <Keyword />

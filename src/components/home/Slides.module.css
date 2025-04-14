@@ -72,6 +72,41 @@
   font-size: 12px;
 }
 
+.underLine {
+  position: static;
+}
+.underLine [class*='swiper-button'] {
+  position: absolute;
+}
+.underLine [class*='swiper-button-prev'] {
+  width: 36px;
+  height: 36px;
+  left: -54px;
+  padding: 0 6px;
+  top: calc(50% + 35px);
+}
+.underLine [class*='swiper-button-next'] {
+  width: 36px;
+  height: 36px;
+  right: -49px;
+  padding: 0 6px;
+  top: calc(50% + 35px);
+}
+.underLine [class*='swiper-button-prev']::after {
+  color: black;
+  font-size: 20px;
+  display: block;
+  width: 26px;
+  text-align: center;
+}
+.underLine [class*='swiper-button-next']::after {
+  color: black;
+  font-size: 20px;
+  display: block;
+  width: 26px;
+  text-align: center;
+}
+
 /* 테블릿분기점 */
 @media (max-width: 1025px) {
   .articleslider [class*='swiper-button-next'] {
@@ -79,6 +114,16 @@
     right: 24px;
   }
   .articleslider [class*='swiper-button-prev'] {
+    top: 20px;
+    right: 59px;
+    left: auto;
+  }
+
+  .underLine [class*='swiper-button-next'] {
+    top: 20px;
+    right: 24px;
+  }
+  .underLine [class*='swiper-button-prev'] {
     top: 20px;
     right: 59px;
     left: auto;
