@@ -1,3 +1,4 @@
+// mocks / seriesHandler.js
 import { http, HttpResponse } from 'msw';
 import series from './series.json';
 

@@ -39,7 +39,7 @@ export default function SeriesBox({ topic, maxId }) {
       <div className="relative">
         <Swiper
           modules={[Navigation]}
-          spaceBetween={39}
+          spaceBetween={24}
           slidesPerView="auto"
           autoplay={false}
           navigation

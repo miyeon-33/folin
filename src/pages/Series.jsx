@@ -5,7 +5,7 @@ import SeriesView from '@/components/series/SeriesView';
 import SeriesBox from '@/components/series/SeriesBox';
 import SeriesPagination from '@/components/series/SeriesPagination'; // 새로운 pagination 컴포넌트 import
 import { useQuery } from '@tanstack/react-query';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Series() {
   // 현재 페이지 상태 추가
@@ -13,6 +13,8 @@ export default function Series() {
     const queryParams = new URLSearchParams(window.location.search);
     return parseInt(queryParams.get('page'), 10) || 1; // URL에서 페이지 번호 추출
   });
+
+  const [sortOrder, setSortOrder] = useState('최신순');
 
   const {
     isLoading,
@@ -30,10 +32,14 @@ export default function Series() {
   const data = response?.data || [];
   const pagination = response?.pagination || { currentPage: 1, totalPages: 1 };
 
-  // 스와이프 각 날짜별 정렬
-  useEffect(() => {
-    data?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-  }, []);
+  // 스와이프 각 날짜별, 인기별 정렬
+  const sortedData = [...data]?.sort((a, b) => {
+    return sortOrder === '최신순'
+      ? new Date(b[0].createdAt) - new Date(a[0].createdAt)
+      : b.reduce((acc, item) => acc + item.favorit, 0) -
+          a.reduce((acc, item) => acc + item.favorit, 0);
+  });
+  console.log(data);
 
   // maxId 계산 - 페이지가 1일 때만 계산
   let maxId = 0;
@@ -59,13 +65,13 @@ export default function Series() {
   return (
     <main className="bg-[#ebedec]">
       <div className="max-w-[1248px] w-full pt-[52px] px-[24px] bg-[#ebedec] mx-auto h-auto mt-0 max-md:px-[8px] max-sm:pt-[56px]">
-        <div className="w-full max-w-[1200px] border border-amber-500">
+        <div className="w-full max-w-[1200px]">
           <div className="flex w-full max-w-[1200px] justify-between pt-[4px] max-sm:block">
             <div>
               <TopMenu />
             </div>
             <div className="flex justify-between mt-0 max-sm:pt-[4px] max-sm:w-full">
-              <ArrayButton />
+              <ArrayButton setSortOrder={setSortOrder} sortOrder={sortOrder} />
               <SeriesView />
             </div>
           </div>
