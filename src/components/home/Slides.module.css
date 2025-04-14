@@ -74,7 +74,9 @@
 
 .underLine {
   position: static;
+  padding-top: 20px;
 }
+
 .underLine [class*='swiper-button'] {
   position: absolute;
 }

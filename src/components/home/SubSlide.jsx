@@ -39,6 +39,7 @@ export default function SubSlide() {
         navigation
         spaceBetween={24}
         slidesPerView={1}
+        loop={true}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,

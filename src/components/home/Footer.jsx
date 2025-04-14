@@ -18,7 +18,7 @@ const fooeterMenu = [
 
 export default function Footer() {
   return (
-    <footer className=" px-[24px] bg-[#ebedec] max-md:px-[8px] h-[323.5px]">
+    <footer className=" px-[24px] bg-[#ebedec] max-md:px-[8px] pt-[4px]">
       <nav
         className="pt-[12px] px-[16px] pb-[64px] h-full w-full bg-[#fff]
       rounded-t-[6px]"
