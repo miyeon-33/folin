@@ -75,7 +75,7 @@ const UnderLineItem = [
 
 export default function UnderLine() {
   return (
-    <div className="px-[24px] max-md:px-[8px] max-w-[1200px] mb-[120px] mx-auto relative">
+    <div className="px-[24px] max-md:px-[8px] max-w-[1200px] mx-auto relative">
       <h1 className="text-[24px] font-bold mb-[36px]">폴인 밑줄</h1>
       <Swiper
         modules={[Navigation]}
@@ -96,13 +96,13 @@ export default function UnderLine() {
         {UnderLineItem.map((item) => (
           <SwiperSlide
             key={item.id}
-            className=" rounded-[6px]"
+            className=" rounded-[6px] hover:-translate-y-5 !transition-all duration-500 "
             style={{ backgroundColor: item.color }}
           >
-            <div className="hover:-translate-y-5 transition-transform duration-500 p-[16px]">
+            <div className="p-[16px] ">
               <Link
                 to={`/articles/${item.id}`}
-                className="flex flex-col justify-between h-full w-full"
+                className="flex flex-col justify-between h-full w-full "
                 style={{ aspectRatio: '2 / 3' }}
               >
                 <div className="text-gray-600 text-[24px] font-bold line-clamp-9 max-sm:text-[18px]">
