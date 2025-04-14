@@ -15,6 +15,7 @@ export default function Series() {
   });
 
   const [sortOrder, setSortOrder] = useState('최신순');
+  // const [sortedData, setSortedData] = useState([]);
 
   const {
     isLoading,
@@ -33,13 +34,13 @@ export default function Series() {
   const pagination = response?.pagination || { currentPage: 1, totalPages: 1 };
 
   // 스와이프 각 날짜별, 인기별 정렬
-  const sortedData = [...data]?.sort((a, b) => {
+  const sortedData = data.sort((a, b) => {
     return sortOrder === '최신순'
-      ? new Date(b[0].createdAt) - new Date(a[0].createdAt)
+      ? new Date(b[b.length - 1].createdAt) -
+          new Date(a[a.length - 1].createdAt)
       : b.reduce((acc, item) => acc + item.favorit, 0) -
           a.reduce((acc, item) => acc + item.favorit, 0);
   });
-  console.log(data);
 
   // maxId 계산 - 페이지가 1일 때만 계산
   let maxId = 0;
@@ -71,20 +72,13 @@ export default function Series() {
               <TopMenu />
             </div>
             <div className="flex justify-between mt-0 max-sm:pt-[4px] max-sm:w-full">
-              <ArrayButton
-                setSortOrder={setSortOrder}
-                sortedData={sortedData}
-              />
+              <ArrayButton setSortOrder={setSortOrder} />
               <SeriesView />
             </div>
           </div>
           <div className="pt-[64px]">
-            {data.map((topic) => (
-              <SeriesBox
-                key={topic[0]?.id || Math.random()}
-                topic={topic}
-                maxId={maxId}
-              />
+            {sortedData.map((topic) => (
+              <SeriesBox key={topic[0]?.id} topic={topic} maxId={maxId} />
             ))}
           </div>
           <div>

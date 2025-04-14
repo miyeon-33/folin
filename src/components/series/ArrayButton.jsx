@@ -3,7 +3,7 @@ import open from '@/assets/images/rhr/open.png';
 import check from '@/assets/images/rhr/check.png';
 import { useState } from 'react';
 
-export default function ArrayButton({ setSortOrder, sortedData }) {
+export default function ArrayButton({ setSortOrder }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
   const [seletedOption, setSelectedOption] = useState('최신순');
@@ -17,6 +17,7 @@ export default function ArrayButton({ setSortOrder, sortedData }) {
 
   function handleOptionClick(option) {
     setSelectedOption(option);
+    setSortOrder(option);
     setIsOpen(false);
     setIsRotated(false);
     setHasBorder(false); // 선택 후 border 제거

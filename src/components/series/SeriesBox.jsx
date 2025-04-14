@@ -15,9 +15,6 @@ import styles from './SeriesBox.module.css';
 export default function SeriesBox({ topic, maxId }) {
   const [isToggle, setIsToggle] = useState(true);
 
-  // 각 슬라이드별 최신화순 정렬
-  topic.sort((a, b) => parseInt(b.tag) - parseInt(a.tag));
-
   return (
     <div className="mb-[104px]">
       <div className="flex items-center mb-[20px]">
