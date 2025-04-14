@@ -5,7 +5,7 @@ export const seminarHandlers = [
   http.get('/seminars', async () => {
     await sleep(100);
 
-    const getDataByPage = (data, page, itemsPerPage = 12) => {
+    const getDataByPage = (data, page, itemsPerPage = 60) => {
       const totalPages = Math.ceil(data.length / itemsPerPage);
       const startIndex = (page - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
@@ -15,9 +15,9 @@ export const seminarHandlers = [
         totalPages,
       };
     };
-    console.log(seminarData);
+
     const page = 1;
-    const itemsPerPage = 12;
+    const itemsPerPage = 60;
     const { seminars: paginatedData, totalPages } = getDataByPage(
       seminarData,
       page,

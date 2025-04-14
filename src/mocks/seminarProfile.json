@@ -1,8 +1,422 @@
 [
   {
-    "profileId": 101,
-    "profileImage": "/images/bhj/profile/P-1743492448900-linker-woochanggyun.jpg",
-    "name": "우창균",
-    "job": "작가 ‧ 브릭스인베스트먼트 부장"
+    "pfpId": 1,
+    "pfpImg": "/images/bhj/profile/P-1743492448900-linker-woochanggyun.jpg",
+    "pfpName": "우창균",
+    "pfpJob": "작가 ‧ 브릭스인베스트먼트 부장"
+  },
+  {
+    "pfpId": 2,
+    "pfpImg": "/images/bhj/profile/P-1655954410021-Linker-chotoegye.jpg",
+    "pfpName": "조퇴계",
+    "pfpJob": "브로드컬리 대표"
+  },
+  {
+    "pfpId": 3,
+    "pfpImg": "/images/bhj/profile/p-1651124811fc703a29faad4b68ff31a749a6b7e955-sonheun.jpeg",
+    "pfpName": "손현",
+    "pfpJob": "작가 · 전 토스 콘텐츠 매니저"
+  },
+  {
+    "pfpId": 4,
+    "pfpImg": "/images/bhj/profile/P-1740699514218-linker-jeongkimgyeongsuk.jpg",
+    "pfpName": "정김경숙(로이스 김)",
+    "pfpJob": "한미그룹 부사장"
+  },
+  {
+    "pfpId": 5,
+    "pfpImg": "/images/bhj/profile/P-1740704371638-linker-choihyeonji.jpg",
+    "pfpName": "최현지",
+    "pfpJob": "딥다이브 CX리드"
+  },
+  {
+    "pfpId": 6,
+    "pfpImg": "/images/bhj/profile/P-1732003821008-linker-klimyoonhye.jpg",
+    "pfpName": "김윤혜",
+    "pfpJob": "현대차 브랜드마케팅본부 브랜드커뮤니케이션팀 팀장"
+  },
+  {
+    "pfpId": 7,
+    "pfpImg": "/images/bhj/profile/P-1733904536597-linker-oliveyoung2.jpg",
+    "pfpName": "염지혜",
+    "pfpJob": "올리브영 브랜드크리에이티브센터 브랜드전략 유닛리더"
+  },
+  {
+    "pfpId": 8,
+    "pfpImg": "/images/bhj/profile/P-1739424423642-linker-ohyoumi.jpg",
+    "pfpName": "오유미",
+    "pfpJob": "컬리 그로스마케팅 그룹장"
+  },
+  {
+    "pfpId": 9,
+    "pfpImg": "/images/bhj/profile/ ",
+    "pfpName": "이민환",
+    "pfpJob": "에그이즈커밍 마케팅팀장"
+  },
+  {
+    "pfpId": 10,
+    "pfpImg": "/images/bhj/profile/P-1740621032364-linker-kimhyeonsu.jpg",
+    "pfpName": "김현수",
+    "pfpJob": "이지스자산운용 공간콘텐츠실 실장"
+  },
+  {
+    "pfpId": 11,
+    "pfpImg": "/images/bhj/profile/P-1738721484243-linker-jangkiwon.jpg",
+    "pfpName": "장기원",
+    "pfpJob": "플러스엑스 크리에이티브 디렉터"
+  },
+  {
+    "pfpId": 12,
+    "pfpImg": "/images/bhj/profile/P-1736126887347-linker-pakgayeong.jpg",
+    "pfpName": "박가영",
+    "pfpJob": "하이아웃풋클럽 대표 · 전 스픽 한국 지사장"
+  },
+  {
+    "pfpId": 13,
+    "pfpImg": "/images/bhj/profile/P-1735779826892-linker-ohhyejin.jpg",
+    "pfpName": "오혜진",
+    "pfpJob": "우아한형제들 ML프로덕트팀 팀장"
+  },
+  {
+    "pfpId": 14,
+    "pfpImg": "/images/bhj/profile/P-1729672213449-jeongmoonjeong.jpg",
+    "pfpName": "정문정",
+    "pfpJob": "작가"
+  },
+  {
+    "pfpId": 15,
+    "pfpImg": "/images/bhj/profile/P-1726812766705-hsg.jpg",
+    "pfpName": "한상균",
+    "pfpJob": "네이버 카피라이터"
+  },
+  {
+    "pfpId": 16,
+    "pfpImg": "/images/bhj/profile/P-1724378404284-linker-huangeunju.jpg",
+    "pfpName": "황은주",
+    "pfpJob": "폴인 에디터"
+  },
+  {
+    "pfpId": 17,
+    "pfpImg": "/images/bhj/profile/P-1657671943188-Linker-DaheeKim.jpg",
+    "pfpName": "김다희",
+    "pfpJob": "폴인 에디터"
+  },
+  {
+    "pfpId": 18,
+    "pfpImg": "/images/bhj/profile/P-1721145764161-IMG.jpg",
+    "pfpName": "최정은",
+    "pfpJob": "폴인 에디터"
+  },
+  {
+    "pfpId": 19,
+    "pfpImg": "/images/bhj/profile/P-1732605578017-linker-ahnnayeon.jpg",
+    "pfpName": "안나연",
+    "pfpJob": "폴인 마케터"
+  },
+  {
+    "pfpId": 20,
+    "pfpImg": "/images/bhj/profile/P-1731921191124-linker-kimhangrae.jpg",
+    "pfpName": "김항래",
+    "pfpJob": "29CM 크리에이티브실장"
+  },
+  {
+    "pfpId": 21,
+    "pfpImg": "/images/bhj/profile/P-1731031455706-linker-ISaBae.jpg",
+    "pfpName": "이사배",
+    "pfpJob": "투슬래시포 대표"
+  },
+  {
+    "pfpId": 22,
+    "pfpImg": "/images/bhj/profile/P-1730942568125-linker-jeongseogyeong.jpg",
+    "pfpName": "정서경",
+    "pfpJob": "시나리오 작가"
+  },
+  {
+    "pfpId": 23,
+    "pfpImg": "/images/bhj/profile/P-1732175421653-linker-choaran.jpg",
+    "pfpName": "조아란",
+    "pfpJob": "민음사 마케터"
+  },
+  {
+    "pfpId": 24,
+    "pfpImg": "/images/bhj/profile/P-1730955105904-linker-kimhana.jpg",
+    "pfpName": "김하나",
+    "pfpJob": "작가"
+  },
+  {
+    "pfpId": 25,
+    "pfpImg": "/images/bhj/profile/P-1730942610506-linker-kimgyeoul.jpg",
+    "pfpName": "김겨울",
+    "pfpJob": "작가"
+  },
+  {
+    "pfpId": 26,
+    "pfpImg": "/images/bhj/profile/P-1730955248282-linker-minhuijin.jpg",
+    "pfpName": "민희진",
+    "pfpJob": "전 어도어 대표"
+  },
+  {
+    "pfpId": 27,
+    "pfpImg": "/images/bhj/profile/P-1730955155404-linker-kimjiyun.jpg",
+    "pfpName": "김지윤",
+    "pfpJob": "정치학 박사"
+  },
+  {
+    "pfpId": 28,
+    "pfpImg": "/images/bhj/profile/P-1730955124523-linker-leemyeongjin.jpg",
+    "pfpName": "이명진",
+    "pfpJob": "아루 대표"
+  },
+  {
+    "pfpId": 29,
+    "pfpImg": "/images/bhj/profile/P-1730955175598-linker-kimhyoi.jpg",
+    "pfpName": "김효이",
+    "pfpJob": "이너시아 대표"
+  },
+  {
+    "pfpId": 30,
+    "pfpImg": "/images/bhj/profile/p-1666162915610-Linker-lunapark.jpg",
+    "pfpName": "홍인혜(루나파크)",
+    "pfpJob": "프리랜서 카피라이터·작가·만화가"
+  },
+  {
+    "pfpId": 31,
+    "pfpImg": "/images/bhj/profile/P-1731481062098-linker-parkgeo.jpg",
+    "pfpName": "박지호",
+    "pfpJob": "영감의 서재 founder"
+  },
+  {
+    "pfpId": 32,
+    "pfpImg": "/images/bhj/profile/P-1716441664489-OhHarim.jpg",
+    "pfpName": "오하림",
+    "pfpJob": "29CM 헤드 카피라이터"
+  },
+  {
+    "pfpId": 33,
+    "pfpImg": "/images/bhj/profile/P-1729731681480-linker-leehyangeun.jpg",
+    "pfpName": "이향은",
+    "pfpJob": "LG전자 H&A사업본부 CX담당 상무"
+  },
+  {
+    "pfpId": 34,
+    "pfpImg": "/images/bhj/profile/P-1729731697060-linker-kimgwanghyeon.jpg",
+    "pfpName": "김광현",
+    "pfpJob": "파타고니아 환경팀 헤드"
+  },
+  {
+    "pfpId": 35,
+    "pfpImg": "/images/bhj/profile/P-1729731662245-linker-sean.jpg",
+    "pfpName": "션",
+    "pfpJob": "가수"
+  },
+  {
+    "pfpId": 36,
+    "pfpImg": "/images/bhj/profile/P-1701327942797-linker-leesua.jpg",
+    "pfpName": "이슬아",
+    "pfpJob": "작가"
+  },
+  {
+    "pfpId": 37,
+    "pfpImg": "/images/bhj/profile/p-1725515613727-linker-kimjoowon.jpg",
+    "pfpName": "김주원",
+    "pfpJob": "현대자동차 N브랜드사업전략팀장"
+  },
+  {
+    "pfpId": 38,
+    "pfpImg": "/images/bhj/profile/P-1709009211035-linker-nahyemi.jpg",
+    "pfpName": "나혜미",
+    "pfpJob": "에어로케이 브랜드전략팀 팀장"
+  },
+  {
+    "pfpId": 39,
+    "pfpImg": "/images/bhj/profile/P-1725499012117-linker-jeonmihui.jpg",
+    "pfpName": "전미희",
+    "pfpJob": "컬리 상품마케팅본부 온사이트 마케팅 그룹장"
+  },
+  {
+    "pfpId": 40,
+    "pfpImg": "/images/bhj/profile/P-1725672493183-uppity-linker-profile.png",
+    "pfpName": "김정인",
+    "pfpJob": "어피티 CCO"
+  },
+  {
+    "pfpId": 41,
+    "pfpImg": "/images/bhj/profile/p-1718936807353-linker-handahye.jpg",
+    "pfpName": "한다혜",
+    "pfpJob": "아모레퍼시픽 메이크업프로팀 PD"
+  },
+  {
+    "pfpId": 42,
+    "pfpImg": "/images/bhj/profile/p-1713750141108-linker-choijenny.jpg",
+    "pfpName": "최지은",
+    "pfpJob": "메타 글로벌 비즈니스 그룹 부문장"
+  },
+  {
+    "pfpId": 43,
+    "pfpImg": "/images/bhj/profile/p-1722479718161-linker-Joosoeun.jpg",
+    "pfpName": "주소은",
+    "pfpJob": "토스 콘텐츠 매니저"
+  },
+  {
+    "pfpId": 42,
+    "pfpImg": "/images/bhj/profile/p-1719968858572-linker-leeseunghun.jpg",
+    "pfpName": "이승훈",
+    "pfpJob": "링글 공동대표"
+  },
+  {
+    "pfpId": 43,
+    "pfpImg": "/images/bhj/profile/p-1717994092103-linker-sonhyunho.jpg",
+    "pfpName": "손현호",
+    "pfpJob": "틱톡 글로벌비즈니스솔루션 GM"
+  },
+  {
+    "pfpId": 44,
+    "pfpImg": "/images/bhj/profile/p-1717994101423-linker-leesungheon.jpg",
+    "pfpName": "이성헌",
+    "pfpJob": "돌고래유괴단 부대표"
+  },
+  {
+    "pfpId": 45,
+    "pfpImg": "/images/bhj/profile/p-1705304251936-linker-paiksundo.jpg",
+    "pfpName": "백순도",
+    "pfpJob": "토스 PD"
+  },
+  {
+    "pfpId": 46,
+    "pfpImg": "/images/bhj/profile/p-1705304226409-linker-kimchangseon.jpg",
+    "pfpName": "김창선",
+    "pfpJob": "토스 PD"
+  },
+  {
+    "pfpId": 47,
+    "pfpImg": "/images/bhj/profile/p-1718183232905-linker-byunseungmin-2.jpg",
+    "pfpName": "변승민",
+    "pfpJob": "클라이맥스스튜디오 대표"
+  },
+  {
+    "pfpId": 48,
+    "pfpImg": "/images/bhj/profile/key-1718180811393-cbd-poster-day1-01-tvn.jpg",
+    "pfpName": "구자영",
+    "pfpJob": "CJ ENM 미디어마케팅 총괄"
+  },
+  {
+    "pfpId": 49,
+    "pfpImg": "/images/bhj/profile/p-1717994082723-linker-kimyeseul.jpg",
+    "pfpName": "김예슬",
+    "pfpJob": "에그이즈커밍 PD"
+  },
+  {
+    "pfpId": 50,
+    "pfpImg": "/images/bhj/profile/p-1718084465282-linker-jungyoungsoo.jpg",
+    "pfpName": "정영수",
+    "pfpJob": "오오비컴퍼니 책임매니저"
+  },
+  {
+    "pfpId": 51,
+    "pfpImg": "/images/bhj/profile/key-1718086133384-s-8622-m1.jpg",
+    "pfpName": "신호영",
+    "pfpJob": "오오비컴퍼니 책임매니저"
+  },
+  {
+    "pfpId": 52,
+    "pfpImg": "/images/bhj/profile/p-1726814071308-nyj1.jpg",
+    "pfpName": "노윤주",
+    "pfpJob": "광고대행사 대홍기획 AP"
+  },
+  {
+    "pfpId": 53,
+    "pfpImg": "/images/bhj/profile/p-1715574992685-linker-songhosung.jpg",
+    "pfpName": "송호성",
+    "pfpJob": "디자이너"
+  },
+  {
+    "pfpId": 54,
+    "pfpImg": "/images/bhj/profile/p-1667983140786-Image00077.jpg",
+    "pfpName": "김상균",
+    "pfpJob": "경희대학교 경영대학원 교수"
+  },
+  {
+    "pfpId": 55,
+    "pfpImg": "/images/bhj/profile/p-1711417427212-linker-parkhuiyun.jpg",
+    "pfpName": "박희윤",
+    "pfpJob": "HDC현대산업개발 개발본부장 전무"
+  },
+  {
+    "pfpId": 56,
+    "pfpImg": "/images/bhj/profile/p-1705915359034-linker-leehyung.jpg",
+    "pfpName": "이형기",
+    "pfpJob": "신세계백화점 콘텐츠전략팀장"
+  },
+  {
+    "pfpId": 57,
+    "pfpImg": "/images/bhj/profile/p-1709772691594-linker-ryuhyeonjeong.jpg",
+    "pfpName": "류현정",
+    "pfpJob": "IT 전문가·『스토리테크 전쟁』 저자"
+  },
+  {
+    "pfpId": 58,
+    "pfpImg": "/images/bhj/profile/p-1709177131620-linker-bobbyjung.jpg",
+    "pfpName": "정동우",
+    "pfpJob": "미트포포 대표"
+  },
+  {
+    "pfpId": 59,
+    "pfpImg": "/images/bhj/profile/p-1703730586452-linker-umiryeong.jpg",
+    "pfpName": "우미령",
+    "pfpJob": "러쉬코리아 대표"
+  },
+  {
+    "pfpId": 60,
+    "pfpImg": "/images/bhj/profile/p-1704855672353-linker-choijaeyoung.jpg",
+    "pfpName": "최재영",
+    "pfpJob": "더퍼스트펭귄 대표"
+  },
+  {
+    "pfpId": 61,
+    "pfpImg": "/images/bhj/profile/key-1705312521037-gram-talk-poster-jungjy-Offline.png",
+    "pfpName": "정종연",
+    "pfpJob": "TEO PD"
+  },
+  {
+    "pfpId": 62,
+    "pfpImg": "/images/bhj/profile/p-1704855654994-linker-limkyeongseon.jpg",
+    "pfpName": "임경선",
+    "pfpJob": "작가"
+  },
+  {
+    "pfpId": 63,
+    "pfpImg": "/images/bhj/profile/p-1698929375779-jay2.jpeg",
+    "pfpName": "전아영",
+    "pfpJob": "TEO 프로듀서"
+  },
+  {
+    "pfpId": 64,
+    "pfpImg": "/images/bhj/profile/p-1661750527360-Linker-namyeuonjueon.jpg",
+    "pfpName": "남연정(드렁큰에디터)",
+    "pfpJob": "콘텐츠 기획자"
+  },
+  {
+    "pfpId": 65,
+    "pfpImg": "/images/bhj/profile/p-161648413325d7ff5b54f349982a14df6ee57d5742.jpeg",
+    "pfpName": "박찬용",
+    "pfpJob": "『아레나옴므플러스』 피처 디렉터"
+  },
+  {
+    "pfpId": 66,
+    "pfpImg": "/images/bhj/profile/p-1698830159843-linker-leeyeounsil.jpg",
+    "pfpName": "이연실",
+    "pfpJob": "이야기장수 대표"
+  },
+  {
+    "pfpId": 67,
+    "pfpImg": "/images/bhj/profile/p-1701081678211-linker-kimjaeyeop.jpg",
+    "pfpName": "김재엽",
+    "pfpJob": "네이버 이사·검색 디자인 총괄"
+  },
+  {
+    "pfpId": 68,
+    "pfpImg": "/images/bhj/profile/p-1698295193811-234234.jpg",
+    "pfpName": "박진표",
+    "pfpJob": "아이즈매거진 대표"
   }
 ]
