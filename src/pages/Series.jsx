@@ -6,6 +6,7 @@ import SeriesBox from '@/components/series/SeriesBox';
 import SeriesPagination from '@/components/series/SeriesPagination'; // 새로운 pagination 컴포넌트 import
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import SeriesList from '@/components/series/SeriesList';
 
 export default function Series() {
   // 현재 페이지 상태 추가
@@ -80,6 +81,7 @@ export default function Series() {
             {sortedData.map((topic) => (
               <SeriesBox key={topic[0]?.id} topic={topic} maxId={maxId} />
             ))}
+            <SeriesList />
           </div>
           <div>
             <SeriesPagination
