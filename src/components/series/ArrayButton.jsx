@@ -3,9 +3,10 @@ import open from '@/assets/images/rhr/open.png';
 import check from '@/assets/images/rhr/check.png';
 import { useState } from 'react';
 
-export default function ArrayButton({ setSortOrder, sortOrder }) {
+export default function ArrayButton({ setSortOrder }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
+  const [seletedOption, setSelectedOption] = useState('최신순');
   const [hasBorder, setHasBorder] = useState(false); // border 상태 추가
 
   function toggleDrop() {
@@ -16,6 +17,7 @@ export default function ArrayButton({ setSortOrder, sortOrder }) {
 
   function handleOptionClick(option) {
     setSortOrder(option);
+    setSelectedOption(option);
     setIsOpen(false);
     setIsRotated(false);
     setHasBorder(false); // 선택 후 border 제거
@@ -30,7 +32,7 @@ export default function ArrayButton({ setSortOrder, sortOrder }) {
           ${hasBorder ? 'border-point1 ' : 'border-0'}`}
         onClick={toggleDrop}
       >
-        <span className="text-[12px] font-medium">{sortOrder}</span>
+        <span className="text-[12px] font-medium">{seletedOption}</span>
         <img
           src={open}
           alt="최신순.인기순"
@@ -46,7 +48,7 @@ export default function ArrayButton({ setSortOrder, sortOrder }) {
                           flex items-center hover:bg-[#f7f7f7] rounded-[6px] cursor-pointer"
               onClick={() => handleOptionClick(option)}
             >
-              {sortOrder === option && (
+              {seletedOption === option && (
                 <img
                   src={check}
                   alt="check"

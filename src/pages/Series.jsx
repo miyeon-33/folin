@@ -71,7 +71,7 @@ export default function Series() {
               <TopMenu />
             </div>
             <div className="flex justify-between mt-0 max-sm:pt-[4px] max-sm:w-full">
-              <ArrayButton setSortOrder={setSortOrder} sortOrder={sortOrder} />
+              <ArrayButton setSortOrder={setSortOrder} />
               <SeriesView />
             </div>
           </div>
