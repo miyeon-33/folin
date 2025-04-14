@@ -2,10 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
 
 export default function SeminarDetails() {
-  const { id } = useParams();
+  const { articleId } = useParams();
+
   const { isLoading, data, isError, error } = useQuery({
-    queryKey: ['seminar', id],
-    queryFn: () => fetch(`/api/seminars/${id}`).then((res) => res.json()),
+    queryKey: ['seminar', articleId],
+    queryFn: () =>
+      fetch(`/api/seminars/${articleId}`).then((res) => res.json()),
+    enabled: !!articleId,
   });
 
   if (isLoading) return <div>Loading...</div>;
