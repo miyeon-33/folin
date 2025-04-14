@@ -17,10 +17,10 @@ export default function Article() {
   });
   console.log(articleData);
 
-  // 스와이프 각 날짜별 정렬
-  useEffect(() => {
-    articleData?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-  }, []);
+  // 날짜별 정렬
+  // useEffect(() => {
+  //   articleData?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  // }, []);
 
   return (
     <div className=" bg-[#ebedec] border">

@@ -15,9 +15,6 @@ import styles from './SeriesBox.module.css';
 export default function SeriesBox({ topic, maxId }) {
   const [isToggle, setIsToggle] = useState(true);
 
-  // 각 슬라이드별 최신화순 정렬
-  topic.sort((a, b) => parseInt(b.tag) - parseInt(a.tag));
-
   return (
     <div className="mb-[104px]">
       <div className="flex items-center mb-[20px]">
@@ -39,7 +36,7 @@ export default function SeriesBox({ topic, maxId }) {
       <div className="relative">
         <Swiper
           modules={[Navigation]}
-          spaceBetween={39}
+          spaceBetween={24}
           slidesPerView="auto"
           autoplay={false}
           navigation

@@ -1,3 +1,4 @@
+// mocks / seriesHandler.js
 import { http, HttpResponse } from 'msw';
 import series from './series.json';
 
@@ -42,7 +43,13 @@ export const seriesHandlers = [
     };
 
     const result = getDataByPage(groupedData, page, itemsPerPage);
-    console.log(result.data);
+    console.log(result.data, 'sadf');
+
+    // 각 슬라이드별 최신화순 정렬
+    result.data = result.data.map((item) => {
+      return item.sort((a, b) => b.id - a.id);
+    });
+    console.log(result.data, '1');
 
     // 페이지 정보를 응답에 포함
     return HttpResponse.json({

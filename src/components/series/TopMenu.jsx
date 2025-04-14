@@ -1,4 +1,4 @@
-// pages / Series.jsx
+// components/series/TopMenu.jsx
 import { Link } from 'react-router';
 
 export default function TopMenu() {
