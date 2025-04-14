@@ -3,7 +3,7 @@ import open from '@/assets/images/rhr/open.png';
 import check from '@/assets/images/rhr/check.png';
 import { useState } from 'react';
 
-export default function ArrayButton({ setSortOrder }) {
+export default function ArrayButton({ setSortOrder, sortedData }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
   const [seletedOption, setSelectedOption] = useState('최신순');
@@ -16,7 +16,6 @@ export default function ArrayButton({ setSortOrder }) {
   }
 
   function handleOptionClick(option) {
-    setSortOrder(option);
     setSelectedOption(option);
     setIsOpen(false);
     setIsRotated(false);
