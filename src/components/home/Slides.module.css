@@ -108,6 +108,40 @@
   width: 26px;
   text-align: center;
 }
+.liveslider {
+  position: static;
+}
+.liveslider [class*='swiper-button'] {
+  position: absolute;
+}
+.liveslider [class*='swiper-button-prev'] {
+  width: 36px;
+  height: 36px;
+  left: -54px;
+  padding: 0 6px;
+  top: calc(50% + 35px);
+}
+.liveslider [class*='swiper-button-next'] {
+  width: 36px;
+  height: 36px;
+  right: -49px;
+  padding: 0 6px;
+  top: calc(50% + 35px);
+}
+.liveslider [class*='swiper-button-prev']::after {
+  color: black;
+  font-size: 20px;
+  display: block;
+  width: 26px;
+  text-align: center;
+}
+.liveslider [class*='swiper-button-next']::after {
+  color: black;
+  font-size: 20px;
+  display: block;
+  width: 26px;
+  text-align: center;
+}
 
 /* 테블릿분기점 */
 @media (max-width: 1025px) {
