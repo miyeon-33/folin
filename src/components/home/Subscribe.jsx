@@ -124,7 +124,7 @@ export default function Subscribe() {
             </li>
           ))}
         </ul>
-        <Link to="/membership">
+        <Link to="/introduction">
           <button
             type="button"
             className="btn mt-[16px] pt-[14px] pb-[15px] px-[16px] w-[384px] h-[48px] rounded-[6px] bg-[#111] text-[#fff] font-semibold border-0 max-sm:w-full"
