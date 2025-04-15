@@ -9,6 +9,7 @@ import ArticleDetails from '@/pages/ArticleDetails';
 import Video from '@/pages/Video';
 import Seminar from '@/pages/Seminar';
 import SeminarDetails from '@/pages/SeminarDetails';
+import Introduction from '@/pages/Introduction';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/article" element={<Article />} />
           <Route path="/article/:articleId" element={<ArticleDetails />} />
           <Route path="/video" element={<Video />} />
+          <Route path="/introduction" element={<Introduction />} />
         </Route>
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} />
