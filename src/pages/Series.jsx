@@ -3,10 +3,10 @@ import TopMenu from '@/components/series/TopMenu';
 import ArrayButton from '@/components/series/ArrayButton';
 import SeriesView from '@/components/series/SeriesView';
 import SeriesBox from '@/components/series/SeriesBox';
+import SeriesList from '@/components/series/SeriesList';
 import SeriesPagination from '@/components/series/SeriesPagination'; // 새로운 pagination 컴포넌트 import
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import SeriesList from '@/components/series/SeriesList';
 
 export default function Series() {
   // 현재 페이지 상태 추가
@@ -16,7 +16,8 @@ export default function Series() {
   });
 
   const [sortOrder, setSortOrder] = useState('최신순');
-  // const [sortedData, setSortedData] = useState([]);
+  // 뷰 타입 상태 추가 (박스뷰: true, 리스트뷰: false)
+  const [isBoxView, setIsBoxView] = useState(true);
 
   const {
     isLoading,
@@ -55,14 +56,14 @@ export default function Series() {
     }
   }
 
-  console.log(
-    '현재 페이지:',
-    pagination.currentPage,
-    '전체 페이지:',
-    pagination.totalPages,
-    '최대 ID:',
-    maxId
-  );
+  // console.log(
+  //   '현재 페이지:',
+  //   pagination.currentPage,
+  //   '전체 페이지:',
+  //   pagination.totalPages,
+  //   '최대 ID:',
+  //   maxId
+  // );
 
   return (
     <main className="bg-[#ebedec]">
@@ -74,14 +75,17 @@ export default function Series() {
             </div>
             <div className="flex justify-between mt-0 max-sm:pt-[4px] max-sm:w-full">
               <ArrayButton setSortOrder={setSortOrder} />
-              <SeriesView />
+              <SeriesView isBoxView={isBoxView} setIsBoxView={setIsBoxView} />
             </div>
           </div>
           <div className="pt-[64px]">
-            {sortedData.map((topic) => (
-              <SeriesBox key={topic[0]?.id} topic={topic} maxId={maxId} />
-            ))}
-            <SeriesList />
+            {isBoxView
+              ? sortedData.map((topic) => (
+                  <SeriesBox key={topic[0]?.id} topic={topic} maxId={maxId} />
+                ))
+              : sortedData.map((topic) => (
+                  <SeriesList key={topic[0]?.id} topic={topic} />
+                ))}
           </div>
           <div>
             <SeriesPagination

@@ -16,6 +16,11 @@ export default function SeriesPagination({ page, totalPages, setPage }) {
   const handlePageChange = (newPage) => {
     setPage(newPage);
     window.history.pushState({}, '', `/series?page=${newPage}`); // URL 업데이트
+    // 페이지 바꿀때마다 페이지 맨 위로 올라가기
+    window.scrollTo({
+      top: 0,
+      left: 0,
+    });
   };
 
   return (
