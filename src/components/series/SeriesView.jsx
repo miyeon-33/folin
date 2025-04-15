@@ -3,11 +3,8 @@ import menu1_g from '@/assets/images/rhr/menu1_g.png';
 import menu1_b from '@/assets/images/rhr/menu1_b.png';
 import menu2_g from '@/assets/images/rhr/menu2_g.png';
 import menu2_b from '@/assets/images/rhr/menu2_b.png';
-import { useState } from 'react';
 
-export default function SeriesView() {
-  const [isBoxView, setIsBoxView] = useState(true);
-
+export default function SeriesView({ isBoxView, setIsBoxView }) {
   function handleBoxView() {
     setIsBoxView(true);
   }
