@@ -19,6 +19,7 @@ export default function SeriesBox({ topic, maxId }) {
     <div className="mb-[104px]">
       <div className="flex items-center mb-[20px]">
         <Link
+          to="/SeriesDetails"
           className="flex items-center w-full text-[#111] px-[8px] hover:text-point1 hover:translate-x-[16px]
           transition-transform duration-400 max-md:w-[calc(100%-60px)]"
           onMouseEnter={() => setIsToggle(false)}
