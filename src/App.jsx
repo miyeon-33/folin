@@ -10,6 +10,7 @@ import Video from '@/pages/Video';
 import Seminar from '@/pages/Seminar';
 import SeminarDetails from '@/pages/SeminarDetails';
 import Introduction from '@/pages/Introduction';
+import Login from '@/pages/Login';
 
 export default function App() {
   return (
