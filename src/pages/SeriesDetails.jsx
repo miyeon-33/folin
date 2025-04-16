@@ -9,10 +9,6 @@ import { Link, useParams } from 'react-router';
 export default function SeriesDetails() {
   // URL에서 topicId 가져오기
   const { articleId } = useParams();
-  // 날짜 형식 변경 함수
-  const formatDate = (date) => {
-    return date.replace(/-/g, '.');
-  };
 
   const { isLoading, data, isError, error } = useQuery({
     queryKey: ['series', articleId],
@@ -27,6 +23,11 @@ export default function SeriesDetails() {
     return <p>오류 발생: {error.message}</p>;
   }
   console.log(data);
+
+  // 날짜 형식 변경 함수
+  const formatDate = (date) => {
+    return date.replace(/-/g, '.');
+  };
 
   return (
     <main className="bg-[#ebedec]">
@@ -137,6 +138,23 @@ export default function SeriesDetails() {
           <div className="w-[588px] mx-[306px] py-[40px]">
             <h3 className="text-center text-[18px] font-bold mb-[40px]">
               링커
+            </h3>
+            <div className="flex gap-y-[40px] gap-x-[24px]">
+              <div className="w-[calc(100% - 16px)] ">
+                <Link>
+                  <img src="" alt="" />
+                  <div>
+                    <span>신수정</span>
+                    <span>임팩트리더스아카데미대표</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1"></div>
+          <div className="w-[588px] mx-[306px] py-[40px]">
+            <h3 className="text-center text-[18px] font-bold mb-[40px]">
+              기획자
             </h3>
             <div className="flex gap-y-[40px] gap-x-[24px]">
               <div className="w-[calc(100% - 16px)] ">

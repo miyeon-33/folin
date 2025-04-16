@@ -1,4 +1,4 @@
-// mocks / seriesHandler.js
+// mocks /plannerHandler.js
 import { http, HttpResponse } from 'msw';
 import planner from './planner.json';
 
