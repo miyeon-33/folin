@@ -7,7 +7,7 @@ export const linkerHandlers = [
     const { id } = params;
     await sleep(200);
 
-    const filteredData = linker.filter((item) => item.topicId === Number(id));
+    const filteredData = linker.filter((item) => item.topicId === parseInt(id));
     console.log(filteredData);
     return HttpResponse.json(filteredData);
   }),

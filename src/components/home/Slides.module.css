@@ -108,9 +108,10 @@
   width: 26px;
   text-align: center;
 }
-.liveslider {
+
+/* .liveslider {
   position: static;
-}
+} */
 .liveslider [class*='swiper-button'] {
   position: absolute;
 }

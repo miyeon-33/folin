@@ -13,6 +13,7 @@ import live6 from '@/assets/images/ymy/liveimage6.png';
 import live7 from '@/assets/images/ymy/liveimage7.png';
 import live8 from '@/assets/images/ymy/liveimage8.png';
 import live9 from '@/assets/images/ymy/liveimage9.png';
+// import styles from '@/components/home/Slides.module.css';
 
 export default function Live() {
   const lives = [
@@ -66,10 +67,10 @@ export default function Live() {
   return (
     <div className="w-full px-[24px] max-sm:px-[8px] ">
       <div>
-        <h3 className="text-center text-[28px] font-bold leading-[36.4px]">
+        <h3 className="text-center text-[28px] font-bold leading-[1.3]">
           매월 2회 열리는 폴인 세미나
         </h3>
-        <p className="text-center mt-[16px] mb-[8px] text-[18px] font-medium leading-[27px] mb-[40px]">
+        <p className="text-center mt-[16px] text-[18px] font-medium leading-[1.5] mb-[40px]">
           지금 가장 주목받는 브랜드와 전문가를 라이브로
           <br />
           만나는 시간. 매월 둘째 주, 넷째 주 목요일 저녁에

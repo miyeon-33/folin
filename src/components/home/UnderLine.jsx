@@ -108,7 +108,7 @@ export default function UnderLine() {
                 <div className="text-gray-600 text-[24px] font-bold line-clamp-9 max-sm:text-[18px]">
                   {item.text}
                 </div>
-                <div className="text-gray-600 leading-[22.5px]">
+                <div className="text-gray-600 leading-[1.5]">
                   <div className="font-bold">{item.author}</div>
                   <div className="overflow-hidden overflow-ellipsis whitespace-nowrap">
                     {item.job}

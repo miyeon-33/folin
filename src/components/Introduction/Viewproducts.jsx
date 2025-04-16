@@ -14,7 +14,7 @@ export default function Viewproducts() {
         <p className="text-[28px] mt-[32px] text-gray-600 font-semibold">
           성장의 경험을 나눕니다.
         </p>
-        <p className="text-[18px] text-gray-600  leading-[27px] break-keep mt-[16px] font-medium">
+        <p className="text-[18px] text-gray-600  leading-[1.5] break-keep mt-[16px] font-medium">
           폴인은 일에 진심은 사람들을 위한 콘텐츠 구독 서비스입니다.
           <br />
           2018년부터 현업 전문가 '링커(Linker)' 1000여 명의 성장 경험을

@@ -48,10 +48,10 @@ export default function Best() {
   return (
     <div className="w-full px-[24px] max-sm:px-[8px]">
       <div className="pt-[160px] pb-[96px]">
-        <h3 className="text-[28px] font-bold leading-[36.4px] text-center">
+        <h3 className="text-[28px] font-bold leading-[1.3] text-center">
           폴인의 BEST 시리즈
         </h3>
-        <p className="mt-[16px] mb-[40px] text-center text-[18px] font-medium leading-[27px]">
+        <p className="mt-[16px] mb-[40px] text-center text-[18px] font-medium leading-[1.5]">
           브랜딩, 콘텐츠, 공간, 커리어 등 다양한 영역에서
           <br />
           트렌드를 이끄는 링커들의 인사이트

@@ -89,7 +89,7 @@ export default function Subscribe() {
           성장의 경험을 나눕니다, 폴인
         </p>
         <p
-          className="text-[15px] text-gray-600 mb-[24px] leading-[22.5px]
+          className="text-[15px] text-gray-600 mb-[24px] leading-[1.5]
         -tracking-tight font-semibold break-keep"
         >
           폴인은 일에 진심은 사람들을 위한 콘텐츠 구독 서비스입니다.
@@ -115,8 +115,8 @@ export default function Subscribe() {
                   {item.icon}
                 </div>
                 <em
-                  className=" w-full text-center leading-[36px] absolute bottom-[8px] left-0 
-                text-[28px] font-semibold max-sm:text-[24px] max-sm:h-[31px] "
+                  className=" w-full text-center leading-[1.3] absolute bottom-[8px] left-0 
+                text-[28px] font-semibold max-sm:text-[24px] max-sm:h-[31px]"
                 >
                   {item.number} {item.unit}
                 </em>
