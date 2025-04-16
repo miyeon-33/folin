@@ -258,7 +258,6 @@
     color: var(--gray-600);
     /* 테일윈드 줄간격 기본값(1.5) 초기화 */
     line-height: normal;
-    letter-spacing: -0.3px;
   }
 
   /* 스킵 네비 */
