@@ -16,10 +16,9 @@ export default function Seminar() {
   const itemsPerPage = 12;
 
   const { data, error, isLoading, isError } = useQuery({
-    queryKey: ['seminars'],
-    queryFn: () => fetch('/seminars').then((res) => res.json()),
+    queryKey: ['seminar'],
+    queryFn: () => fetch('/seminar').then((res) => res.json()),
   });
-  console.log(data);
 
   useEffect(() => {
     if (data?.seminars) {
