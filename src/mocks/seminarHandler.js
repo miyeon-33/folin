@@ -2,7 +2,7 @@ import { http, HttpResponse } from 'msw';
 import seminarData from './seminarData.json';
 
 export const seminarHandlers = [
-  http.get('/seminars', async () => {
+  http.get('/seminar', async () => {
     await sleep(100);
 
     const getDataByPage = (data, page, itemsPerPage = 60) => {
@@ -18,13 +18,29 @@ export const seminarHandlers = [
 
     const page = 1;
     const itemsPerPage = 60;
-    const { seminars: paginatedData, totalPages } = getDataByPage(
+    const { seminars, totalPages } = getDataByPage(
       seminarData,
       page,
       itemsPerPage
     );
 
-    return HttpResponse.json({ page, totalPages, seminars: paginatedData });
+    return HttpResponse.json({ page, totalPages, seminars });
+  }),
+  http.get('/seminar/:id', async ({ params }) => {
+    await sleep(100);
+    const seminarId = parseInt(params.id);
+
+    const seminar = seminarData.find((item) => item.id === seminarId);
+    console.log(seminar, '==================================');
+
+    if (!seminar) {
+      return HttpResponse.json(
+        { error: `seminar with ID ${seminarId} not found` },
+        { status: 404 }
+      );
+    }
+
+    return HttpResponse.json(seminar);
   }),
 ];
 

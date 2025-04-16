@@ -9,6 +9,8 @@ import ArticleDetails from '@/pages/ArticleDetails';
 import Video from '@/pages/Video';
 import Seminar from '@/pages/Seminar';
 import SeminarDetails from '@/pages/SeminarDetails';
+import VideoDetails from '@/pages/VideoDetails';
+import Login from '@/pages/Login';
 
 export default function App() {
   return (
@@ -18,8 +20,8 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/seminar" element={<Seminar />} />
           <Route path="/seminar/:articleId" element={<SeminarDetails />} />
-          {/* <Route path="/login" element={<Login />} /> */}
-          {/* <Route path="/video/:articleId" element={<VideoDetails />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/video/:articleId" element={<VideoDetails />} />
           {/* <Route path="/linker/:articleId" element={<Linker />} /> */}
           <Route path="/series" element={<Series />} />
           <Route path="/series/:articleId" element={<SeriesDetails />} />
