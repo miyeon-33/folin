@@ -5,6 +5,7 @@ import videoBtn from '@/assets/images/icon/play.svg';
 import freeBtn from '@/assets/images/icon/freeBtn.svg';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useParams } from 'react-router';
+import LinkerView from '@/components/series/LinkerView';
 
 export default function SeriesDetails() {
   // URL에서 topicId 가져오기
@@ -139,17 +140,7 @@ export default function SeriesDetails() {
             <h3 className="text-center text-[18px] font-bold mb-[40px]">
               링커
             </h3>
-            <div className="flex gap-y-[40px] gap-x-[24px]">
-              <div className="w-[calc(100% - 16px)] ">
-                <Link>
-                  <img src="" alt="" />
-                  <div>
-                    <span>신수정</span>
-                    <span>임팩트리더스아카데미대표</span>
-                  </div>
-                </Link>
-              </div>
-            </div>
+            <LinkerView />
           </div>
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1"></div>
           <div className="w-[588px] mx-[306px] py-[40px]">
