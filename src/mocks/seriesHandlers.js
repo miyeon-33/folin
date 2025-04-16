@@ -61,10 +61,20 @@ export const seriesHandlers = [
     });
   }),
 
-  // GET / topicId=18
+  // GET /series/18
   http.get('/series/18', async () => {
     await sleep(200);
     const filteredData = series.filter((item) => item.topicId === 18);
+    return HttpResponse.json(filteredData);
+  }),
+
+  // GET /series/1
+  http.get('/series/:id', async ({ params }) => {
+    const { id } = params;
+    await sleep(200);
+
+    const filteredData = series.filter((item) => item.topicId === parseInt(id));
+    console.log(filteredData);
     return HttpResponse.json(filteredData);
   }),
 
@@ -74,7 +84,7 @@ export const seriesHandlers = [
 
     // URL에서 페이지 정보 가져오기 (기본값 1)
     const url = new URL(request.url);
-    const page = parseInt(url.searchParams.get('page') || '1', 10);
+    const page = parseInt(url.searchParams.get('page') || '1');
 
     const articleData = series.filter((item) => item.video === 'N');
 
@@ -111,7 +121,7 @@ export const seriesHandlers = [
 
     // URL에서 페이지 정보 가져오기 (기본값 1)
     const url = new URL(request.url);
-    const page = parseInt(url.searchParams.get('page') || '1', 10);
+    const page = parseInt(url.searchParams.get('page') || '1');
 
     const videoData = series.filter((item) => item.video === 'Y');
 
