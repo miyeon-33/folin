@@ -45,10 +45,10 @@ export default function Contents() {
         {/* 2번 */}
         <div className="mt-[64px]">
           <img src={num2} alt="2" className="w-[32px] block mx-auto" />
-          <h4 className="mt-[32px] font-bold text-[28px] leading-[36px] text-center">
+          <h4 className="mt-[32px] font-bold text-[28px] leading-[1.3] text-center">
             전문가의 관점이 담긴 트렌드&인사이트
           </h4>
-          <p className="mt-[16px] text-[18px] font-medium leading-[27px] text-center">
+          <p className="mt-[16px] text-[18px] font-medium leading-[1.5] text-center">
             현장의 경험을 바탕으로 트렌드의 맥락을 살피고,
             <br />내 커리어를 변화시키는 인사이트를 전합니다.
           </p>
@@ -56,16 +56,16 @@ export default function Contents() {
         {/* 3번 */}
         <div className="mt-[64px] mb-[64px]">
           <img src={num3} alt="3" className="w-[32px] block mx-auto" />
-          <h4 className="mt-[32px] font-bold text-[28px] leading-[36px] text-center">
+          <h4 className="mt-[32px] font-bold text-[28px] leading-[1.3] text-center">
             이용시간 제한 없는 2000여 개의 콘텐츠
           </h4>
-          <p className="mt-[16px] text-[18px] font-medium leading-[27px] text-center">
+          <p className="mt-[16px] text-[18px] font-medium leading-[1.5] text-center">
             내가 찾는 브랜드와 전문가가 모두 폴인에!
             <br />
             레퍼런스가 필요할 때 언제든지 이용하세요.
           </p>
         </div>
-        <h3 className="text-center text-[28px] font-bold leading-[36.4px]">
+        <h3 className="text-center text-[28px] font-bold leading-[1.3]">
           커리어의 전성기를 만들고 싶다면 <br />
           폴인 멤버십을 시작해 보세요.
         </h3>
