@@ -21,7 +21,7 @@ export default function App() {
           <Route path="/seminar/:articleId" element={<SeminarDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/video/:articleId" element={<VideoDetails />} />
-          {/* <Route path="/linker/:articleId" element={<Linker />} /> */}
+          <Route path="/linker/:articleId" element={<Linker />} />
           <Route path="/series" element={<Series />} />
           <Route path="/series/:articleId" element={<SeriesDetails />} />
           <Route path="/article" element={<Article />} />
