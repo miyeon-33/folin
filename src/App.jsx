@@ -11,6 +11,8 @@ import Seminar from '@/pages/Seminar';
 import SeminarDetails from '@/pages/SeminarDetails';
 import Introduction from '@/pages/Introduction';
 import Login from '@/pages/Login';
+import VideoDetails from '@/pages/VideoDetails';
+import Linker from '@/pages/Linker';
 
 export default function App() {
   return (
