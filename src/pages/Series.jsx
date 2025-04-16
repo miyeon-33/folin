@@ -55,6 +55,7 @@ export default function Series() {
       maxId = Math.max(...topicIds);
     }
   }
+  console.log(sortedData);
 
   // console.log(
   //   '현재 페이지:',
@@ -67,7 +68,7 @@ export default function Series() {
 
   return (
     <main className="bg-[#ebedec]">
-      <div className="max-w-[1248px] w-full pt-[52px] px-[24px] bg-[#ebedec] mx-auto h-auto mt-0 max-md:px-[8px] max-sm:pt-[56px]">
+      <div className="max-w-[1248px] w-full pt-[52px] px-[24px]  mx-auto h-auto mt-0 max-md:px-[8px] max-sm:pt-[56px]">
         <div className="w-full max-w-[1200px]">
           <div className="flex w-full max-w-[1200px] justify-between pt-[4px] max-sm:block">
             <div>
@@ -81,7 +82,12 @@ export default function Series() {
           <div className="pt-[64px]">
             {isBoxView
               ? sortedData.map((topic) => (
-                  <SeriesBox key={topic[0]?.id} topic={topic} maxId={maxId} />
+                  <SeriesBox
+                    key={topic[0]?.id}
+                    topic={topic}
+                    maxId={maxId}
+                    articleId={topic[topic.length - 1]?.topicId}
+                  />
                 ))
               : sortedData.map((topic) => (
                   <SeriesList key={topic[0]?.id} topic={topic} />
