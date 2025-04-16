@@ -1,14 +1,13 @@
-import Linker from '@/pages/Linker';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useParams } from 'react-router';
 
-export default function LinkerView() {
+export default function PlannerView() {
   // URL에서 topicId 가져오기
   const { articleId } = useParams();
 
   const { isLoading, data, isError, error } = useQuery({
-    queryKey: ['linker', articleId],
-    queryFn: () => fetch(`/linker/${articleId}`).then((res) => res.json()),
+    queryKey: ['planner', articleId],
+    queryFn: () => fetch(`/planner/${articleId}`).then((res) => res.json()),
   });
 
   if (isLoading) {
@@ -21,11 +20,11 @@ export default function LinkerView() {
   return (
     <div className="grid grid-cols-3 gap-y-[40px] gap-x-[24px] max-sm:grid-cols-2 max-sm:gap-y-[32px] max-sm:gap-x-[8px]">
       {data.map((item) => (
-        <div className="w-[calc(100% - 16px)] h-[188px] max-sm:h-[165.5px]">
-          <Link to={Linker} className="flex flex-col w-full item-center">
+        <div className="w-[calc(100% - 16px)] h-[188px]  max-sm:h-[165.5px]">
+          <Link className="flex flex-col w-full item-center">
             <img
-              src={item.photo}
-              alt="링커"
+              src={item.img}
+              alt="기획자"
               className="w-[96px] h-[96px] m-auto rounded-[50%] object-cover"
             />
             <div className="w-full flex flex-col mt-[16px] items-center">
@@ -33,7 +32,7 @@ export default function LinkerView() {
                 {item.name}
               </span>
               <span className="w-full text-center font-medium text-[#111] break-words">
-                {item.job}
+                {item.position}
               </span>
             </div>
           </Link>

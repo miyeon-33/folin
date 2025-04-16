@@ -4,6 +4,7 @@ import arrowG from '@/assets/images/rhr/arrow_g.png';
 import newBtn from '@/assets/images/icon/newBtn.svg';
 import videoBtn from '@/assets/images/icon/play.svg';
 import freeBtn from '@/assets/images/icon/freeBtn.svg';
+import ArticleDetails from '@/pages/ArticleDetails';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -54,7 +55,10 @@ export default function SeriesBox({ topic, maxId, articleId }) {
         >
           {topic.map((item) => (
             <SwiperSlide key={item.id} className="max-sm:!w-[calc(80%)]">
-              <Link className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300">
+              <Link
+                to={`/article/${articleId}`}
+                className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
+              >
                 <div className="w-[calc(100% - 16px)] h-full relative mr-[16px]">
                   <div className="absolute flex z-2 top-[10px] left-[10px] gap-[2px]">
                     {item.video === 'Y' && (
