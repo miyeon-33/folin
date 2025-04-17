@@ -1,13 +1,13 @@
-// mocks / linkerHandler.js
+// mocks / postHandlers.js
 import { http, HttpResponse } from 'msw';
-import linker from './linker.json';
+import post from './post.json';
 
-export const linkerHandlers = [
-  http.get('/linker/:id', async ({ params }) => {
+export const postHandlers = [
+  http.get('/post/:id', async ({ params }) => {
     const { id } = params;
     await sleep(200);
 
-    const filteredData = linker.filter((item) => item.topicId === parseInt(id));
+    const filteredData = post.filter((item) => item.id === parseInt(id));
     console.log(filteredData);
     return HttpResponse.json(filteredData);
   }),

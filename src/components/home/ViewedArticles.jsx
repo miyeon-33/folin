@@ -81,13 +81,13 @@ export default function ViewedArticles() {
                 >
                   <div className="flex gap-[2.5px] h-[32px] items-center ">
                     <div
-                      className=" rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] leading-[20px]"
+                      className=" rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] leading-[1.5]"
                       style={{ backgroundColor: slide.color }}
                     >
                       {slide.topic}
                     </div>
                     <div
-                      className="text-[12px] py-[6px] px-[8px] rounded-[6px] leading-[20px]"
+                      className="text-[12px] py-[6px] px-[8px] rounded-[6px] leading-[1.5]"
                       style={{ border: `1px solid ${slide.color}` }}
                     >
                       {slide.tag}

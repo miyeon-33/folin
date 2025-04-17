@@ -2,19 +2,22 @@
 import newBtn from '@/assets/images/icon/newBtn.svg';
 import videoBtn from '@/assets/images/icon/play.svg';
 import freeBtn from '@/assets/images/icon/freeBtn.svg';
+import VideoDetails from '@/pages/VideoDetails';
 import { Link } from 'react-router';
 
-export default function VideoBox({ dvd, recentVideo }) {
+export default function VideoBox({ dvd }) {
   return (
-    <Link className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300">
+    <Link
+      to={VideoDetails}
+      className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
+    >
       <div className="w-[calc(100% - 16px)] h-full relative mr-[16px]">
         <div className="absolute flex z-2 top-[10px] left-[10px] gap-[2px]">
           {dvd.video === 'Y' && (
             <img src={videoBtn} alt="동영상" className="mb-2" />
           )}
-          {recentVideo.some((recent) => recent.id === dvd.id) ? (
-            <img src={newBtn} alt="새로운게시물" className="mb-2" />
-          ) : null}
+          {(new Date() - new Date(dvd.createdAt)) / (1000 * 60 * 60 * 24) <=
+            7 && <img src={newBtn} alt="새로운게시물" className="mb-2" />}
           {dvd.free === 'Y' && (
             <img src={freeBtn} alt="무료" className="mb-2" />
           )}

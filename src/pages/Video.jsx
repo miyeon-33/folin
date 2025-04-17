@@ -39,12 +39,6 @@ export default function Video() {
       : b.favorit - a.favorit;
   });
 
-  // 최근 영상 4개만 선택
-  let recentVideo = [];
-  if (pagination.currentPage === 1 && data.length > 0) {
-    recentVideo = sortedData.slice(0, 4);
-  }
-
   return (
     <main className="bg-[#ebedec] ">
       <div className="max-w-[1248px]  w-full pt-[52px] px-[24px] mx-auto  h-auto mt-0 max-md:px-[8px] max-sm:pt-[56px]">
@@ -61,7 +55,7 @@ export default function Video() {
             <ul className="grid grid-cols-3 gap-[24px] max-md:grid-cols-2 max-md:gap-[8px] max-sm:grid-cols-1">
               {sortedData?.map((dvd) => (
                 <li key={dvd.id}>
-                  <VideoBox dvd={dvd} recentVideo={recentVideo} />
+                  <VideoBox dvd={dvd} />
                 </li>
               ))}
             </ul>

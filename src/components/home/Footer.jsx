@@ -73,14 +73,14 @@ export default function Footer() {
             ></Link>
           </div>
         </div>
-        <div className="mb-[24px] text-[13px] leading-[19.5px]">
+        <div className="mb-[24px] text-[13px] leading-[1.5]">
           <p>
             사업자등록번호 : 110-81-00999 | 통신판매업신고 : 2020-서울마포-3802
             | 개인정보책임자 : 김성진
           </p>
           <p>서울특별시 마포구 상암산로 48-6 | 대표이사 : 박장희</p>
         </div>
-        <div className=" text-[13px] leading-[19.5px]">
+        <div className=" text-[13px] leading-[1.5]">
           <p>
             fol:in의 모든 콘텐트는 저작권법의 보호를 받은바, 무단 전재,
             복사·배포 등을 금합니다.

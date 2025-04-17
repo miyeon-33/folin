@@ -14,7 +14,7 @@ export default function Free() {
         <div>
           <img src={free} className="w-[84px] h-auto" />
         </div>
-        <p className="text-[15px] mt-[12px] text-gray-600 font-bold leading-[19.5px]">
+        <p className="text-[15px] mt-[12px] text-gray-600 font-bold leading-[1.3]">
           폴인 회원가입 시, 최초 1회 제공
         </p>
         <Link to="/introduction">
