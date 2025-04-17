@@ -13,7 +13,6 @@ import live6 from '@/assets/images/ymy/liveimage6.png';
 import live7 from '@/assets/images/ymy/liveimage7.png';
 import live8 from '@/assets/images/ymy/liveimage8.png';
 import live9 from '@/assets/images/ymy/liveimage9.png';
-// import styles from '@/components/home/Slides.module.css';
 
 export default function Live() {
   const lives = [
@@ -66,7 +65,7 @@ export default function Live() {
 
   return (
     <div className="w-full px-[24px] max-sm:px-[8px] ">
-      <div>
+      <div className="max-w-[1200px] mx-auto">
         <h3 className="text-center text-[28px] font-bold leading-[1.3]">
           매월 2회 열리는 폴인 세미나
         </h3>
@@ -77,40 +76,41 @@ export default function Live() {
           <br />
           열립니다.
         </p>
-        <Swiper
-          modules={[Navigation]}
-          navigation
-          spaceBetween={24}
-          slidesPerView={1}
-          breakpoints={{
-            768: {
-              slidesPerView: 3,
-            },
-            1025: {
-              slidesPerView: 4,
-            },
-          }}
-          className={styles.liveslider}
-          style={{ maxWidth: '1200px' }}
-        >
-          {lives.map((live) => (
-            <SwiperSlide key={live.id} className="">
-              <div>
-                <img
-                  src={live.image}
-                  alt={live.title}
-                  className="rounded-[6px]"
-                />
-                <strong
-                  className="block mt-[11px] px-[8px] min-h-[46px] line-clamp-2 break-words overflow-hidden
+        <div className="relative">
+          <Swiper
+            modules={[Navigation]}
+            navigation
+            spaceBetween={24}
+            slidesPerView={2}
+            breakpoints={{
+              768: {
+                slidesPerView: 3,
+              },
+              1025: {
+                slidesPerView: 4,
+              },
+            }}
+            className={styles.liveslider}
+          >
+            {lives.map((live) => (
+              <SwiperSlide key={live.id} className="">
+                <div>
+                  <img
+                    src={live.image}
+                    alt={live.title}
+                    className="rounded-[6px]"
+                  />
+                  <strong
+                    className="block mt-[11px] px-[8px] min-h-[46px] line-clamp-2 break-words overflow-hidden
                 overflow-ellipsis whitespace-normal text-[18px] font-bold "
-                >
-                  {live.title}
-                </strong>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                  >
+                    {live.title}
+                  </strong>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </div>
   );
