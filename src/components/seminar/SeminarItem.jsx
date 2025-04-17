@@ -27,10 +27,10 @@ export default function SeminarItem({ seminar }) {
           />
         </div>
         <div className="flex flex-wrap">
-          <h2 className="text-[18px] font-extrabold m-[10px_0_10px_0] w-[600px] truncate">
+          <h2 className="text-[#000] text-[18px] font-extrabold m-[10px_0_10px_0] w-[600px] truncate">
             {seminar.title}
           </h2>
-          <p className="mb-[20px] text-[12px] truncate w-[300px]">
+          <p className="text-[#000] mb-[20px] text-[12px] truncate w-[300px]">
             <strong className="font-bold mr-[10px]">{seminar.name}</strong>
             {seminar.subtitle}
             <br />

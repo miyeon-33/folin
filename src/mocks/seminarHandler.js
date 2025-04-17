@@ -31,7 +31,7 @@ export const seminarHandlers = [
     const seminarId = parseInt(params.id);
 
     const seminar = seminarData.find((item) => item.id === seminarId);
-    console.log(seminar, '==================================');
+    // console.log(seminar, '==================================');
 
     if (!seminar) {
       return HttpResponse.json(

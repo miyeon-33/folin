@@ -2,7 +2,7 @@
 import { http, HttpResponse } from 'msw';
 import planner from './planner.json';
 
-export const seriesHandlers = [
+export const plannerHandler = [
   // GET /series/1
   http.get('/series/:id', async ({ params }) => {
     const { id } = params;
