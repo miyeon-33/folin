@@ -20,7 +20,7 @@ export default function Gnb() {
               {item.menu}
             </Link>
             {index === menus.length - 2 && (
-              <span className="absolute right-[48px] h-[13px] border-r border-gray-600 border-r-[2px]"></span>
+              <span className="absolute right-[48px] h-[13px] border border-gray-600 border-r-[2px]"></span>
             )}
           </li>
         ))}

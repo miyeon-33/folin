@@ -7,6 +7,7 @@ import icon1 from '@/assets/images/icon/hamburger.png';
 import icon2 from '@/assets/images/icon/closebutton.png';
 import see from '@/assets/images/icon/seemorebutton.png';
 import notSee from '@/assets/images/icon/closebutton.png';
+import { Link } from 'react-router';
 
 export default function Header() {
   const [isToggled, setIsToggled] = useState(false);
@@ -16,7 +17,10 @@ export default function Header() {
   const SeeToggle = () => setIsSee(!isSee);
 
   return (
-    <div className="fixed left-0 top-[4px] max-sm:top-[8px] w-full px-[24px] z-20 max-sm:px-[8px]">
+    <div
+      className="fixed left-0 top-[4px] max-sm:top-[8px] w-full px-[24px] z-20 
+    max-md:px-[8px] max-sm:px-[8px]"
+    >
       <header
         className="max-w-[1200px] h-[48px] flex items-center bg-point1 
     p-[8px] rounded-[6px] mx-auto relative before:absolute before:top-[-4px] before:left-0 before:w-full
@@ -26,7 +30,7 @@ export default function Header() {
           <img
             src={isToggled ? icon2 : icon1}
             alt="Toggle Icon"
-            className="w-[32px] h-[32px] mr-[16px] "
+            className="w-[32px] h-[32px] mr-[16px] relativ"
           />
         </button>
         {isToggled ? (
@@ -41,7 +45,9 @@ export default function Header() {
           className="w-[86px] h-[28px] absolute left-1/2 max-sm:top-1/2
         -translate-x-1/2 max-sm:-translate-y-1/2 max-sm:left-[90px] "
         >
-          <img src={logo} alt="logo" />
+          <Link to={'/'}>
+            <img src={logo} alt="logo" />
+          </Link>
         </button>
         <div className="flex items-center gap-[6px] absolute right-[6px]">
           <button
@@ -58,11 +64,39 @@ export default function Header() {
           </button>
           <button
             type="button"
-            className="w-[32px] h-[32px]"
+            className="w-[32px] h-[32px] relative"
             onClick={SeeToggle}
           >
-            <img src={isSee ? notSee : see} />
+            <img src={isSee ? notSee : see} className="" />
           </button>
+          {isSee && (
+            <div
+              className="fixed top-[44px] right-0 bg-point1 rounded-[6px] border
+            max-w-[1200px]  w-full p-[4px] flex flex-col"
+            >
+              <div
+                className="flex items-center gap-[8px] py-[4px] justify-center
+            pr-[12px] pl-[6px] bg-[#f7f7f7] border mx-auto"
+              >
+                <Link className="w-[32px] h-[32px]">
+                  <img src={see} className="w-[24px] h-[24px] border " />
+                </Link>
+                <input type="text" placeholder="성장의 경험을 찾습니다." />
+              </div>
+              <div className="flex gap-[24px] p-[18px] flex-wrap justify-center">
+                <Link>기획</Link>
+                <Link>기획</Link>
+                <Link>기획</Link>
+                <Link>기획</Link>
+                <Link>기획</Link>
+                <Link>기획</Link>
+                <Link>기획</Link>
+                <Link>기획</Link>
+                <Link>기획</Link>
+                <Link>기획</Link>
+              </div>
+            </div>
+          )}
         </div>
       </header>
     </div>

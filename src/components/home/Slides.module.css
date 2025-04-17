@@ -109,25 +109,26 @@
   text-align: center;
 }
 
-/* .liveslider {
+.liveslider {
   position: static;
-} */
+}
 .liveslider [class*='swiper-button'] {
   position: absolute;
 }
 .liveslider [class*='swiper-button-prev'] {
   width: 36px;
   height: 36px;
-  left: -54px;
+  left: -5%;
   padding: 0 6px;
-  top: calc(50% + 35px);
+  top: 50%;
 }
 .liveslider [class*='swiper-button-next'] {
   width: 36px;
   height: 36px;
-  right: -49px;
+  right: -5%;
+  left: auto;
   padding: 0 6px;
-  top: calc(50% + 35px);
+  top: 50%;
 }
 .liveslider [class*='swiper-button-prev']::after {
   color: black;
@@ -142,6 +143,10 @@
   display: block;
   width: 26px;
   text-align: center;
+}
+
+.downloadslider [class*='swiper-button'] {
+  display: none;
 }
 
 /* 테블릿분기점 */
@@ -164,5 +169,51 @@
     top: 20px;
     right: 59px;
     left: auto;
+  }
+
+  .liveslider [class*='swiper-button-next'] {
+    top: -37px;
+    right: 0;
+  }
+  .liveslider [class*='swiper-button-prev'] {
+    top: -37px;
+    right: 36px;
+    left: auto;
+  }
+}
+
+/* 모바일분기점 */
+@media (max-width: 800px) {
+  .downloadslider [class*='swiper-button'] {
+    display: block;
+  }
+  .downloadslider [class*='swiper-button-prev'] {
+    width: 44px;
+    height: 34px;
+    left: 0;
+    padding: 0 6px;
+    top: 50%;
+  }
+  .downloadslider [class*='swiper-button-next'] {
+    width: 44px;
+    height: 34px;
+    right: 0;
+    left: auto;
+    padding: 0 6px;
+    top: 50%;
+  }
+  .downloadslider [class*='swiper-button-prev']::after {
+    color: black;
+    font-size: 28px;
+    display: block;
+    width: 26px;
+    text-align: center;
+  }
+  .downloadslider [class*='swiper-button-next']::after {
+    color: black;
+    font-size: 28px;
+    display: block;
+    width: 26px;
+    text-align: center;
   }
 }

@@ -12,7 +12,7 @@ import ViewedVideo from '@/components/home/ViewedVideo';
 
 export default function Home() {
   return (
-    <main className=" pt-[56px] max-sm:mt-[60px] bg-[#ebedec]">
+    <main className=" pt-[56px] max-sm:pt-[60px] bg-[#ebedec]">
       <Subscribe />
       <NewSeries />
       <Keyword />
