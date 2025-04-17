@@ -1,13 +1,5 @@
 // components / ArticleDetails.jsx
 import comment from '@/assets/images/icon/comment.svg';
-import favorite from '@/assets/images/icon/favorite.png';
-import favoriteG from '@/assets/images/icon/favoriteG.png';
-import save from '@/assets/images/icon/save.png';
-import saveG from '@/assets/images/icon/saveG.png';
-import share from '@/assets/images/icon/share.png';
-import shareG from '@/assets/images/icon/shareG.png';
-import gift from '@/assets/images/icon/gift.png';
-import giftG from '@/assets/images/icon/giftG.png';
 import star from '@/assets/images/rhr/star.png';
 import starG from '@/assets/images/rhr/starG.png';
 import SeriesDetails from '@/pages/SeriesDetails';
@@ -34,7 +26,7 @@ export default function ArticleDetails() {
   if (isError) {
     return <p>오류 발생: {error.message}</p>;
   }
-  console.log(data);
+  console.log(data[0].keyword);
 
   // hover 이벤트 핸들러
   const hoverHandlers = {
@@ -74,37 +66,55 @@ export default function ArticleDetails() {
           <div className="flex mt-[26px] mb-[28px] justify-between items-center">
             <div className="flex items-center gap-[8px]">
               <Link className="text-[12px] text-[#00aa73] font-medium leading-[130%]">
-                커리어
+                {data[0].keyword[0]}
               </Link>
               <Link className="text-[12px] text-[#00aa73] font-medium leading-[130%]">
-                롱런
+                {data[0].keyword[1]}
               </Link>
             </div>
-            <div className="flex gap-[8px]">
-              <button className="h-[30px]">
-                <img src={comment} alt="댓글" className="w-[24px] h-[24px]" />
-                <span>11</span>
+            <div className="flex gap-[8px] items-center">
+              <button className="group flex items-center h-[30px]">
+                <svg
+                  className="w-[24px] h-[24px] file-[#111] group-hover:fill-point1"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M19 5H5C4.45 5 4 5.45 4 6V16.335C4 16.885 4.45 17.335 5 17.335H10L12 20L14 17.335H19C19.55 17.335 20 16.885 20 16.335V6C20 5.45 19.55 5 19 5Z" />
+                  <path
+                    d="M11.8824 8.21252C11.9291 8.12292 12.0574 8.12292 12.1041 8.21252L12.9935 9.91784C13.0122 9.95375 13.0471 9.97836 13.0873 9.98387L15.0641 10.2557C15.1688 10.2701 15.2095 10.3998 15.1318 10.4714L13.7104 11.7826C13.679 11.8116 13.6645 11.8547 13.6722 11.8968L14.0089 13.7548C14.0273 13.856 13.9223 13.9348 13.8302 13.889L12.0489 13.0028C12.0139 12.9853 11.9726 12.9853 11.9376 13.0028L10.1562 13.889C10.0642 13.9348 9.95923 13.856 9.97757 13.7548L10.3143 11.8968C10.322 11.8547 10.3075 11.8116 10.2761 11.7826L8.85464 10.4714C8.77699 10.3998 8.8177 10.2701 8.92237 10.2557L10.8992 9.98387C10.9394 9.97836 10.9743 9.95375 10.993 9.91784L11.8824 8.21252Z"
+                    fill="white"
+                  />
+                </svg>
+                <span className="text-[#111] text-[13px] font-bold leading-[130%] group-hover:text-point1">
+                  {data[0].comment}
+                </span>
               </button>
-              <div className="flex">
-                <button className="[background:url('@/assets/images/icon/favorite.png')_no-repeat_50%_50%/100%] w-[30px] h-[30px]"></button>
-                <span className="">11</span>
+              <div className="flex items-center">
+                <button className="[background:url('@/assets/images/icon/favorite.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/favoriteG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
+                <span className="text-[#111] text-[13px] font-bold leading-[130%]">
+                  {data[0].favorite}
+                </span>
               </div>
               <div className="flex">
-                <button className="[background:url('@/assets/images/icon/save.png')_no-repeat_50%_50%/100%] w-[30px] h-[30px]"></button>
+                <button className="[background:url('@/assets/images/icon/save.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/saveG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
               </div>
               <div className="flex">
-                <button className="[background:url('@/assets/images/icon/share.png')_no-repeat_50%_50%/100%] w-[30px] h-[30px]"></button>
+                <button className="[background:url('@/assets/images/icon/share.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/shareG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
               </div>
-              <div>|</div>
+              <div className="h-[16px] border-r border-[#111] border-1"></div>
               <div className="flex">
-                <button className="[background:url('@/assets/images/icon/gift.png')_no-repeat_50%_50%/100%] w-[30px] h-[30px]"></button>
+                <button className="[background:url('@/assets/images/icon/gift.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/giftG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
               </div>
             </div>
           </div>
-          <div>
-            <Link>
-              <img src="" alt="프로필" />
-              <span>신수정</span>
+          <div className="mb-[64px] ">
+            <Link className="flex gap-[4px] items-center text-[#111]">
+              <img
+                src={comment}
+                alt="프로필"
+                className="w-[32px] h-[32px] rounded-[50%] object-cover border"
+              />
+              <span className="font-bold">신수정</span>
               <span>임팩트리더스아카데미</span>
             </Link>
           </div>

@@ -4,7 +4,6 @@ import arrowG from '@/assets/images/rhr/arrow_g.png';
 import newBtn from '@/assets/images/icon/newBtn.svg';
 import videoBtn from '@/assets/images/icon/play.svg';
 import freeBtn from '@/assets/images/icon/freeBtn.svg';
-import ArticleDetails from '@/pages/ArticleDetails';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
