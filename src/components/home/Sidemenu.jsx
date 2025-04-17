@@ -1,4 +1,5 @@
-import { Link } from 'react-router';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 
 const menus = [
   {
@@ -16,7 +17,7 @@ const menus = [
 
 const additionalMenus = [
   { path: '/linker', menu: '링커' },
-  { path: '/membership', menu: '폴인 소개' },
+  { path: '/introduction', menu: '폴인 소개' },
   { path: '/b2b', menu: '단체구독·B2B문의' },
   { path: '/letter', menu: '폴인레터 신청' },
 ];
