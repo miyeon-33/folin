@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import open from '@/assets/images/rhr/open.png';
+import LinkerView from '@/components/series/LinkerView';
 
 export default function SeminarDetails() {
   const { articleId } = useParams();
@@ -136,15 +137,19 @@ export default function SeminarDetails() {
               </div>
             </div>
 
-            <div className=" text-[15px] border-[#00d48d] border-t-[1px] m-[0_0_24px] flex flex-col pl-[20px] pt-[40px]">
+            <div className=" text-[15px] border-[#00d48d] border-t-[1px] border-b-[1px] m-[0_0_24px] flex flex-col pl-[20px] pt-[40px]">
               <div className="">
                 <h3 className="font-bold ">이런 분들께 추천해요.</h3>
-                <ul className="mt-[22px] list-disc marker:to-black leading-[200%]">
+                <ul className="mt-[22px] list-disc marker:to-black leading-[200%] mb-[30px]">
                   <li>{data?.tip1}</li>
                   <li>{data?.tip2}</li>
                   <li>{data?.tip3}</li>
                 </ul>
               </div>
+            </div>
+
+            <div className="mt-[20px]">
+              <LinkerView />
             </div>
 
             <div className="">

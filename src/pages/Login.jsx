@@ -4,13 +4,18 @@ export default function Login() {
   const inputRef = useRef(null);
   const [isVisible, setisVisible] = useState(false);
   const [isClicked, setisClicked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   function toggleVisibility() {
-    setisVisible(!isVisible);
+    setisVisible((prevState) => !prevState);
   }
 
-  function handleClick() {
+  function toggleClick() {
     setisClicked((prevState) => !prevState);
+  }
+
+  function toggleCheck() {
+    setIsChecked((prevState) => !prevState);
   }
 
   return (
@@ -34,22 +39,25 @@ export default function Login() {
         </div>
 
         <div className="mb-[10px]">
-          <form className="w-[380px]">
+          <form className="w-[380px] relative">
             <input
               type={isVisible ? 'text' : 'password'}
               ref={inputRef}
               placeholder="비밀번호 입력"
               title="비밀번호 입력"
-              className="relative w-[100%] h-[48px] bg-white border-0 rounded-[8px] p-[12px_16px] hover:outline hover:outline-[#00d48d] hover:outline-[1px] caret-[#00d48d]"
+              className=" w-[100%] h-[48px] bg-white border-0 rounded-[8px] p-[12px_16px] hover:outline hover:outline-[#00d48d] hover:outline-[1px] caret-[#00d48d]"
             ></input>
             <button
               type="button"
-              onClick={(toggleVisibility, handleClick)}
-              className={`btn absolute top-[390px] right-[100px] transform -translate-y-1/2 btn border-0 w-[28px] h-[28px]  ${
+              onClick={toggleVisibility}
+              className={`btn absolute top-[25px] right-[10px] transform -translate-y-1/2 btn border-0 w-[28px] h-[28px]  ${
                 isClicked
-                  ? 'bg-[url(/images/bhj/pass.png)]'
-                  : 'bg-[url(/images/bhj/pass-off.png)] bg-no-repeat bg-center'
+                  ? 'bg-[url(/images/bhj/pass-off.png)] bg-no-repeat bg-center'
+                  : 'bg-[url(/images/bhj/pass.png)] bg-no-repeat bg-center'
               }`}
+              style={{
+                backgroundSize: '25px',
+              }}
             >
               <span className="sr-only">비밀번호 보기</span>
             </button>
@@ -63,7 +71,25 @@ export default function Login() {
           </button>
         </div>
 
-        <div className="flex text-[13px] mb-[40px]">
+        <div className="flex justify-between items-center text-[13px] mb-[40px]">
+          <label className="flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              className="sr-only"
+              checked={isChecked}
+              onChange={toggleCheck}
+            />
+            <span
+              className={`inline-block w-[25px] h-[25px] rounded-[50%] bg-no-repeat bg-center mr-[10px] ${
+                isChecked
+                  ? 'bg-[#00d48d] bg-[url("/images/bhj/checked.png")]'
+                  : 'bg-transparent bg-[url("/images/bhj/checked-g.png")]'
+              }`}
+              style={{ backgroundSize: '15px' }}
+            ></span>
+          </label>
+          <p className="font-bold mr-[130px]">자동로그인</p>
+
           <p>아이디 찾기</p>
           <span className="m-[0_12px] bg-[#d3d3d3] h-[15px] w-[1px] mt-[3px]"></span>
           <p>비밀번호 찾기</p>
@@ -88,9 +114,9 @@ export default function Login() {
           </div>
         </div>
 
-        <span className="border-white border-[1px] w-[100%]"></span>
+        <span className="border-[#fcfcfc] border-[1px] w-[100%]"></span>
 
-        <div className="">
+        <div className="flex">
           <p className="text-[13px] text-[#8e8e8e] mt-[20px]">
             간편 로그인 / 회원가입
           </p>
