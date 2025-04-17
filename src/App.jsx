@@ -13,6 +13,7 @@ import Introduction from '@/pages/Introduction';
 import Login from '@/pages/Login';
 import VideoDetails from '@/pages/VideoDetails';
 import Linker from '@/pages/Linker';
+import Search from '@/pages/Search';
 
 export default function App() {
   return (
@@ -24,13 +25,14 @@ export default function App() {
           <Route path="/seminar/:articleId" element={<SeminarDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/video/:articleId" element={<VideoDetails />} />
-          <Route path="/linker/:articleId" element={<Linker />} />
+          <Route path="/linker/:id" element={<Linker />} />
           <Route path="/series" element={<Series />} />
           <Route path="/series/:topicId" element={<SeriesDetails />} />
           <Route path="/article" element={<Article />} />
           <Route path="/article/:articleId" element={<ArticleDetails />} />
           <Route path="/video" element={<Video />} />
           <Route path="/introduction" element={<Introduction />} />
+          <Route path="/search" element={<Search />} />
         </Route>
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} />

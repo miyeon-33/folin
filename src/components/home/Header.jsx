@@ -1,6 +1,6 @@
 import Gnb from '@/components/home/Gnb';
 import Sidemenu from '@/components/home/Sidemenu';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import logo from '@/assets/images/logo.png';
 import icon1 from '@/assets/images/icon/hamburger.png';
@@ -14,6 +14,7 @@ export default function Header() {
   const [isToggled, setIsToggled] = useState(false);
   const [isSee, setIsSee] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const inputRef = useRef(null);
 
   const location = useLocation();
 
@@ -21,8 +22,18 @@ export default function Header() {
     setIsToggled(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (isSee && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isSee]);
+
   const handleToggle = () => setIsToggled(!isToggled);
-  const SeeToggle = () => setIsSee(!isSee);
+  const SeeToggle = () => {
+    setIsSee(!isSee);
+    setInputValue('');
+  };
+
   const handleEditClick = () => {
     setInputValue('');
   };
@@ -96,12 +107,16 @@ export default function Header() {
                   className="flex items-center gap-[8px] py-[4px] rounded-[6px]
             pr-[12px] pl-[6px] bg-[#f7f7f7] h-[40px]"
                 >
-                  <Link className="w-[32px] h-[32px] flex items-center justify-center">
+                  <Link
+                    className="w-[32px] h-[32px] flex items-center justify-center"
+                    to={'/search'}
+                  >
                     <img src={see} className="w-[24px] h-[24px]" />
                   </Link>
                   <input
                     type="text"
                     placeholder="성장의 경험을 찾습니다."
+                    ref={inputRef}
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     className="border-0 text-ellipsis whitespace-nowrap font-medium leading-[1.3]
