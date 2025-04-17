@@ -4,11 +4,11 @@ import { Link, useParams } from 'react-router';
 
 export default function LinkerView() {
   // URL에서 topicId 가져오기
-  const { articleId } = useParams();
+  const { topicId } = useParams();
 
   const { isLoading, data, isError, error } = useQuery({
-    queryKey: ['linker', articleId],
-    queryFn: () => fetch(`/linker/${articleId}`).then((res) => res.json()),
+    queryKey: ['linker', topicId],
+    queryFn: () => fetch(`/linker/${topicId}`).then((res) => res.json()),
   });
 
   if (isLoading) {

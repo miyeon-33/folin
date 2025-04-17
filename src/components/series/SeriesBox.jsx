@@ -13,14 +13,14 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 
-export default function SeriesBox({ topic, articleId }) {
+export default function SeriesBox({ topic, topicId }) {
   const [isToggle, setIsToggle] = useState(true);
 
   return (
     <div className="mb-[104px]">
       <div className="flex items-center mb-[20px]">
         <Link
-          to={`/series/${articleId}`}
+          to={`/series/${topicId}`}
           className="flex items-center w-full text-[#111] px-[8px] hover:text-point1 hover:translate-x-[16px]
           transition-transform duration-400 max-md:w-[calc(100%-60px)]"
           onMouseEnter={() => setIsToggle(false)}
