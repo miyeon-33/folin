@@ -26,7 +26,7 @@ export default function App() {
           <Route path="/video/:articleId" element={<VideoDetails />} />
           <Route path="/linker/:articleId" element={<Linker />} />
           <Route path="/series" element={<Series />} />
-          <Route path="/series/:articleId" element={<SeriesDetails />} />
+          <Route path="/series/:topicId" element={<SeriesDetails />} />
           <Route path="/article" element={<Article />} />
           <Route path="/article/:articleId" element={<ArticleDetails />} />
           <Route path="/video" element={<Video />} />
