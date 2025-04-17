@@ -43,6 +43,7 @@ export default function Series() {
       : b.reduce((acc, item) => acc + item.favorit, 0) -
           a.reduce((acc, item) => acc + item.favorit, 0);
   });
+  console.log(sortedData);
 
   return (
     <main className="bg-[#ebedec]">
@@ -63,7 +64,7 @@ export default function Series() {
                   <SeriesBox
                     key={topic[0]?.id}
                     topic={topic}
-                    articleId={topic[topic.length - 1]?.topicId}
+                    topicId={topic[topic.length - 1]?.topicId}
                   />
                 ))
               : sortedData.map((topic) => (

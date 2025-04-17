@@ -3,11 +3,11 @@ import { Link, useParams } from 'react-router';
 
 export default function PlannerView() {
   // URL에서 topicId 가져오기
-  const { articleId } = useParams();
+  const { topicId } = useParams();
 
   const { isLoading, data, isError, error } = useQuery({
-    queryKey: ['planner', articleId],
-    queryFn: () => fetch(`/planner/${articleId}`).then((res) => res.json()),
+    queryKey: ['planner', topicId],
+    queryFn: () => fetch(`/planner/${topicId}`).then((res) => res.json()),
   });
 
   if (isLoading) {

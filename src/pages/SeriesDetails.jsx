@@ -10,14 +10,14 @@ import { Link, useParams } from 'react-router';
 
 export default function SeriesDetails() {
   // URL에서 topicId 가져오기
-  const { articleId } = useParams();
+  const { topicId } = useParams();
 
-  const { isLoading, data, isError, error } = useQuery({
-    queryKey: ['series', articleId],
-    queryFn: () => fetch(`/series/${articleId}`).then((res) => res.json()),
+  const { isPending, data, isError, error } = useQuery({
+    queryKey: ['series', topicId],
+    queryFn: () => fetch(`/series/${topicId}`).then((res) => res.json()),
   });
 
-  if (isLoading) {
+  if (isPending) {
     return <p>로딩 중...</p>;
   }
   if (isError) {
@@ -48,7 +48,9 @@ export default function SeriesDetails() {
               />
             </button>
           </div>
+
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+
           <div className="w-[588px] mx-[306px] py-[40px] max-sm:py-[32px] max-sm:w-full">
             <h3 className="text-center text-[18px] font-bold mb-[16px]">
               왜 봐야 할까요?
@@ -60,7 +62,9 @@ export default function SeriesDetails() {
               {data[0].introduce}
             </p>
           </div>
+
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+
           <div className="w-[588px] mx-[306px] py-[40px] max-sm:py-[32px] max-sm:w-full">
             <h3 className="text-center text-[18px] font-bold mb-[16px]">
               누구를 위한 시리즈인가요?
@@ -72,7 +76,9 @@ export default function SeriesDetails() {
               {data[0].who}
             </p>
           </div>
+
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+
           <div className="pt-[40px] max-sm:pt-[32px]">
             <h3 className="text-center text-[18px] font-bold mb-[16px]">
               콘텐츠
@@ -148,14 +154,18 @@ export default function SeriesDetails() {
               </ul>
             </div>
           </div>
+
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+
           <div className="w-[588px] mx-[306px] py-[40px] max-sm:w-full">
             <h3 className="text-center text-[18px] font-bold mb-[40px]">
               링커
             </h3>
             <LinkerView />
           </div>
+
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+
           <div className="w-[588px] mx-[306px] py-[40px] max-sm:w-full">
             <h3 className="text-center text-[18px] font-bold mb-[40px]">
               기획자

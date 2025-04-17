@@ -4,7 +4,6 @@ import arrowG from '@/assets/images/rhr/arrow_g.png';
 import newBtn from '@/assets/images/icon/newBtn.svg';
 import videoBtn from '@/assets/images/icon/play.svg';
 import freeBtn from '@/assets/images/icon/freeBtn.svg';
-import ArticleDetails from '@/pages/ArticleDetails';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -13,14 +12,14 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 
-export default function SeriesBox({ topic, articleId }) {
+export default function SeriesBox({ topic, topicId }) {
   const [isToggle, setIsToggle] = useState(true);
 
   return (
     <div className="mb-[104px]">
       <div className="flex items-center mb-[20px]">
         <Link
-          to={`/series/${articleId}`}
+          to={`/series/${topicId}`}
           className="flex items-center w-full text-[#111] px-[8px] hover:text-point1 hover:translate-x-[16px]
           transition-transform duration-400 max-md:w-[calc(100%-60px)]"
           onMouseEnter={() => setIsToggle(false)}
@@ -56,7 +55,7 @@ export default function SeriesBox({ topic, articleId }) {
           {topic.map((item) => (
             <SwiperSlide key={item.id} className="max-sm:!w-[calc(80%)]">
               <Link
-                to={`/article/${articleId}`}
+                to={`/article/${item.id}`}
                 className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
               >
                 <div className="w-[calc(100% - 16px)] h-full relative mr-[16px]">
