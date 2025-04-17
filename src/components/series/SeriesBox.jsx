@@ -13,7 +13,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 
-export default function SeriesBox({ topic, topicId, articleId }) {
+export default function SeriesBox({ topic, topicId }) {
   const [isToggle, setIsToggle] = useState(true);
 
   return (
@@ -56,7 +56,7 @@ export default function SeriesBox({ topic, topicId, articleId }) {
           {topic.map((item) => (
             <SwiperSlide key={item.id} className="max-sm:!w-[calc(80%)]">
               <Link
-                to={`/article/${articleId}`}
+                to={`/article/${item.id}`}
                 className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
               >
                 <div className="w-[calc(100% - 16px)] h-full relative mr-[16px]">

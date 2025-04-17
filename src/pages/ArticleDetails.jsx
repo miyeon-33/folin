@@ -16,6 +16,10 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 export default function ArticleDetails() {
+  // hover
+  const [isHovered, setIsHovered] = useState(false);
+  // 별점매기기
+  const [hoverIndex, setHoverIndex] = useState(-1);
   // URL에서 topicId 가져오기
   const { articleId } = useParams();
 
@@ -32,15 +36,11 @@ export default function ArticleDetails() {
   }
   console.log(data);
 
-  // hover
-  const [isHovered, setIsHovered] = useState(false);
   // hover 이벤트 핸들러
   const hoverHandlers = {
     onMouseEnter: () => setIsHovered(true),
-    onMouseLeaver: () => setIsHovered(false),
+    onMouseLeave: () => setIsHovered(false),
   };
-  // 별점매기기
-  const [hoverIndex, setHoverIndex] = useState(-1);
 
   return (
     <main className="bg-white">
@@ -81,24 +81,24 @@ export default function ArticleDetails() {
               </Link>
             </div>
             <div className="flex gap-[8px]">
-              <button className="h-[30px]" {...hoverHandlers}>
+              <button className="h-[30px]">
                 <img src={comment} alt="댓글" className="w-[24px] h-[24px]" />
                 <span>11</span>
               </button>
-              <button {...hoverHandlers}>
-                <img src={isHovered ? favoriteG : favorite} alt="좋아요" />
-                <span>11</span>
-              </button>
-              <button {...hoverHandlers}>
-                <img src={isHovered ? saveG : save} alt="저장" />
-              </button>
-              <button {...hoverHandlers}>
-                <img src={isHovered ? shareG : share} alt="공유" />
-              </button>
+              <div className="flex">
+                <button className="[background:url('@/assets/images/icon/favorite.png')_no-repeat_50%_50%/100%] w-[30px] h-[30px]"></button>
+                <span className="">11</span>
+              </div>
+              <div className="flex">
+                <button className="[background:url('@/assets/images/icon/save.png')_no-repeat_50%_50%/100%] w-[30px] h-[30px]"></button>
+              </div>
+              <div className="flex">
+                <button className="[background:url('@/assets/images/icon/share.png')_no-repeat_50%_50%/100%] w-[30px] h-[30px]"></button>
+              </div>
               <div>|</div>
-              <button {...hoverHandlers}>
-                <img src={isHovered ? giftG : gift} alt="선물" />
-              </button>
+              <div className="flex">
+                <button className="[background:url('@/assets/images/icon/gift.png')_no-repeat_50%_50%/100%] w-[30px] h-[30px]"></button>
+              </div>
             </div>
           </div>
           <div>
