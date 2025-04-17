@@ -39,12 +39,6 @@ export default function Article() {
       : b.favorit - a.favorit;
   });
 
-  // 최근 4개아티클만 선택
-  let recentArticles = [];
-  if (pagination.currentPage === 1 && data.length > 0) {
-    recentArticles = sortedData.slice(0, 4);
-  }
-
   return (
     <main className="bg-[#ebedec] ">
       <div className="max-w-[1248px]  w-full pt-[52px] px-[24px] mx-auto  h-auto mt-0 max-md:px-[8px] max-sm:pt-[56px]">
@@ -61,7 +55,7 @@ export default function Article() {
             <ul className="grid grid-cols-3 gap-[24px] max-md:grid-cols-2 max-md:gap-[8px] max-sm:grid-cols-1">
               {sortedData?.map((art) => (
                 <li key={art.id}>
-                  <ArticleBox art={art} recentArticles={recentArticles} />
+                  <ArticleBox art={art} />
                 </li>
               ))}
             </ul>

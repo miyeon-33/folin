@@ -44,28 +44,6 @@ export default function Series() {
           a.reduce((acc, item) => acc + item.favorit, 0);
   });
 
-  // maxId 계산 - 페이지가 1일 때만 계산
-  let maxId = 0;
-  if (pagination.currentPage === 1 && data.length > 0) {
-    // 각 토픽 그룹의 첫 번째 아이템에서 topicId 추출
-    const topicIds = data
-      .map((group) => group[0]?.topicId)
-      .filter((id) => id !== undefined);
-    if (topicIds.length > 0) {
-      maxId = Math.max(...topicIds);
-    }
-  }
-  console.log(sortedData);
-
-  // console.log(
-  //   '현재 페이지:',
-  //   pagination.currentPage,
-  //   '전체 페이지:',
-  //   pagination.totalPages,
-  //   '최대 ID:',
-  //   maxId
-  // );
-
   return (
     <main className="bg-[#ebedec]">
       <div className="max-w-[1248px] w-full pt-[52px] px-[24px]  mx-auto h-auto mt-0 max-md:px-[8px] max-md:pt-[56px]">
@@ -85,7 +63,6 @@ export default function Series() {
                   <SeriesBox
                     key={topic[0]?.id}
                     topic={topic}
-                    maxId={maxId}
                     articleId={topic[topic.length - 1]?.topicId}
                   />
                 ))

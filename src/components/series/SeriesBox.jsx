@@ -13,7 +13,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 
-export default function SeriesBox({ topic, maxId, articleId }) {
+export default function SeriesBox({ topic, articleId }) {
   const [isToggle, setIsToggle] = useState(true);
 
   return (
@@ -64,11 +64,11 @@ export default function SeriesBox({ topic, maxId, articleId }) {
                     {item.video === 'Y' && (
                       <img src={videoBtn} alt="동영상" className="mb-2" />
                     )}
-                    {item.topicId === maxId ? (
+                    {(new Date() - new Date(item.createdAt)) /
+                      (1000 * 60 * 60 * 24) <=
+                      7 && (
                       <img src={newBtn} alt="새로운게시물" className="mb-2" />
-                    ) : item.topicId === maxId - 1 ? (
-                      <img src={newBtn} alt="새로운게시물" className="mb-2" />
-                    ) : null}
+                    )}
                     {item.free === 'Y' && (
                       <img src={freeBtn} alt="무료" className="mb-2" />
                     )}

@@ -33,7 +33,7 @@ export default function SeriesDetails() {
     <main className="bg-[#ebedec]">
       <div className="max-w-[1248px] pt-[52px] px-[24px] h-auto my-0 mx-auto max-md:px-[8px] max-md:pt-[56px]">
         <div className="flex flex-col items-center">
-          <div className="w-[588px] mx-[306px] py-[64px] text-center max-sm:mx-0 max-sm:py-[40px]">
+          <div className="w-[588px] mx-[306px] py-[64px] text-center max-sm:mx-0 max-sm:py-[40px] max-sm:w-full">
             <p className="mb-[12px] font-medium text-[#111]">
               {formatDate(data[0].createdAt)}
             </p>
@@ -49,7 +49,7 @@ export default function SeriesDetails() {
             </button>
           </div>
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
-          <div className="w-[588px] mx-[306px] py-[40px] max-sm:py-[32px]">
+          <div className="w-[588px] mx-[306px] py-[40px] max-sm:py-[32px] max-sm:w-full">
             <h3 className="text-center text-[18px] font-bold mb-[16px]">
               왜 봐야 할까요?
             </h3>
@@ -61,7 +61,7 @@ export default function SeriesDetails() {
             </p>
           </div>
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
-          <div className="w-[588px] mx-[306px] py-[40px] max-sm:py-[32px]">
+          <div className="w-[588px] mx-[306px] py-[40px] max-sm:py-[32px] max-sm:w-full">
             <h3 className="text-center text-[18px] font-bold mb-[16px]">
               누구를 위한 시리즈인가요?
             </h3>
@@ -81,7 +81,7 @@ export default function SeriesDetails() {
               총 {data[data.length - 1].tag}
             </p>
             <div className="mb-[48px] max-sm:mb-[32px]">
-              <ul className="grid grid-cols-3 gap-[24px] max-md:grid-cols-2 max-sm:flex max-sm:flex-wrap">
+              <ul className="grid grid-cols-3 gap-[24px] max-md:grid-cols-2 max-sm:flex max-sm:flex-wrap max-sm:gap-[24px]">
                 {data?.map((item) => (
                   <li
                     key={item.id}
@@ -93,6 +93,15 @@ export default function SeriesDetails() {
                           {item.video === 'Y' && (
                             <img src={videoBtn} alt="동영상" className="mb-2" />
                           )}
+                          {(new Date() - new Date(item.createdAt)) /
+                            (1000 * 60 * 60 * 24) <=
+                            7 && (
+                            <img
+                              src={newBtn}
+                              alt="새로운게시물"
+                              className="mb-2"
+                            />
+                          )}
                           {item.free === 'Y' && (
                             <img src={freeBtn} alt="무료" className="mb-2" />
                           )}
@@ -103,7 +112,7 @@ export default function SeriesDetails() {
                           className="w-full h-full object-cover rounded-[6px]"
                         />
                       </div>
-                      <div className="relative w-[calc(100%-16px)] h-auto p-[10px] -translate-y-[16px] ml-[16px] bg-white rounded-[6px] max-sm:w-[calc(100%-127px)] max-sm:translate-y-[40px] max-sm:-translate-x-[16px] max-sm:ml-0 max-sm:h-full">
+                      <div className="relative w-[calc(100%-16px)] h-auto p-[10px] -translate-y-[16px] ml-[16px] bg-white rounded-[6px] max-sm:w-[calc(100%-127px)] max-sm:translate-y-[30px] max-sm:-translate-x-[16px] max-sm:ml-0 max-sm:h-full">
                         <div className="flex items-center gap-[2px] max-sm:mb-[10px]">
                           <div
                             className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
@@ -128,7 +137,7 @@ export default function SeriesDetails() {
                           {item.title}
                         </p>
                         <div>
-                          <span className="mr-[8px] max-sm:text-[12px] max-sm:font-bold">
+                          <span className="mr-[8px] text-[12px] font-bold">
                             {item.author}
                           </span>
                         </div>
@@ -139,15 +148,15 @@ export default function SeriesDetails() {
               </ul>
             </div>
           </div>
-          <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1"></div>
-          <div className="w-[588px] mx-[306px] py-[40px] max-sm:w-[386px]">
+          <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+          <div className="w-[588px] mx-[306px] py-[40px] max-sm:w-full">
             <h3 className="text-center text-[18px] font-bold mb-[40px]">
               링커
             </h3>
             <LinkerView />
           </div>
-          <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-[386px]"></div>
-          <div className="w-[588px] mx-[306px] py-[40px] max-sm:w-[386px]">
+          <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+          <div className="w-[588px] mx-[306px] py-[40px] max-sm:w-full">
             <h3 className="text-center text-[18px] font-bold mb-[40px]">
               기획자
             </h3>
