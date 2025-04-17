@@ -64,6 +64,7 @@ export default function Series() {
                     key={topic[0]?.id}
                     topic={topic}
                     topicId={topic[topic.length - 1]?.topicId}
+                    articleId={topic[0].id}
                   />
                 ))
               : sortedData.map((topic) => (

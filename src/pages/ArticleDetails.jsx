@@ -30,7 +30,6 @@ export default function ArticleDetails() {
   if (isError) {
     return <p>오류 발생: {error.message}</p>;
   }
-
   console.log(data);
 
   // hover

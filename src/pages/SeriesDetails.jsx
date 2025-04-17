@@ -10,11 +10,11 @@ import { Link, useParams } from 'react-router';
 
 export default function SeriesDetails() {
   // URL에서 topicId 가져오기
-  const { articleId } = useParams();
+  const { topicId } = useParams();
 
   const { isPending, data, isError, error } = useQuery({
-    queryKey: ['series', articleId],
-    queryFn: () => fetch(`/series/${articleId}`).then((res) => res.json()),
+    queryKey: ['series', topicId],
+    queryFn: () => fetch(`/series/${topicId}`).then((res) => res.json()),
   });
 
   if (isPending) {

@@ -13,7 +13,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 
-export default function SeriesBox({ topic, topicId }) {
+export default function SeriesBox({ topic, topicId, articleId }) {
   const [isToggle, setIsToggle] = useState(true);
 
   return (
