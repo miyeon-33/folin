@@ -3,14 +3,12 @@ import comment from '@/assets/images/icon/comment.svg';
 import star from '@/assets/images/rhr/star.png';
 import starG from '@/assets/images/rhr/starG.png';
 import SeriesDetails from '@/pages/SeriesDetails';
+import Introduction from '@/pages/Introduction';
 import { Link, useParams } from 'react-router';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import Introduction from '@/pages/Introduction';
 
 export default function ArticleDetails() {
-  // hover
-  const [isHovered, setIsHovered] = useState(false);
   // 별점매기기
   const [hoverIndex, setHoverIndex] = useState(-1);
   // URL에서 topicId 가져오기
@@ -21,19 +19,38 @@ export default function ArticleDetails() {
     queryFn: () => fetch(`/post/${articleId}`).then((res) => res.json()),
   });
 
+  const {
+    isPending: articlePending,
+    data: articleData,
+    isError: articleIsError,
+    error: articleError,
+  } = useQuery({
+    queryKey: ['article', articleId],
+    queryFn: () => fetch(`/article/${articleId}`).then((res) => res.json()),
+  });
+
+  const name = articleData?.[0].author;
+
+  const {
+    isPending: linkerPending,
+    data: linkerData,
+    isError: linkerIsError,
+    error: linkerError,
+  } = useQuery({
+    queryKey: ['linkers', name],
+    queryFn: () => fetch(`/linkers/${name}`).then((res) => res.json()),
+  });
+  console.log(linkerData, '111');
+
   if (isPending) {
     return <p>로딩 중...</p>;
   }
   if (isError) {
     return <p>오류 발생: {error.message}</p>;
   }
-  console.log(data[0].keyword);
 
-  // hover 이벤트 핸들러
-  const hoverHandlers = {
-    onMouseEnter: () => setIsHovered(true),
-    onMouseLeave: () => setIsHovered(false),
-  };
+  console.log(linkerData, '...');
+  console.log(articleData, '000');
 
   return (
     <main className="bg-white">
@@ -149,7 +166,7 @@ export default function ArticleDetails() {
 
         <div className=" flex h-[1000px] justify-center items-center">
           <p
-            className="text-center"
+            className="text-center text-gray-400"
             style={{ whiteSpace: 'pre-line', lineHeight: '2' }}
           >
             {data[0].contents}
@@ -178,22 +195,19 @@ export default function ArticleDetails() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col mt-[64px] mb-[40px]">
-          <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
-          <div className="py-[24px] px-[8px]">
-            <div className="flex items-baseline gap-[24px] text-left">
+        <div className="mt-[64px] mb-[40px] border-t border-b border-point1">
+          <div className="flex flex-col py-[24px] px-[8px] gap-y-[10px]">
+            <div className="flex items-baseline gap-x-[24px] text-left">
               <span className="w-[78px] text-[13px] font-bold">발행일</span>
               <span className="font-medium">2025.04.07</span>
             </div>
-            <div>
-              <span>에디터</span>
-              <span>채진솔 김다희</span>
+            <div className="flex items-baseline gap-x-[24px] text-left">
+              <span className="w-[78px] text-[13px] font-bold">에디터</span>
+              <span className="font-medium">채진솔 김다희</span>
             </div>
           </div>
-          <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
-          <div></div>
         </div>
-        <div>
+        <div className="flex gap-[4px] mb-[40px] text-[#8e8e8e] font-medium">
           <div>※</div>
           <div>
             폴인은 유료 콘텐츠 구독 서비스로 무단 전재와 재배포를 금합니다.
@@ -201,34 +215,36 @@ export default function ArticleDetails() {
             표기해야 합니다.
           </div>
         </div>
-        <div>
-          <div>
-            <span>후기</span>
-            <span>11(댓글)개</span>
+        <div className="mb-[72px]">
+          <div className="flex items-baseline gap-[7px]">
+            <span className="font-bold">후기</span>
+            <span className="font-medium">{data[0].comment}개</span>
           </div>
-          <div>
-            <div>
+          <div className="flex flex-col w-full pt-[16px] pb-[32px]">
+            <div className="mb-[8px]">
               {[...Array(5)].map((_, index) => (
                 <img
                   key={index}
                   src={index <= hoverIndex ? starG : star}
                   alt="별점"
-                  className="w-12 cursor-pointer transition-all"
+                  className="cursor-pointer transition-all w-[32px] h-[32px]"
                   onMouseEnter={() => setHoverIndex(index)}
                   onMouseLeave={() => setHoverIndex(-1)}
                 />
               ))}
             </div>
             <div>
-              <div>
+              <div className="w-full">
                 <textarea
                   type="textarea"
                   placeholder="콘텐츠에 대한 의견을 남겨주세요."
-                  className="w-full h-[116px] bg-[#ebedec] py-[12px] px-[16px] text-[#111] rounded-[6px] font-medium leading-[150%]"
+                  className="w-full h-[116px] bg-[#f7f7f7] py-[12px] px-[16px] text-[#111] rounded-[6px] font-medium leading-[150%] hover:outline hover:outline-point1"
                 ></textarea>
               </div>
-              <div>
-                <button>확인</button>
+              <div className="flex justify-end items-center mt-[12px]">
+                <button className="h-[32px] py-[7px] px-[12px] bg-[#ebedec] rounded-[6px] text-[#bfbfbf] text-[13px] font-medium">
+                  확인
+                </button>
               </div>
             </div>
           </div>
