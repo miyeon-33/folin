@@ -20,8 +20,11 @@ export default function Results() {
             className="flex items-center gap-[8px] rounded-[6px]
             pr-[12px] pl-[16px] bg-[#f7f7f7] h-[56px]"
           >
-            <img src={search} className="w-[24px] h-[24px]" />
+            <button>
+              <img src={search} className="w-[24px] h-[24px]" />
+            </button>
             <input
+              onChange={handleInputChange}
               type="text"
               placeholder="성장의 경험을 찾습니다."
               className="border-0 text-ellipsis whitespace-nowrap font-medium leading-[1.3]
