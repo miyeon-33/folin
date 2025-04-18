@@ -3,17 +3,19 @@ import { useQuery } from '@tanstack/react-query';
 
 export default function Linker() {
   const { id } = useParams();
+  console.log(id, '==');
 
   const { isLoading, data, isError, error } = useQuery({
     queryKey: ['linker', id],
     queryFn: () => fetch(`/linker/${id}`).then((res) => res.json()),
   });
-  const name = data?.[0].name;
-  const { isLoading: articleIsLoading, data: articleData } = useQuery({
-    queryKey: ['article', name],
-    queryFn: () => fetch(`/articles/${name}`).then((res) => res.json()),
-  });
-  console.log(articleData?.[0]);
+
+  // const name = data?.[0].name;
+  // const { isLoading: articleIsLoading, data: articleData } = useQuery({
+  //   queryKey: ['article', name],
+  //   queryFn: () => fetch(`/articles/${name}`).then((res) => res.json()),
+  // });
+  // console.log(articleData?.[0]);
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {error.message}</div>;
