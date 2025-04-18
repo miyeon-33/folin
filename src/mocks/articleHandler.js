@@ -29,9 +29,19 @@ export const articleHandlers = [
     console.log(paginatedArticles); // 결과 확인용
     return HttpResponse.json({ page, totalPages, articles: paginatedArticles });
   }),
+
+  // GET: 그룹화하지 않은 데이터 반환
+  http.get('/articles/:name', async ({ params }) => {
+    await sleep(200);
+    const { name } = params;
+
+    const filteredData = articles.filter((item) => item.author === name);
+    console.log(filteredData);
+
+    return HttpResponse.json(filteredData);
+  }),
 ];
 
-// Sleep 함수
 async function sleep(timeout) {
   return new Promise((resolve) => {
     setTimeout(resolve, timeout);
