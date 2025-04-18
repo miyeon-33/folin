@@ -89,9 +89,9 @@ export default function ArticleDetails() {
                   {data[0].comment}
                 </span>
               </button>
-              <div className="flex items-center">
-                <button className="[background:url('@/assets/images/icon/favorite.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/favoriteG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
-                <span className="text-[#111] text-[13px] font-bold leading-[130%]">
+              <div className="group flex items-center">
+                <button className="[background:url('@/assets/images/icon/favorite.png')_no-repeat_50%_50%/100%] group-hover:[background:url('@/assets/images/icon/favoriteG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
+                <span className="text-[#111] text-[13px] font-bold leading-[130%] group-hover:text-point1">
                   {data[0].favorite}
                 </span>
               </div>
@@ -115,28 +115,46 @@ export default function ArticleDetails() {
                 className="w-[32px] h-[32px] rounded-[50%] object-cover border"
               />
               <span className="font-bold">신수정</span>
-              <span>임팩트리더스아카데미</span>
+              <span className="font-medium">임팩트리더스아카데미</span>
             </Link>
           </div>
         </div>
+        <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+        <div className="w-full py-[24px]">
+          <h3 className="mb-[8px] text-[13px] font-bold">3줄 요약</h3>
+          <ul className="w-full flex flex-col gap-[12px]">
+            <li className=" flex gap-[12px]">
+              <span className="text-[20px] align-text-top leading-5">•</span>
+              <p className="font-medium leading-[150%]">
+                {data[0].summation[0]}
+              </p>
+            </li>
+            <li className=" flex gap-[12px]">
+              <span className="text-[20px] align-text-top leading-5">•</span>
+              <p className="font-medium leading-[150%]">
+                {data[0].summation[1]}
+              </p>
+            </li>
+            <li className=" flex gap-[12px]">
+              <span className="text-[20px] align-text-top leading-5">•</span>
+              <p className="font-medium leading-[150%]">
+                {data[0].summation[2]}
+              </p>
+            </li>
+          </ul>
+        </div>
 
-        <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+        <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
 
-        <div>
-          <h3>3줄 요약</h3>
-          <p>
-            '커리어 경력 30년·임원 24년' 신수정 대표를 커리어 트레이너로
-            모셨습니다. KT 전 부사장으로, 지금은 임팩트리더스아카데미 대표를
-            맡고 있죠.
+        <div className=" flex h-[1000px] justify-center items-center">
+          <p
+            className="text-center"
+            style={{ whiteSpace: 'pre-line', lineHeight: '2' }}
+          >
+            {data[0].contents}
           </p>
         </div>
-
-        <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
-
-        <div className="h-[500px]">
-          <p>내용</p>
-        </div>
-        <div>
+        <div className="bg-point1">
           <span>더 많은 콘텐츠가 궁금하신가요?</span>
           <span>2000여 개의 아티클</span>
           <span>무제한 보기</span>
