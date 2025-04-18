@@ -178,8 +178,8 @@ export default function ArticleDetails() {
             </Link>
           </div>
         </div>
-        <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
         <div className="flex flex-col mt-[64px] mb-[40px]">
+          <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
           <div className="py-[24px] px-[8px]">
             <div className="flex items-baseline gap-[24px] text-left">
               <span className="w-[78px] text-[13px] font-bold">발행일</span>
