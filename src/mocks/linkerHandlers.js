@@ -19,7 +19,16 @@ export const linkerHandlers = [
     await sleep(200);
 
     const filteredData = linker.filter((item) => item.id === parseInt(id));
-    console.log(filteredData);
+
+    return HttpResponse.json(filteredData);
+  }),
+
+  http.get('/linker/:name', async ({ params }) => {
+    const { name } = params;
+    await sleep(200);
+
+    const filteredData = linker.filter((item) => item.name === name);
+
     return HttpResponse.json(filteredData);
   }),
 ];
