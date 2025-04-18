@@ -34,9 +34,9 @@ export const articleHandlers = [
   http.get('/articles/:name', async ({ params }) => {
     await sleep(200);
     const { name } = params;
+    // console.log(name, '==');
 
     const filteredData = articles.filter((item) => item.author === name);
-    console.log(filteredData);
 
     return HttpResponse.json(filteredData);
   }),

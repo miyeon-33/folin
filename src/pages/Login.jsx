@@ -49,9 +49,12 @@ export default function Login() {
             ></input>
             <button
               type="button"
-              onClick={toggleVisibility}
+              onClick={() => {
+                toggleVisibility();
+                toggleClick();
+              }}
               className={`btn absolute top-[25px] right-[10px] transform -translate-y-1/2 btn border-0 w-[28px] h-[28px]  ${
-                isClicked
+                isVisible
                   ? 'bg-[url(/images/bhj/pass-off.png)] bg-no-repeat bg-center'
                   : 'bg-[url(/images/bhj/pass.png)] bg-no-repeat bg-center'
               }`}
