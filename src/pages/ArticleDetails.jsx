@@ -171,22 +171,24 @@ export default function ArticleDetails() {
               지금 첫 달 무료로 시작하기
             </span>
           </Link>
-          <div className="mt-[16px]">
-            <span>이미 가입했다면</span>
+          <div className=" flex mt-[16px] gap-[3px] items-center">
+            <span className="text-[13px]">이미 가입했다면</span>
             <Link>
-              <span className="underline">로그인하기</span>
+              <span className="underline text-[#111]">로그인하기</span>
             </Link>
           </div>
         </div>
-        <div>
-          <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
-          <div>
-            <span>발행일</span>
-            <span>2025.04.07</span>
-          </div>
-          <div>
-            <span>에디터</span>
-            <span>채진솔 김다희</span>
+        <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+        <div className="flex flex-col mt-[64px] mb-[40px]">
+          <div className="py-[24px] px-[8px]">
+            <div className="flex items-baseline gap-[24px] text-left">
+              <span className="w-[78px] text-[13px] font-bold">발행일</span>
+              <span className="font-medium">2025.04.07</span>
+            </div>
+            <div>
+              <span>에디터</span>
+              <span>채진솔 김다희</span>
+            </div>
           </div>
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
           <div></div>
