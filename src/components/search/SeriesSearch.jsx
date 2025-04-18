@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link, useLocation } from 'react-router';
 
-export default function SeriesSearch() {
+export default function SeriesSearch({ keyword }) {
   const { data, isLoading, error } = useQuery({
     queryKey: ['/series'],
     queryFn: () => fetch('/series').then((res) => res.json()),
@@ -18,7 +18,7 @@ export default function SeriesSearch() {
     0;
 
   const filteredData = flattenedData?.filter((item) =>
-    item.introduce?.includes('기획')
+    item.introduce?.includes(keyword)
   );
 
   const topicIdCounts = filteredData?.reduce((acc, item) => {
@@ -27,7 +27,6 @@ export default function SeriesSearch() {
     }
     return acc;
   }, {});
-  console.log(topicIdCounts);
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
