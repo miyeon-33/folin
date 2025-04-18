@@ -2,6 +2,10 @@ import search from '@/assets/images/icon/search.png';
 import { useState } from 'react';
 
 export default function Results() {
+  const handleInputChange = (e) => {
+    setKeyword(e.target.value);
+  };
+
   const [activeItem, setActiveItem] = useState(null);
 
   const handleClick = (index) => {
