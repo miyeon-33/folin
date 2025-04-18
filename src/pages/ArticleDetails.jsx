@@ -6,6 +6,7 @@ import SeriesDetails from '@/pages/SeriesDetails';
 import { Link, useParams } from 'react-router';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import Introduction from '@/pages/Introduction';
 
 export default function ArticleDetails() {
   // hover
@@ -154,17 +155,26 @@ export default function ArticleDetails() {
             {data[0].contents}
           </p>
         </div>
-        <div className="bg-point1">
-          <span>더 많은 콘텐츠가 궁금하신가요?</span>
-          <span>2000여 개의 아티클</span>
-          <span>무제한 보기</span>
-          <button>
-            <span>지금 첫 달 무료로 시작하기</span>
-          </button>
-          <div>
+        <div className="flex flex-col items-center bg-point1 rounded-[6px] py-[40px] px-[66px]">
+          <span className="font-bold mb-[16px]">
+            더 많은 콘텐츠가 궁금하신가요?
+          </span>
+          <span className="text-[18px] font-bold mb-[4px]">
+            2000여 개의 아티클
+          </span>
+          <span className="text-[24px] font-bold">무제한 보기</span>
+          <Link
+            to={Introduction}
+            className="w-[388px] bg-[#111] rounded-[6px] py-[14px] px-[16px] mt-[24px] text-center"
+          >
+            <span className="text-white font-bold">
+              지금 첫 달 무료로 시작하기
+            </span>
+          </Link>
+          <div className="mt-[16px]">
             <span>이미 가입했다면</span>
             <Link>
-              <span>로그인하기</span>
+              <span className="underline">로그인하기</span>
             </Link>
           </div>
         </div>
