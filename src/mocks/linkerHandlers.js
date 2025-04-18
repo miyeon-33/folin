@@ -14,7 +14,7 @@ export const linkerHandlers = [
     return HttpResponse.json(filteredData);
   }),
 
-  http.get('/linker/:id', async ({ params }) => {
+  http.get('/linkers/:id', async ({ params }) => {
     const { id } = params;
     await sleep(200);
 

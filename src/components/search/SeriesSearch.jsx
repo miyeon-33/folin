@@ -16,7 +16,10 @@ export default function SeriesSearch() {
   const planningCount =
     flattenedData?.filter((item) => item.introduce?.includes('기획')).length ||
     0;
-  console.log(planningCount);
+
+  const filteredData = flattenedData?.filter((item) =>
+    item.introduce?.includes('기획')
+  );
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -36,26 +39,29 @@ export default function SeriesSearch() {
           </button>
         </div>
         <div className="mb-[48px]">
-          <Link to={'/series/:topicId'}>
-            <div className="mb-[4px] flex items-center flex-nowrap gap-[4px]">
-              <div
-                className="overflow-hidden whitespace-nowrap text-ellipsis break-words
-                w-[135px] h-[40px] rounded-[6px] border py-[8px] px-[12px]
+          {filteredData?.map((item, index) => (
+            <Link key={index} to={`/series/${item.topicId || index}`}>
+              <div className="mb-[4px] flex items-center flex-nowrap gap-[4px]">
+                <div
+                  className="
+                h-[40px] rounded-[6px] py-[8px] px-[12px]
                 text-gray-600 font-bold"
+                  style={{ backgroundColor: item.color }}
+                >
+                  {item.topic || 'null'}
+                </div>
+                <div className="w-[65px] h-[40px] border rounded-[6px] py-[8px] px-[12px] break-keep">
+                  {/* {item.totalEpisodes ? `총 ${item.totalEpisodes}화` : 'null'} */}
+                </div>
+              </div>
+              <p
+                className="h-[56px] text-[18px] bg-[#fff] rounded-[6px] px-[16px]
+            whitespace-nowrap overflow-hidden text-ellipsis leading-[56px] text-gray-600"
               >
-                신수정의 트레이닝
-              </div>
-              <div className="w-[65px] h-[40px] border rounded-[6px] py-[8px] px-[12px] break-keep">
-                총 6화
-              </div>
-            </div>
-            <p
-              className="h-[56px] text-[18px] bg-[#fff] rounded-[6px] px-[16px]
-            whitespace-nowrap overflow-hidden text-ellipsis"
-            >
-              dddddddddddd
-            </p>
-          </Link>
+                {item.introduce}
+              </p>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
