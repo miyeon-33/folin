@@ -23,7 +23,7 @@ export const linkerHandlers = [
     return HttpResponse.json(filteredData);
   }),
 
-  http.get('/linker/:name', async ({ params }) => {
+  http.get('/linker-name/:name', async ({ params }) => {
     const { name } = params;
     await sleep(200);
 
