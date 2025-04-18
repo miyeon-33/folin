@@ -37,8 +37,8 @@ export default function ArticleDetails() {
     isError: linkerIsError,
     error: linkerError,
   } = useQuery({
-    queryKey: ['linkers', name],
-    queryFn: () => fetch(`/linkers/${name}`).then((res) => res.json()),
+    queryKey: ['linker', name],
+    queryFn: () => fetch(`/linker/${name}`).then((res) => res.json()),
   });
   console.log(linkerData, '111');
 
