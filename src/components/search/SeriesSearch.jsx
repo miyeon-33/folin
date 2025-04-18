@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 
 export default function SeriesSearch() {
   const { data, isLoading, error } = useQuery({
@@ -21,6 +21,14 @@ export default function SeriesSearch() {
     item.introduce?.includes('기획')
   );
 
+  const topicIdCounts = filteredData?.reduce((acc, item) => {
+    if (item.topicId) {
+      acc[item.topicId] = (acc[item.topicId] || 0) + 1;
+    }
+    return acc;
+  }, {});
+  console.log(topicIdCounts);
+
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -40,23 +48,31 @@ export default function SeriesSearch() {
         </div>
         <div className="mb-[48px]">
           {filteredData?.map((item, index) => (
-            <Link key={index} to={`/series/${item.topicId || index}`}>
+            <Link key={item.topic} to={`/series/${item.topicId || index}`}>
               <div className="mb-[4px] flex items-center flex-nowrap gap-[4px]">
                 <div
                   className="
                 h-[40px] rounded-[6px] py-[8px] px-[12px]
-                text-gray-600 font-bold"
+                text-gray-600 font-bold flex items-center"
                   style={{ backgroundColor: item.color }}
                 >
                   {item.topic || 'null'}
                 </div>
-                <div className="w-[65px] h-[40px] border rounded-[6px] py-[8px] px-[12px] break-keep">
-                  {/* {item.totalEpisodes ? `총 ${item.totalEpisodes}화` : 'null'} */}
-                </div>
+                {topicIdCounts &&
+                  Object.entries(topicIdCounts).map(([topicId, count]) => (
+                    <div
+                      className="h-[40px] border 
+                    rounded-[6px] py-[8px] px-[12px] break-keep"
+                    >
+                      {topicIdCounts?.[item.topicId]
+                        ? `${topicIdCounts[item.topicId]}화`
+                        : ''}
+                    </div>
+                  ))}
               </div>
               <p
-                className="h-[56px] text-[18px] bg-[#fff] rounded-[6px] px-[16px]
-            whitespace-nowrap overflow-hidden text-ellipsis leading-[56px] text-gray-600"
+                className="h-[56px] text-[18px] bg-[#fff] rounded-[6px] px-[16px] font-medium
+            whitespace-nowrap overflow-hidden text-ellipsis leading-[56px] text-gray-600 mb-[48px]"
               >
                 {item.introduce}
               </p>
