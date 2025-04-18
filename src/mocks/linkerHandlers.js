@@ -8,7 +8,6 @@ export const linkerHandlers = [
     await sleep(200);
 
     const filteredData = linker.filter((item) => item.topicId === parseInt(id));
-    console.log(filteredData);
     return HttpResponse.json(filteredData);
   }),
 ];
