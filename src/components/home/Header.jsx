@@ -23,6 +23,10 @@ export default function Header() {
   }, [location.pathname]);
 
   useEffect(() => {
+    setIsSee(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
     if (isSee && inputRef.current) {
       inputRef.current.focus();
     }
