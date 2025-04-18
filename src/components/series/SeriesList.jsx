@@ -4,7 +4,12 @@ import { Link } from 'react-router';
 export default function SeriesList({ topic }) {
   return (
     <div className="mb-[48px]">
-      <Link className="inline-block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300">
+      <Link
+        className="inline-block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
+        onClick={() => {
+          window.location.href = `/series/${topic[0].topicId}`;
+        }}
+      >
         <div className="flex items-center mb-[4px]">
           <div
             className="inline-block max-w-[calc(100%-78px)] h-auto py-[8px] px-[12px] mr-[4px]

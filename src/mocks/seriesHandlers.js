@@ -83,7 +83,6 @@ export const seriesHandlers = [
     await sleep(200);
 
     const filteredData = series.filter((item) => item.id === parseInt(id));
-    console.log(filteredData, '---');
     return HttpResponse.json(filteredData);
   }),
 

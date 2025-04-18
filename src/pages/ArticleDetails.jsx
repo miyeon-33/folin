@@ -1,18 +1,22 @@
 // components / ArticleDetails.jsx
-import comment from '@/assets/images/icon/comment.svg';
 import star from '@/assets/images/rhr/star.png';
 import starG from '@/assets/images/rhr/starG.png';
-import SeriesDetails from '@/pages/SeriesDetails';
 import Introduction from '@/pages/Introduction';
 import { Link, useParams } from 'react-router';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 export default function ArticleDetails() {
-  // 별점매기기
-  const [hoverIndex, setHoverIndex] = useState(-1);
   // URL에서 topicId 가져오기
   const { articleId } = useParams();
+  // 별점매기기
+  const [hoverIndex, setHoverIndex] = useState(-1);
+  // 날짜 형식 변경 함수
+  const formatDate = (date) => {
+    return date.replace(/-/g, '.');
+  };
+  // textarea내용유무
+  const [text, setText] = useState('');
 
   const { isPending, data, isError, error } = useQuery({
     queryKey: ['post', articleId],
@@ -29,7 +33,9 @@ export default function ArticleDetails() {
     queryFn: () => fetch(`/article/${articleId}`).then((res) => res.json()),
   });
 
+  // const name = articleData.map((article) => article.author).flat();
   const name = articleData?.[0].author;
+  const topicId = articleData?.[0].topicId;
 
   const {
     isPending: linkerPending,
@@ -38,9 +44,8 @@ export default function ArticleDetails() {
     error: linkerError,
   } = useQuery({
     queryKey: ['linker', name],
-    queryFn: () => fetch(`/linker/${name}`).then((res) => res.json()),
+    queryFn: () => fetch(`/linker-name/${name}`).then((res) => res.json()),
   });
-  console.log(linkerData, '111');
 
   if (isPending) {
     return <p>로딩 중...</p>;
@@ -49,33 +54,35 @@ export default function ArticleDetails() {
     return <p>오류 발생: {error.message}</p>;
   }
 
-  console.log(linkerData, '...');
-  console.log(articleData, '000');
-
   return (
-    <main className="bg-white">
+    <main
+      className=""
+      style={{
+        background: 'linear-gradient(#ebedec00 0%, #ebedec 100%)',
+      }}
+    >
       <div className="max-w-[588px] pt-[64px] m-auto">
         <div>
           <div className="flex gap-[2px] mb-[10px]">
-            <Link to={SeriesDetails}>
+            <Link to={`/series/${topicId}`}>
               <div
                 className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
-                // style={{
-                //   backgroundColor: item.color,
-                //   border: `1px solid ${item.color}`,
-                // }}
+                style={{
+                  backgroundColor: articleData?.[0].color,
+                  border: `1px solid ${articleData?.[0].color}`,
+                }}
               >
-                1등브랜드의비밀
+                {articleData[0].topic}
               </div>
             </Link>
             <div
               className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
-              // style={{
-              //   backgroundColor: '#fff',
-              //   border: `1px solid ${item.color}`,
-              // }}
+              style={{
+                backgroundColor: '#fff',
+                border: `1px solid ${articleData[0].color}`,
+              }}
             >
-              1화
+              {articleData[0].tag}
             </div>
           </div>
           <h1 className="text-[28px] font-bold leading-[103%]">
@@ -91,7 +98,12 @@ export default function ArticleDetails() {
               </Link>
             </div>
             <div className="flex gap-[8px] items-center">
-              <button className="group flex items-center h-[30px]">
+              <button
+                className="group flex items-center h-[30px]"
+                onClick={() => {
+                  window.scrollTo({ top: 1900, behavior: 'smooth' });
+                }}
+              >
                 <svg
                   className="w-[24px] h-[24px] file-[#111] group-hover:fill-point1"
                   viewBox="0 0 24 24"
@@ -108,32 +120,50 @@ export default function ArticleDetails() {
                 </span>
               </button>
               <div className="group flex items-center">
-                <button className="[background:url('@/assets/images/icon/favorite.png')_no-repeat_50%_50%/100%] group-hover:[background:url('@/assets/images/icon/favoriteG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
+                <button
+                  className="[background:url('@/assets/images/icon/favorite.png')_no-repeat_50%_50%/100%] group-hover:[background:url('@/assets/images/icon/favoriteG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"
+                  onClick={() => {
+                    window.location.href = '/login';
+                  }}
+                ></button>
                 <span className="text-[#111] text-[13px] font-bold leading-[130%] group-hover:text-point1">
                   {data[0].favorite}
                 </span>
               </div>
               <div className="flex">
-                <button className="[background:url('@/assets/images/icon/save.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/saveG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
+                <button
+                  className="[background:url('@/assets/images/icon/save.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/saveG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"
+                  onClick={() => {
+                    window.location.href = '/login';
+                  }}
+                ></button>
               </div>
               <div className="flex">
                 <button className="[background:url('@/assets/images/icon/share.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/shareG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
               </div>
               <div className="h-[16px] border-r border-[#111] border-1"></div>
               <div className="flex">
-                <button className="[background:url('@/assets/images/icon/gift.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/giftG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
+                <button
+                  className="[background:url('@/assets/images/icon/gift.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/giftG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"
+                  onClick={() => {
+                    window.location.href = '/login';
+                  }}
+                ></button>
               </div>
             </div>
           </div>
           <div className="mb-[64px] ">
-            <Link className="flex gap-[4px] items-center text-[#111]">
+            <Link
+              to={`/linker/${articleId}`}
+              className="flex gap-[4px] items-center text-[#111]"
+            >
               <img
-                src={comment}
+                src={linkerData?.[0].photo}
                 alt="프로필"
-                className="w-[32px] h-[32px] rounded-[50%] object-cover border"
+                className="w-[32px] h-[32px] rounded-[50%] object-cover"
               />
-              <span className="font-bold">신수정</span>
-              <span className="font-medium">임팩트리더스아카데미</span>
+              <span className="font-bold">{linkerData?.[0].name}</span>
+              <span className="font-medium">{linkerData?.[0].job}</span>
             </Link>
           </div>
         </div>
@@ -181,7 +211,7 @@ export default function ArticleDetails() {
           </span>
           <span className="text-[24px] font-bold">무제한 보기</span>
           <Link
-            to={Introduction}
+            to={`/introduction`}
             className="w-[388px] bg-[#111] rounded-[6px] py-[14px] px-[16px] mt-[24px] text-center"
           >
             <span className="text-white font-bold">
@@ -191,7 +221,14 @@ export default function ArticleDetails() {
           <div className=" flex mt-[16px] gap-[3px] items-center">
             <span className="text-[13px]">이미 가입했다면</span>
             <Link>
-              <span className="underline text-[#111]">로그인하기</span>
+              <span
+                className="underline text-[#111]"
+                onClick={() => {
+                  window.location.href = '/login';
+                }}
+              >
+                로그인하기
+              </span>
             </Link>
           </div>
         </div>
@@ -199,11 +236,19 @@ export default function ArticleDetails() {
           <div className="flex flex-col py-[24px] px-[8px] gap-y-[10px]">
             <div className="flex items-baseline gap-x-[24px] text-left">
               <span className="w-[78px] text-[13px] font-bold">발행일</span>
-              <span className="font-medium">2025.04.07</span>
+              <span className="font-medium">
+                {formatDate(articleData[0].createdAt)}
+              </span>
             </div>
             <div className="flex items-baseline gap-x-[24px] text-left">
               <span className="w-[78px] text-[13px] font-bold">에디터</span>
-              <span className="font-medium">채진솔 김다희</span>
+              <div className="flex gap-[8px] font-medium">
+                {data[0].editor.map((name, index) => (
+                  <span key={index} className="hover:underline cursor-pointer">
+                    {name}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -218,7 +263,7 @@ export default function ArticleDetails() {
         <div className="mb-[72px]">
           <div className="flex items-baseline gap-[7px]">
             <span className="font-bold">후기</span>
-            <span className="font-medium">{data[0].comment}개</span>
+            <span className="font-medium">{data[0].comment || 0}개</span>
           </div>
           <div className="flex flex-col w-full pt-[16px] pb-[32px]">
             <div className="mb-[8px]">
@@ -239,15 +284,31 @@ export default function ArticleDetails() {
                   type="textarea"
                   placeholder="콘텐츠에 대한 의견을 남겨주세요."
                   className="w-full h-[116px] bg-[#f7f7f7] py-[12px] px-[16px] text-[#111] rounded-[6px] font-medium leading-[150%] hover:outline hover:outline-point1"
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
                 ></textarea>
               </div>
               <div className="flex justify-end items-center mt-[12px]">
-                <button className="h-[32px] py-[7px] px-[12px] bg-[#ebedec] rounded-[6px] text-[#bfbfbf] text-[13px] font-medium">
+                <button
+                  className={`h-[32px] py-[7px] px-[12px] bg-[#ebedec] rounded-[6px] text-[#bfbfbf] text-[13px] font-medium ${
+                    text.trim() !== ''
+                      ? 'bg-point1 text-white cursor-pointer'
+                      : 'cursor-default'
+                  }`}
+                  disabled={text.trim() === ''}
+                  onClick={() => {
+                    if (text.trim() !== '') {
+                      window.location.href = '/login';
+                    }
+                  }}
+                >
                   확인
                 </button>
               </div>
             </div>
           </div>
+
+          <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
         </div>
       </div>
     </main>
