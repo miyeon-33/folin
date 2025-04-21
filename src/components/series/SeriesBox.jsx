@@ -55,7 +55,11 @@ export default function SeriesBox({ topic, topicId }) {
           {topic.map((item) => (
             <SwiperSlide key={item.id} className="max-sm:!w-[calc(80%)]">
               <Link
-                to={`/article/${item.id}`}
+                to={
+                  item.video === 'N'
+                    ? `/article/${item.id}`
+                    : `/video/${item.id}`
+                }
                 className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
               >
                 <div className="w-[calc(100% - 16px)] h-full relative mr-[16px]">
@@ -104,7 +108,7 @@ export default function SeriesBox({ topic, topicId }) {
                   </p>
                   <div className="overflow-ellipsis whitespace-nowrap overflow-hidden">
                     <span className=" text-[12px] font-bold leading-[150%] mr-[8px]">
-                      {item.author}
+                      {item.member}
                     </span>
                   </div>
                 </div>

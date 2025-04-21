@@ -77,6 +77,15 @@ export const seriesHandlers = [
     return HttpResponse.json(filteredData);
   }),
 
+  // GET /article/1
+  http.get('/article/:id', async ({ params }) => {
+    const { id } = params;
+    await sleep(200);
+
+    const filteredData = series.filter((item) => item.id === parseInt(id));
+    return HttpResponse.json(filteredData);
+  }),
+
   //GET /article
   http.get('/article', async ({ request }) => {
     await sleep(200);
