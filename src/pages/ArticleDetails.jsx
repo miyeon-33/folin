@@ -1,6 +1,5 @@
-// components / ArticleDetails.jsx
+// components /series /ArticleDetails.jsx
 import { Link, useParams } from 'react-router';
-import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import ArticleSummary from '@/components/series/ArticleSummary';
 import ArticleTitle from '@/components/series/ArticleTitle';
@@ -58,7 +57,7 @@ export default function ArticleDetails() {
         background: 'linear-gradient(#ebedec00 0%, #ebedec 100%)',
       }}
     >
-      <div className="max-w-[588px] pt-[64px] m-auto">
+      <div className="max-w-[588px] pt-[64px] m-auto max-sm:pt-[100px] max-sm:px-[8px]">
         <ArticleTitle
           articleId={articleId}
           topicId={topicId}

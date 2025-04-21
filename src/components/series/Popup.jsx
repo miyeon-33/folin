@@ -1,10 +1,62 @@
+// components /series /Popup.jsx
 import close from '@/assets/images/rhr/close.png';
 import facebook from '@/assets/images/rhr/facebook.png';
 import kakao from '@/assets/images/rhr/kakao.png';
 import twitter from '@/assets/images/rhr/twitter.png';
 import url from '@/assets/images/rhr/url.png';
+import { useEffect, useState } from 'react';
 
 export default function Popup({ isPopupVisible, setPopupVisible }) {
+  const [currentUrl, setCurrentUrl] = useState('');
+
+  useEffect(() => {
+    // 컴포넌트가 마운트될 때 현재 URL 가져오기
+    setCurrentUrl(window.location.href);
+  }, []);
+
+  // URL 복사 함수
+  const copyUrlToClipboard = () => {
+    navigator.clipboard
+      .writeText(currentUrl)
+      .then(() => {
+        showToastMessage('링크가 복사되었습니다.');
+      })
+      .catch((err) => {
+        console.error('URL 복사 실패:', err);
+      });
+  };
+
+  const showToastMessage = (message) => {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    Object.assign(toast.style, {
+      position: 'fixed',
+      left: '50%',
+      top: '45%',
+      width: '288px',
+      height: '70px',
+      transform: 'translate(-50%)',
+      background: '#111111',
+      color: 'white',
+      fontSize: '13px',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '10px',
+      borderRadius: '6px',
+      transition: 'opacity 0.5s',
+      zIndex: '10000',
+    });
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 500);
+    }, 1500);
+  };
+
   return (
     <div className="fixed flex top-0 left-0 w-full h-full z-9999 bg-black/80 items-center justify-center">
       <div className="fixed w-[288px] h-[199px] bg-white z-50 p-[12px] rounded-[6px] items-center">
@@ -63,10 +115,14 @@ export default function Popup({ isPopupVisible, setPopupVisible }) {
           <input
             type="url"
             name="website"
-            value="http"
+            value={currentUrl}
             className="w-[90%] bg-transparent text-[14px] leading-[24px] text-ellipsis text-[#111]"
           />
-          <button type="button" className="bg-transparent flex items-center">
+          <button
+            type="button"
+            className="bg-transparent flex items-center"
+            onClick={copyUrlToClipboard}
+          >
             <img src={url} alt="url복사" className="w-[24px] h-[24px]" />
           </button>
         </div>

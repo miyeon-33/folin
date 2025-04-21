@@ -1,3 +1,4 @@
+// components/series /ArticleTittle.jsx
 import Popup from '@/components/series/Popup';
 import { useState } from 'react';
 import { Link } from 'react-router';
@@ -37,7 +38,7 @@ export default function ArticleTitle({
         </div>
       </div>
       <h1 className="text-[28px] font-bold leading-[103%]">
-        신수정의 트레이닝 퇴사가 어려워진 40대에게
+        {articleData[0].title}
       </h1>
       <div className="flex mt-[26px] mb-[28px] justify-between items-center">
         <div className="flex items-center gap-[8px]">
@@ -114,7 +115,7 @@ export default function ArticleTitle({
           </div>
         </div>
       </div>
-      <div className="mb-[64px] ">
+      <div className="mb-[64px] max-sm:mb-[40px]">
         <Link
           to={`/linker/${articleId}`}
           className="flex gap-[4px] items-center text-[#111]"

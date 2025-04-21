@@ -1,3 +1,4 @@
+// components /series /ArticleSummary.jsx
 export default function ArticleSummary({ data }) {
   return (
     <div>

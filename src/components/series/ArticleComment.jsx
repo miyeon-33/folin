@@ -1,3 +1,4 @@
+// components /series /ArticleComment.jsx
 import star from '@/assets/images/rhr/star.png';
 import starG from '@/assets/images/rhr/starG.png';
 import person from '@/assets/images/rhr/person.png';
