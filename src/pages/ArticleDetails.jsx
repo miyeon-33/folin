@@ -1,22 +1,19 @@
 // components / ArticleDetails.jsx
-import star from '@/assets/images/rhr/star.png';
-import starG from '@/assets/images/rhr/starG.png';
-import Introduction from '@/pages/Introduction';
 import { Link, useParams } from 'react-router';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import ArticleSummary from '@/components/series/ArticleSummary';
+import ArticleTitle from '@/components/series/ArticleTitle';
+import ArticleComment from '@/components/series/ArticleComment';
 
 export default function ArticleDetails() {
   // URL에서 topicId 가져오기
   const { articleId } = useParams();
-  // 별점매기기
-  const [hoverIndex, setHoverIndex] = useState(-1);
+
   // 날짜 형식 변경 함수
   const formatDate = (date) => {
     return date.replace(/-/g, '.');
   };
-  // textarea내용유무
-  const [text, setText] = useState('');
 
   const { isPending, data, isError, error } = useQuery({
     queryKey: ['post', articleId],
@@ -62,134 +59,18 @@ export default function ArticleDetails() {
       }}
     >
       <div className="max-w-[588px] pt-[64px] m-auto">
-        <div>
-          <div className="flex gap-[2px] mb-[10px]">
-            <Link to={`/series/${topicId}`}>
-              <div
-                className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
-                style={{
-                  backgroundColor: articleData?.[0].color,
-                  border: `1px solid ${articleData?.[0].color}`,
-                }}
-              >
-                {articleData[0].topic}
-              </div>
-            </Link>
-            <div
-              className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
-              style={{
-                backgroundColor: '#fff',
-                border: `1px solid ${articleData[0].color}`,
-              }}
-            >
-              {articleData[0].tag}
-            </div>
-          </div>
-          <h1 className="text-[28px] font-bold leading-[103%]">
-            신수정의 트레이닝 퇴사가 어려워진 40대에게
-          </h1>
-          <div className="flex mt-[26px] mb-[28px] justify-between items-center">
-            <div className="flex items-center gap-[8px]">
-              <Link className="text-[12px] text-[#00aa73] font-medium leading-[130%]">
-                {data[0].keyword[0]}
-              </Link>
-              <Link className="text-[12px] text-[#00aa73] font-medium leading-[130%]">
-                {data[0].keyword[1]}
-              </Link>
-            </div>
-            <div className="flex gap-[8px] items-center">
-              <button
-                className="group flex items-center h-[30px]"
-                onClick={() => {
-                  window.scrollTo({ top: 1900, behavior: 'smooth' });
-                }}
-              >
-                <svg
-                  className="w-[24px] h-[24px] file-[#111] group-hover:fill-point1"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M19 5H5C4.45 5 4 5.45 4 6V16.335C4 16.885 4.45 17.335 5 17.335H10L12 20L14 17.335H19C19.55 17.335 20 16.885 20 16.335V6C20 5.45 19.55 5 19 5Z" />
-                  <path
-                    d="M11.8824 8.21252C11.9291 8.12292 12.0574 8.12292 12.1041 8.21252L12.9935 9.91784C13.0122 9.95375 13.0471 9.97836 13.0873 9.98387L15.0641 10.2557C15.1688 10.2701 15.2095 10.3998 15.1318 10.4714L13.7104 11.7826C13.679 11.8116 13.6645 11.8547 13.6722 11.8968L14.0089 13.7548C14.0273 13.856 13.9223 13.9348 13.8302 13.889L12.0489 13.0028C12.0139 12.9853 11.9726 12.9853 11.9376 13.0028L10.1562 13.889C10.0642 13.9348 9.95923 13.856 9.97757 13.7548L10.3143 11.8968C10.322 11.8547 10.3075 11.8116 10.2761 11.7826L8.85464 10.4714C8.77699 10.3998 8.8177 10.2701 8.92237 10.2557L10.8992 9.98387C10.9394 9.97836 10.9743 9.95375 10.993 9.91784L11.8824 8.21252Z"
-                    fill="white"
-                  />
-                </svg>
-                <span className="text-[#111] text-[13px] font-bold leading-[130%] group-hover:text-point1">
-                  {data[0].comment}
-                </span>
-              </button>
-              <div className="group flex items-center">
-                <button
-                  className="[background:url('@/assets/images/icon/favorite.png')_no-repeat_50%_50%/100%] group-hover:[background:url('@/assets/images/icon/favoriteG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"
-                  onClick={() => {
-                    window.location.href = '/login';
-                  }}
-                ></button>
-                <span className="text-[#111] text-[13px] font-bold leading-[130%] group-hover:text-point1">
-                  {data[0].favorite}
-                </span>
-              </div>
-              <div className="flex">
-                <button
-                  className="[background:url('@/assets/images/icon/save.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/saveG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"
-                  onClick={() => {
-                    window.location.href = '/login';
-                  }}
-                ></button>
-              </div>
-              <div className="flex">
-                <button className="[background:url('@/assets/images/icon/share.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/shareG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"></button>
-              </div>
-              <div className="h-[16px] border-r border-[#111] border-1"></div>
-              <div className="flex">
-                <button
-                  className="[background:url('@/assets/images/icon/gift.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/giftG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"
-                  onClick={() => {
-                    window.location.href = '/login';
-                  }}
-                ></button>
-              </div>
-            </div>
-          </div>
-          <div className="mb-[64px] ">
-            <Link
-              to={`/linker/${articleId}`}
-              className="flex gap-[4px] items-center text-[#111]"
-            >
-              <img
-                src={linkerData?.[0].photo}
-                alt="프로필"
-                className="w-[32px] h-[32px] rounded-[50%] object-cover"
-              />
-              <span className="font-bold">{linkerData?.[0].name}</span>
-              <span className="font-medium">{linkerData?.[0].job}</span>
-            </Link>
-          </div>
-        </div>
+        <ArticleTitle
+          articleId={articleId}
+          topicId={topicId}
+          articleData={articleData}
+          data={data}
+          linkerData={linkerData}
+        />
+
         <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+
         <div className="w-full py-[24px]">
-          <h3 className="mb-[8px] text-[13px] font-bold">3줄 요약</h3>
-          <ul className="w-full flex flex-col gap-[12px]">
-            <li className=" flex gap-[12px]">
-              <span className="text-[20px] align-text-top leading-5">•</span>
-              <p className="font-medium leading-[150%]">
-                {data[0].summation[0]}
-              </p>
-            </li>
-            <li className=" flex gap-[12px]">
-              <span className="text-[20px] align-text-top leading-5">•</span>
-              <p className="font-medium leading-[150%]">
-                {data[0].summation[1]}
-              </p>
-            </li>
-            <li className=" flex gap-[12px]">
-              <span className="text-[20px] align-text-top leading-5">•</span>
-              <p className="font-medium leading-[150%]">
-                {data[0].summation[2]}
-              </p>
-            </li>
-          </ul>
+          <ArticleSummary data={data} />
         </div>
 
         <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
@@ -260,55 +141,8 @@ export default function ArticleDetails() {
             표기해야 합니다.
           </div>
         </div>
-        <div className="mb-[72px]">
-          <div className="flex items-baseline gap-[7px]">
-            <span className="font-bold">후기</span>
-            <span className="font-medium">{data[0].comment || 0}개</span>
-          </div>
-          <div className="flex flex-col w-full pt-[16px] pb-[32px]">
-            <div className="mb-[8px]">
-              {[...Array(5)].map((_, index) => (
-                <img
-                  key={index}
-                  src={index <= hoverIndex ? starG : star}
-                  alt="별점"
-                  className="cursor-pointer transition-all w-[32px] h-[32px]"
-                  onMouseEnter={() => setHoverIndex(index)}
-                  onMouseLeave={() => setHoverIndex(-1)}
-                />
-              ))}
-            </div>
-            <div>
-              <div className="w-full">
-                <textarea
-                  type="textarea"
-                  placeholder="콘텐츠에 대한 의견을 남겨주세요."
-                  className="w-full h-[116px] bg-[#f7f7f7] py-[12px] px-[16px] text-[#111] rounded-[6px] font-medium leading-[150%] hover:outline hover:outline-point1"
-                  value={text}
-                  onChange={(e) => setText(e.target.value)}
-                ></textarea>
-              </div>
-              <div className="flex justify-end items-center mt-[12px]">
-                <button
-                  className={`h-[32px] py-[7px] px-[12px] bg-[#ebedec] rounded-[6px] text-[#bfbfbf] text-[13px] font-medium ${
-                    text.trim() !== ''
-                      ? 'bg-point1 text-white cursor-pointer'
-                      : 'cursor-default'
-                  }`}
-                  disabled={text.trim() === ''}
-                  onClick={() => {
-                    if (text.trim() !== '') {
-                      window.location.href = '/login';
-                    }
-                  }}
-                >
-                  확인
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+        <div className="pb-[200px]">
+          <ArticleComment data={data} />
         </div>
       </div>
     </main>
