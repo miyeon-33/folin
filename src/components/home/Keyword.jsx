@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 const keywords = [
   '기획',
   '커리어',
@@ -21,8 +23,6 @@ const keywords = [
   '협업',
 ];
 
-const baseUrl = 'https://www.folin.co/search?keyword=';
-
 export default function KeywordList() {
   const groupedKeywords = [
     keywords.slice(0, 7),
@@ -45,13 +45,13 @@ export default function KeywordList() {
               className="px-[32px] py-[16px] flex items-center
               rounded-[6px] bg-[#fff] text-[18px] hover:bg-[#00d48d] h-[48px]"
             >
-              <a
-                href={`${baseUrl}${encodeURIComponent(keyword)}`}
-                target="_blank"
+              <Link
+                to={`/search?keyword=${keyword}`}
                 className="font-bold text-gray-600"
               >
+                {' '}
                 {keyword}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
