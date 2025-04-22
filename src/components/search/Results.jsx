@@ -1,14 +1,34 @@
 import search from '@/assets/images/icon/search.png';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Results({ keyword, setSearchParams }) {
-  const [inputValue, setInputValue] = useState(keyword);
+  const [inputValue, setInputValue] = useState(keyword || '');
   const inputRef = useRef(null);
 
-  function handleSearch() {
-    setInputValue(inputRef.current.value);
+  useEffect(() => {
+    if (keyword) {
+      setInputValue(keyword);
+      const params = new URLSearchParams();
+      params.set('keyword', keyword);
+      setSearchParams(params);
+    }
+  }, [keyword, setSearchParams]);
+
+  function handleInputChange(e) {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+
     const params = new URLSearchParams();
-    params.set('keyword', inputRef.current.value);
+    params.set('keyword', newValue);
+    setSearchParams(params);
+  }
+
+  function handleSearch() {
+    const searchValue = inputRef.current.value;
+    setInputValue(searchValue);
+
+    const params = new URLSearchParams();
+    params.set('keyword', searchValue);
     setSearchParams(params);
   }
 
@@ -32,7 +52,8 @@ export default function Results({ keyword, setSearchParams }) {
             <input
               onKeyUp={handleEnter}
               ref={inputRef}
-              defaultValue=""
+              defaultValue={inputValue}
+              onChange={handleInputChange}
               type="text"
               placeholder="성장의 경험을 찾습니다."
               className="border-0 text-ellipsis whitespace-nowrap font-medium text-[18px]

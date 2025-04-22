@@ -18,6 +18,7 @@ export default function Search() {
     queryFn: () =>
       fetch(`/search?keyword=${keyword}`).then((res) => res.json()),
   });
+
   // Seminar 데이터 가져오기
   const {
     isLoading: isLoadingSeminar,
@@ -48,12 +49,26 @@ export default function Search() {
         setSearchParams={setSearchParams}
         keyword={keyword}
       />
-      <Tab data={data} seminarData={seminarData} linkerData={linkerData} />
+      <Tab
+        data={data?.filteredSeries || []}
+        seminarData={seminarData}
+        linkerData={linkerData}
+        total={data?.total || []}
+      />
       {isLoading && <p>Loading series data...</p>}
       {isError && <p>{error.message}</p>}
-      <SeriesSearch data={data || []} />
-      <ArticleSearch data={data || []} />
-      <VideoSearch data={data || []} />
+      <SeriesSearch
+        data={data?.filteredSeries || []}
+        total={data?.total || []}
+      />
+      <ArticleSearch
+        data={data?.filteredSeries || []}
+        total={data?.total || []}
+      />
+      <VideoSearch
+        data={data?.filteredSeries || []}
+        total={data?.total || []}
+      />
       {isLoadingSeminar && <p>Loading seminar data...</p>}
       {isErrorSeminar && <p>{seminarError.message}</p>}
       <SeminarSearch data={seminarData || []} />

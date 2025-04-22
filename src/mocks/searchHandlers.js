@@ -12,11 +12,20 @@ export const searchHandlers = [
     const url = new URL(request.url);
     const keyword = url.searchParams.get('keyword');
 
+    // 소개글에서 키워드 포함한 요소 필터
     const filteredSeries = series.filter((item) =>
       item.introduce?.includes(keyword)
     );
+    // 필터된 배열에서 topicId만 배열로 뽑아내기
+    const topicId = filteredSeries.map((item) => item.topicId);
+    // topicId 배열 갯수만큼 반복하여
+    // 아티클배열중 topicId가 필터된 토픽아이디 번호와 동일한 배열의 길이만 배열로 뽑기
+    const total = topicId.map((item) => {
+      return series.filter((article) => article.topicId === item).length;
+    });
 
-    return HttpResponse.json(filteredSeries);
+    // const matchId = series.filter((item) => item.topicId === 15);
+    return HttpResponse.json({ filteredSeries, total });
   }),
 
   //GET /seminar?keyword
