@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import ArticleSummary from '@/components/series/ArticleSummary';
 import ArticleTitle from '@/components/series/ArticleTitle';
 import ArticleComment from '@/components/series/ArticleComment';
+import NowArticle from '@/components/series/NowArticle';
 
 export default function ArticleDetails() {
   // URL에서 topicId 가져오기
@@ -42,6 +43,17 @@ export default function ArticleDetails() {
     queryKey: ['linker', name],
     queryFn: () => fetch(`/linker-name/${name}`).then((res) => res.json()),
   });
+
+  const {
+    isPending: seriesPending,
+    data: seriesData,
+    isError: seriesIsError,
+    error: seriesError,
+  } = useQuery({
+    queryKey: ['series'],
+    queryFn: () => fetch(`/series`).then((res) => res.json()),
+  });
+  console.log(seriesData, '000');
 
   if (isPending) {
     return <p>로딩 중...</p>;
@@ -142,6 +154,9 @@ export default function ArticleDetails() {
         </div>
         <div className="pb-[200px]">
           <ArticleComment data={data} />
+        </div>
+        <div>
+          <NowArticle seriesData={seriesData} topicId={topicId} />
         </div>
       </div>
     </main>

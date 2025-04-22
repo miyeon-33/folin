@@ -32,7 +32,7 @@ export default function Popup({ isPopupVisible, setPopupVisible }) {
     Object.assign(toast.style, {
       position: 'fixed',
       left: '50%',
-      top: '45%',
+      top: '46%',
       width: '288px',
       height: '70px',
       transform: 'translate(-50%)',

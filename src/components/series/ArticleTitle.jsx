@@ -37,12 +37,15 @@ export default function ArticleTitle({
           {articleData[0].tag}
         </div>
       </div>
-      <h1 className="text-[28px] font-bold leading-[103%]">
+      <h1 className="text-[28px] font-bold leading-[130%]">
         {articleData[0].title}
       </h1>
       <div className="flex mt-[26px] mb-[28px] justify-between items-center">
         <div className="flex items-center gap-[8px]">
-          <Link className="text-[12px] text-[#00aa73] font-medium leading-[130%]">
+          <Link
+            to={`/Search?keyword=${data[0].keyword[0]}`}
+            className="text-[12px] text-[#00aa73] font-medium leading-[130%]"
+          >
             {data[0].keyword[0]}
           </Link>
           <Link className="text-[12px] text-[#00aa73] font-medium leading-[130%]">
