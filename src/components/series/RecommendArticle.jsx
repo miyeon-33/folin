@@ -1,6 +1,4 @@
-// components /series /NowArticle.jsx
-import arrow from '@/assets/images/rhr/arrow.png';
-import arrowG from '@/assets/images/rhr/arrow_g.png';
+// components /series /RecommendArticle.jsx
 import newBtn from '@/assets/images/icon/newBtn.svg';
 import videoBtn from '@/assets/images/icon/play.svg';
 import freeBtn from '@/assets/images/icon/freeBtn.svg';
@@ -8,35 +6,61 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import styles from './SeriesBox.module.css';
 
-export default function NowArticle({ seriesData, articleId }) {
-  const [isToggle, setIsToggle] = useState(true);
+export default function RecommendArticle({ recommendData }) {
+  const [randomArticles, setRandomArticles] = useState([]);
 
-  // seriesData.data가 배열인지 확인하고 정렬
-  const sortedData = seriesData?.sort((a, b) => {
-    return new Date(b.createdAt) - new Date(a.createdAt);
-  });
+  useEffect(() => {
+    // 1부터 69까지의 숫자 중에서 랜덤으로 10개의 숫자를 선택하는 함수
+    const getRandomNumbers = () => {
+      // 1부터 69까지의 숫자 배열 생성
+      const numbers = Array.from({ length: 69 }, (_, i) => i + 1);
+
+      // Fisher-Yates 알고리즘을 사용하여 랜덤 셔플
+      for (let i = numbers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+      }
+
+      // 앞에서부터 10개만 선택 (또는 데이터 개수보다 적을 경우 그만큼만)
+      return numbers.slice(0, 10);
+    };
+
+    // 랜덤 ID 생성
+    const randomIds = getRandomNumbers();
+
+    // 랜덤 ID와 일치하는 데이터만 필터링
+    if (recommendData && recommendData.length > 0) {
+      const filtered = recommendData.filter((item) =>
+        randomIds.includes(Number(item.id))
+      );
+
+      // 데이터가 충분하지 않을 경우를 대비해 필터링된 결과가 없거나 적으면 원본 데이터에서 일부 사용
+      if (filtered.length < Math.min(5, recommendData.length)) {
+        // 원본 데이터를 셔플하여 일부만 사용
+        const shuffled = [...recommendData].sort(() => 0.5 - Math.random());
+        setRandomArticles(
+          shuffled.slice(0, Math.min(10, recommendData.length))
+        );
+      } else {
+        setRandomArticles(filtered);
+      }
+    }
+  }, [recommendData]);
+
+  if (!randomArticles || randomArticles.length === 0) {
+    return <div>추천 콘텐츠가 없습니다.</div>;
+  }
 
   return (
     <div>
       <div className="flex items-center mb-[20px]">
-        <Link
-          to={`/series/${sortedData?.[0].topicId}`}
-          className="flex items-center w-full text-[#111] px-[8px] hover:text-point1 hover:translate-x-[16px]
-          transition-transform duration-400 max-md:w-[calc(100%-60px)]"
-          onMouseEnter={() => setIsToggle(false)}
-          onMouseLeave={() => setIsToggle(true)}
-        >
-          <h3 className="text-[24px] font-bold">{sortedData?.[0].topic}</h3>
-          <img
-            src={isToggle ? arrow : arrowG}
-            alt="showSeriesDetails"
-            className="w-[52px] h-[24px] object-cover"
-          />
-        </Link>
+        <div className="flex items-center w-full text-[#111] px-[8px]">
+          <h3 className="text-[24px] font-bold">추천 콘텐츠</h3>
+        </div>
       </div>
 
       <div className="relative">
@@ -57,27 +81,15 @@ export default function NowArticle({ seriesData, articleId }) {
           // SeriesBox.module.css
           className={styles.slider}
         >
-          {sortedData?.map((item) => (
+          {randomArticles?.map((item) => (
             <SwiperSlide key={item.id} className="max-sm:!w-[calc(80%)]">
-              {String(item.id) === articleId && (
-                <div
-                  className="mb-[8px] inline-block bg-white rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold leading-[150%]"
-                  style={{ border: `1px solid ${item.color}` }}
-                >
-                  지금 읽고 있는 콘텐츠
-                </div>
-              )}
               <Link
                 to={
                   item.video === 'N'
                     ? `/article/${item.id}`
                     : `/video/${item.id}`
                 }
-                className={
-                  String(item.id) === articleId
-                    ? 'block transition-all text-[#111] cursor-default'
-                    : 'block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300'
-                }
+                className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
               >
                 <div className="w-[calc(100% - 16px)] h-full relative mr-[16px]">
                   <div className="absolute flex z-2 top-[10px] left-[10px] gap-[2px]">

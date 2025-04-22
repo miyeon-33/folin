@@ -77,6 +77,53 @@ export const seriesHandlers = [
     return HttpResponse.json(filteredData);
   }),
 
+  // GET /series/20
+  http.get('/series/:topicid', async ({ request }) => {
+    await sleep(200);
+
+    // 현재 URL에서 숫자 추출
+    const url = new URL(request.url);
+    const currentId = parseInt(url.pathname.split('/').pop(), 10); // URL 마지막 숫자 추출
+
+    // topicId 별로 그룹화
+    const groupByTopicId = (data) => {
+      return data.reduce((acc, item) => {
+        const { topicId } = item;
+
+        if (!acc[topicId]) {
+          acc[topicId] = [];
+        }
+        acc[topicId].push(item);
+        return acc;
+      }, {});
+    };
+
+    // 현재 ID와 같은 항목 찾기
+    const filteredItem = series.find((item) => item.id === currentId);
+    if (!filteredItem) {
+      return { data: [] }; // 해당 ID가 없을 경우 빈 배열 반환
+    }
+
+    // 데이터 뒤집기 (필요하면 유지)
+    const mergedData = Object.values(filteredItem);
+    mergedData.reverse();
+
+    // 해당 ID의 topicId 가져오기
+    const topicId = mergedData.topicId;
+
+    // topicId에 해당하는 데이터만 필터링
+    const groupedData = groupByTopicId(series);
+    const filteredData = groupedData[topicId] || [];
+    return HttpResponse.json(filteredData);
+  }),
+
+  // GET /article
+  http.get('/recommend', async () => {
+    await sleep(200);
+
+    return HttpResponse.json(series);
+  }),
+
   // GET /article/1
   http.get('/article/:id', async ({ params }) => {
     const { id } = params;

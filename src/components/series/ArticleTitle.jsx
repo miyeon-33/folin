@@ -120,7 +120,7 @@ export default function ArticleTitle({
       </div>
       <div className="mb-[64px] max-sm:mb-[40px]">
         <Link
-          to={`/linker/${articleId}`}
+          to={`/linker/${linkerData?.[0].id}`}
           className="flex gap-[4px] items-center text-[#111]"
         >
           <img
