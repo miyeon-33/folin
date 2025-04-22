@@ -75,7 +75,7 @@ export default function VideoDetails() {
                   type="button"
                   className="btn border-0 w-[28px] h-[28px] [background:url(/images/bhj/i-mark.png)_no-repeat_center_center/28px] hover:bg-[url(/images/bhj/i-mark-on.png)]"
                 >
-                  <span className="sr-only">북마크</span>
+                  <span className="sr-only ">북마크</span>
                 </Link>
 
                 <Link
