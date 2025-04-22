@@ -8,7 +8,6 @@ export const postHandlers = [
     await sleep(200);
 
     const filteredData = post.filter((item) => item.id === parseInt(id));
-    console.log(filteredData);
     return HttpResponse.json(filteredData);
   }),
 ];

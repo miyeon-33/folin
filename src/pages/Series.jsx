@@ -43,7 +43,6 @@ export default function Series() {
       : b.reduce((acc, item) => acc + item.favorit, 0) -
           a.reduce((acc, item) => acc + item.favorit, 0);
   });
-  console.log(sortedData);
 
   return (
     <main className="bg-[#ebedec]">
