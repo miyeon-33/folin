@@ -49,9 +49,12 @@ export default function Login() {
             ></input>
             <button
               type="button"
-              onClick={toggleVisibility}
+              onClick={() => {
+                toggleVisibility();
+                toggleClick();
+              }}
               className={`btn absolute top-[25px] right-[10px] transform -translate-y-1/2 btn border-0 w-[28px] h-[28px]  ${
-                isClicked
+                isVisible
                   ? 'bg-[url(/images/bhj/pass-off.png)] bg-no-repeat bg-center'
                   : 'bg-[url(/images/bhj/pass.png)] bg-no-repeat bg-center'
               }`}
@@ -82,8 +85,8 @@ export default function Login() {
             <span
               className={`inline-block w-[25px] h-[25px] rounded-[50%] bg-no-repeat bg-center mr-[10px] ${
                 isChecked
-                  ? 'bg-[#00d48d] bg-[url("/images/bhj/checked.png")]'
-                  : 'bg-transparent bg-[url("/images/bhj/checked-g.png")]'
+                  ? 'bg-transparent bg-[url("/images/bhj/checked-g.png")]'
+                  : 'bg-[#00d48d] bg-[url("/images/bhj/checked.png")]'
               }`}
               style={{ backgroundSize: '15px' }}
             ></span>
@@ -114,15 +117,15 @@ export default function Login() {
           </div>
         </div>
 
-        <span className="border-[#fcfcfc] border-[1px] w-[100%]"></span>
+        <span className="border-white border-t-[1px] w-[100%]"></span>
 
         <div className="flex">
-          <p className="text-[13px] text-[#8e8e8e] mt-[20px]">
+          <p className="text-[13px] text-[#8e8e8e] mt-[30px]">
             간편 로그인 / 회원가입
           </p>
         </div>
 
-        <div className="mt-[10px] mb-[120px] flex gap-5">
+        <div className="mt-[20px] mb-[120px] flex gap-5">
           <button
             type="btn"
             className="btn w-[56px] h-[56px] border-0 rounded-[50%] bg-[#1877f2] relative overflow-hidden"

@@ -148,6 +148,7 @@ export default function SeminarDetails() {
               </div>
             </div>
 
+            {/* 프로필 */}
             <div className="mt-[20px]">
               <LinkerView />
             </div>
