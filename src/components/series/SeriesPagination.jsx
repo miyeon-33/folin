@@ -1,3 +1,4 @@
+// components /series /SeriesPagination.jsx
 import { generatePagination } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 import pageBtnL from '@/assets/images/rhr/left_arrow.4bede9f35a02ac4762468cd3c10d9e6d.svg';

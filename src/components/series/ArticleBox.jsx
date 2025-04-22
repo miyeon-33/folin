@@ -5,7 +5,10 @@ import { Link } from 'react-router';
 
 export default function ArticleBox({ art }) {
   return (
-    <Link className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300">
+    <Link
+      to={`/article/${art.id}`}
+      className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
+    >
       <div className="w-[calc(100% - 16px)] h-full relative mr-[16px]">
         <div className="absolute flex z-2 top-[10px] left-[10px] gap-[2px]">
           {(new Date() - new Date(art.createdAt)) / (1000 * 60 * 60 * 24) <=

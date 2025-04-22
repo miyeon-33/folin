@@ -28,6 +28,7 @@ export default function SeriesDetails() {
   const formatDate = (date) => {
     return date.replace(/-/g, '.');
   };
+  console.log(data);
 
   return (
     <main className="bg-[#ebedec]">
@@ -93,7 +94,12 @@ export default function SeriesDetails() {
                     key={item.id}
                     className="w-[calc(100% - 16px)] max-sm:w-full max-sm:pb-[16px]"
                   >
-                    <Link className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300 max-sm:transition-none max-sm:hover:text-[#111] max-sm:hover:translate-y-0 max-sm:flex">
+                    <Link
+                      className="block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300 max-sm:transition-none max-sm:hover:text-[#111] max-sm:hover:translate-y-0 max-sm:flex"
+                      onClick={() => {
+                        window.location.href = `/article/${item.id}`;
+                      }}
+                    >
                       <div className="w-[calc(100% - 16px)] h-full relative mr-[16px] max-sm:shrink-0 max-sm:w-[143px] max-sm:h-[143px] max-sm:mr-0">
                         <div className="absolute flex z-2 top-[10px] left-[10px] gap-[2px]">
                           {item.video === 'Y' && (
@@ -144,7 +150,7 @@ export default function SeriesDetails() {
                         </p>
                         <div>
                           <span className="mr-[8px] text-[12px] font-bold">
-                            {item.author}
+                            {item.member}
                           </span>
                         </div>
                       </div>

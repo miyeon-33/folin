@@ -1,4 +1,4 @@
-import Linker from '@/pages/Linker';
+// components /series / LinkerView.jsx
 import { useQuery } from '@tanstack/react-query';
 import { Link, useParams } from 'react-router';
 
@@ -22,7 +22,10 @@ export default function LinkerView() {
     <div className="grid grid-cols-3 gap-y-[40px] gap-x-[24px] max-sm:grid-cols-2 max-sm:gap-y-[32px] max-sm:gap-x-[8px]">
       {data.map((item) => (
         <div className="w-[calc(100% - 16px)] h-[188px] max-sm:h-[165.5px]">
-          <Link to={Linker} className="flex flex-col w-full item-center">
+          <Link
+            to={`/linker/${item.id}`}
+            className="flex flex-col w-full item-center"
+          >
             <img
               src={item.photo}
               alt="링커"

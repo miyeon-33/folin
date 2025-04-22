@@ -4,7 +4,7 @@ import ArrayButton from '@/components/series/ArrayButton';
 import SeriesView from '@/components/series/SeriesView';
 import SeriesBox from '@/components/series/SeriesBox';
 import SeriesList from '@/components/series/SeriesList';
-import SeriesPagination from '@/components/series/SeriesPagination'; // 새로운 pagination 컴포넌트 import
+import SeriesPagination from '@/components/series/SeriesPagination';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
