@@ -1,9 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 
 export default function VideoDetails() {
   const { articleId } = useParams();
+  const [isRate, setIsRate] = useState(false);
+
+  function handleRate() {
+    setIsRate((prevState) => !prevState);
+  }
 
   const { isLoading, data, isError, error } = useQuery({
     queryKey: ['series', articleId],
@@ -19,7 +25,7 @@ export default function VideoDetails() {
         <div className="flex flex-col justify-center items-center m-auto max-w-[1200px] h-[100%] pt-[64px]">
           <div className="">
             <iframe
-              width="800"
+              width="750"
               height="450"
               src={`https://www.youtube.com/embed/${articleId}`}
               title="YouTube Video Player"
@@ -104,46 +110,118 @@ export default function VideoDetails() {
             <div className="flex items-start gap-[8px] mt-[24px]">
               <span className="font-bold">발행일</span>
               <div className="flex-col gap-[8px]">
-                {/* <p>{data?.date}</p> */}
+                <p>2025.04.16</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-[8px]">
+            <div className="flex items-center justify-between gap-[8px]">
               <span className="font-bold">PD</span>
-              <div className="flex-col gap-[8px]">
-                {/* <p>{data?.method}</p> */}
+              <div className="flex-col gap-[8px] mr-[250px]">
+                <p>김수진</p>
               </div>
             </div>
-            <div className="flex items-center gap-[8px]">
+            <div className="flex items-center justify-between gap-[8px]">
               <span className="font-bold">에디터</span>
-              <div className="flex-col gap-[8px]">
-                {/* <p>{data?.capacity}</p> */}
+              <div className="flex-col gap-[8px] mr-[250px]">
+                <p>채진솔</p>
+                <p>김다희</p>
               </div>
             </div>
-            <div className="flex items-center gap-[8px]">
+            <div className="flex items-center justify-between gap-[8px]">
               <span className="font-bold">디자이너</span>
-              <div className="flex-col gap-[8px]">
-                {/* <p>{data?.deadline}</p> */}
+              <div className="flex-col gap-[8px] mr-[250px]">
+                <p>이수연</p>
               </div>
             </div>
           </div>
 
           {/* 후기 */}
           <div className="border-t-[1px] border-[#00d48d]">
-            <h3 className="font-bold mr-[5px] mt-[40px]">후기</h3>
+            <h3 className="font-bold mr-[5px] mt-[40px] mb-[10px]">후기</h3>
 
             {/* 별 */}
-            <div className="flex gap-4"></div>
+            <div className="flex mb-[10px]">
+              <div
+                className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
+                  isRate
+                    ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                    : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                }`}
+                style={{
+                  backgroundSize: '35px',
+                }}
+              ></div>
+              <div className="flex">
+                <div
+                  className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
+                    isRate
+                      ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                      : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                  }`}
+                  style={{
+                    backgroundSize: '35px',
+                  }}
+                ></div>
+              </div>
+              <div className="flex">
+                <div
+                  className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
+                    isRate
+                      ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                      : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                  }`}
+                  style={{
+                    backgroundSize: '35px',
+                  }}
+                ></div>
+              </div>
+              <div className="flex">
+                <div
+                  className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
+                    isRate
+                      ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                      : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                  }`}
+                  style={{
+                    backgroundSize: '35px',
+                  }}
+                ></div>
+              </div>
+              <div className="flex">
+                <div
+                  className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
+                    isRate
+                      ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                      : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
+                  }`}
+                  style={{
+                    backgroundSize: '35px',
+                  }}
+                ></div>
+              </div>
+            </div>
 
-            {/* 후기입력 */}
-            <div className=""></div>
+            {/* 후기입력칸 */}
+            <div className="flex flex-col">
+              <form className="">
+                <label className="items-start">
+                  <textarea
+                    type="text"
+                    className="w-[100%] h-[116px] p-[15px_15px] bg-[#f7f7f7] rounded-[6px] text-[16px] border-0 placeholder-[#a1a1a1] hover:outline hover:outline-[#00d48d] hover:outline-[1px] caret-[#00d48d]"
+                    placeholder="콘텐츠에 대한 의견을 남겨주세요."
+                  />
+                </label>
+              </form>
 
-            <button
-              type="button"
-              className="btn border-0 justify-end h-[32px] rounded-[6px] p-[6px_15px] bg-[#ebedec] text-[#bfbfbf] cursor-default"
-            >
-              확인
-            </button>
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  className="btn border-0 h-[100%] w-[20%] rounded-[6px] mt-[20px] p-[6px_15px] bg-[#ebedec] text-[#bfbfbf] cursor-default "
+                >
+                  확인
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </main>
