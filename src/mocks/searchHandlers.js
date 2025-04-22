@@ -1,5 +1,7 @@
 import { http, HttpResponse } from 'msw';
 import series from './series.json';
+import seminar from './seminarData.json';
+import linker from './linker.json';
 
 export const searchHandlers = [
   //GET /series?keyword
@@ -18,18 +20,37 @@ export const searchHandlers = [
   }),
 
   //GET /seminar?keyword
-  http.get('/seminar', async ({ request }) => {
+  http.get('/search-seminar', async ({ request }) => {
     await sleep(200);
 
-    // URL에서 페이지 정보 가져오기 (기본값 1)
     const url = new URL(request.url);
     const keyword = url.searchParams.get('keyword');
-
-    const filteredSeries = series.filter((item) =>
-      item.title?.includes(keyword)
+    const filteredSeminar = seminar.filter((item) =>
+      item.lecture?.toLowerCase().includes(keyword.toLowerCase())
     );
 
-    return HttpResponse.json(filteredSeries);
+    if (!keyword) {
+      return HttpResponse.json([]);
+    }
+
+    return HttpResponse.json(filteredSeminar);
+  }),
+
+  //GET /linker?keyword
+  http.get('/search-linker', async ({ request }) => {
+    await sleep(200);
+
+    const url = new URL(request.url);
+    const keyword = url.searchParams.get('keyword');
+    const filteredLinker = linker.filter((item) =>
+      item.achievements?.toLowerCase().includes(keyword.toLowerCase())
+    );
+
+    if (!keyword) {
+      return HttpResponse.json([]);
+    }
+
+    return HttpResponse.json(filteredLinker);
   }),
 ];
 

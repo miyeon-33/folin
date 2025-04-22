@@ -16,7 +16,7 @@ export default function VideoSearch({ data }) {
   }
 
   return (
-    <div className="max-sm:top-[8px] px-[24px] max-md:px-[24px] mb-[72px]">
+    <div className="max-sm:top-[8px] px-[24px] max-md:px-[8px] mb-[72px]">
       <div className="max-w-[1200px] mx-auto">
         <div className="pr-[16px] mb-[32px] flex items-center justify-between">
           <div className="flex gap-[4px]">
@@ -34,7 +34,10 @@ export default function VideoSearch({ data }) {
             </button>
           )}
         </div>
-        <div className="flex flex-wrap gap-x-[24px] gap-y-[40px] h-full">
+        <div
+          className="flex flex-wrap gap-x-[24px] gap-y-[40px] h-full"
+          key={filteredData.id}
+        >
           {filteredData.slice(0, visibleCount).map((series, index) => {
             const topicIdCount = data.filter(
               (item) => item.topicId === series.topicId
