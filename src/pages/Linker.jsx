@@ -18,6 +18,16 @@ export default function Linker() {
     queryFn: () => fetch(`/articles/${name}`).then((res) => res.json()),
   });
 
+  // 메모 참조해서 월요일 링커 요청
+  const {
+    data: seminarData,
+    isLoading: seminarLoading,
+    isError: seminarError,
+  } = useQuery({
+    queryKey: ['seminars'],
+    queryFn: () => fetch('/seminars').then((res) => res.json()),
+  });
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {error.message}</div>;
 
