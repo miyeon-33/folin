@@ -13,7 +13,7 @@ export default function SeriesSearch({ data }) {
   }
 
   return (
-    <div className="max-sm:top-[8px] px-[24px] max-md:px-[24px] mb-[72px]">
+    <div className="max-sm:top-[8px] px-[24px] max-md:px-[8px] mb-[72px]">
       <div className=" max-w-[1200px] mx-auto">
         <div className="pr-[16px] mb-[32px] flex items-center justify-between">
           <div className="flex gap-[4px]">
