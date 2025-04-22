@@ -9,11 +9,17 @@ const initTabs = [
   { menu: '링커', contents: '' },
 ];
 
-export default function Tab({ data = [], seminarData = [], linkerData = [] }) {
+export default function Tab({
+  data,
+  total,
+  seminarData = [],
+  linkerData = [],
+}) {
   const [activeTab, setActiveTab] = useState(0);
 
-  const flattenedData = Array.isArray(data) ? data.flat() : [];
-  const filteredData = flattenedData.filter((item) => item.video === 'Y');
+  const filteredData = data?.filter((item) => item.video === 'Y');
+
+  const totalLength = data?.length + seminarData.length + linkerData.length;
 
   return (
     <div className="max-sm:top-[8px] px-[24px] max-md:px-[8px] mb-[72px]">
@@ -30,8 +36,9 @@ export default function Tab({ data = [], seminarData = [], linkerData = [] }) {
                 onClick={() => setActiveTab(index)}
               >
                 {tab.menu}
-                {tab.menu === '시리즈' && <span>{data.length}</span>}
-                {tab.menu === '아티클' && <span>{data.length}</span>}
+                {tab.menu === '전체' && <span>{totalLength}</span>}
+                {tab.menu === '시리즈' && <span>{data?.length}</span>}
+                {tab.menu === '아티클' && <span>{data?.length}</span>}
                 {tab.menu === '비디오' && <span>{filteredData.length}</span>}
                 {tab.menu === '세미나' && <span>{seminarData.length}</span>}
                 {tab.menu === '링커' && <span>{linkerData.length}</span>}
@@ -40,7 +47,7 @@ export default function Tab({ data = [], seminarData = [], linkerData = [] }) {
           </ul>
         </div>
       </div>
-      <div>{initTabs[activeTab].component}</div>
+      {/* <div>{initTabs[activeTab].component}</div> */}
     </div>
   );
 }
