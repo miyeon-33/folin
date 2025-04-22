@@ -8,7 +8,20 @@ import icon2 from '@/assets/images/icon/closebutton.png';
 import see from '@/assets/images/icon/seemorebutton.png';
 import notSee from '@/assets/images/icon/closebutton.png';
 import edit from '@/assets/images/icon/edit.png';
-import { Link, useLocation } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
+
+const keywords = [
+  '마케팅',
+  '기획',
+  '브랜딩',
+  '디자인',
+  '콘텐츠',
+  '신수정',
+  '커리어',
+  'AI',
+  '이직',
+  '트렌드',
+];
 
 export default function Header() {
   const [isToggled, setIsToggled] = useState(false);
@@ -17,6 +30,7 @@ export default function Header() {
   const inputRef = useRef(null);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsToggled(false);
@@ -41,6 +55,19 @@ export default function Header() {
   const handleEditClick = () => {
     setInputValue('');
   };
+
+  function handleSearch() {
+    const searchValue = inputRef.current.value;
+    setInputValue(searchValue);
+
+    navigate(`/search?keyword=${searchValue}`);
+  }
+
+  function handleEnter(e) {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  }
 
   return (
     <div
@@ -111,13 +138,14 @@ export default function Header() {
                   className="flex items-center gap-[8px] py-[4px] rounded-[6px]
             pr-[12px] pl-[6px] bg-[#f7f7f7] h-[40px]"
                 >
-                  <Link
+                  <button
                     className="w-[32px] h-[32px] flex items-center justify-center"
-                    to={'/search'}
+                    onClick={handleSearch}
                   >
                     <img src={see} className="w-[24px] h-[24px]" />
-                  </Link>
+                  </button>
                   <input
+                    onKeyUp={handleEnter}
                     type="text"
                     placeholder="성장의 경험을 찾습니다."
                     ref={inputRef}
@@ -135,85 +163,16 @@ export default function Header() {
                     </button>
                   )}
                 </div>
-                <div className="flex gap-[24px] p-[18px] flex-wrap justify-center">
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={
-                      'https://www.folin.co/search?keyword=%EA%B8%B0%ED%9A%8D'
-                    }
-                  >
-                    기획
-                  </Link>
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={
-                      'https://www.folin.co/search?keyword=%EB%B8%8C%EB%9E%9C%EB%94%A9'
-                    }
-                  >
-                    브랜딩
-                  </Link>
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={
-                      'https://www.folin.co/search?keyword=%EB%A7%88%EC%BC%80%ED%8C%85'
-                    }
-                  >
-                    마케팅
-                  </Link>
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={
-                      'https://www.folin.co/search?keyword=%EB%94%94%EC%9E%90%EC%9D%B8'
-                    }
-                  >
-                    디자인
-                  </Link>
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={
-                      'https://www.folin.co/search?keyword=%EC%BD%98%ED%85%90%EC%B8%A0'
-                    }
-                  >
-                    콘텐츠
-                  </Link>
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={'https://www.folin.co/search?keyword=AI'}
-                  >
-                    AI
-                  </Link>
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={
-                      'https://www.folin.co/search?keyword=%EC%BB%A4%EB%A6%AC%EC%96%B4'
-                    }
-                  >
-                    커리어
-                  </Link>
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={
-                      'https://www.folin.co/search?keyword=%EC%8B%A0%EC%88%98%EC%A0%95'
-                    }
-                  >
-                    신수정
-                  </Link>
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={
-                      'https://www.folin.co/search?keyword=%EC%9D%B4%EC%A7%81'
-                    }
-                  >
-                    이직
-                  </Link>
-                  <Link
-                    className="text-gray-600 font-bold leading-[1.3]"
-                    to={
-                      'https://www.folin.co/search?keyword=%EC%B0%BD%EC%97%85'
-                    }
-                  >
-                    창업
-                  </Link>
+                <div className="flex items-center gap-[24px] justify-center flex-wrap p-[18px]">
+                  {keywords.map((keyword, index) => (
+                    <Link
+                      className="text-gray-600 font-bold leading-[1.3]"
+                      to={`/search?keyword=${keyword}`}
+                      key={index}
+                    >
+                      {keyword}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
