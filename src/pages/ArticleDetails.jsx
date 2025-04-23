@@ -13,7 +13,7 @@ export default function ArticleDetails() {
 
   // 날짜 형식 변경 함수
   const formatDate = (date) => {
-    return date.replace(/-/g, '.');
+    return date?.replace(/-/g, '.');
   };
 
   const { isPending, data, isError, error } = useQuery({
@@ -31,7 +31,6 @@ export default function ArticleDetails() {
     queryFn: () => fetch(`/article/${articleId}`).then((res) => res.json()),
   });
 
-  // const name = articleData.map((article) => article.author).flat();
   const name = articleData?.[0].author;
   const topicId = articleData?.[0].topicId;
 
@@ -43,6 +42,7 @@ export default function ArticleDetails() {
   } = useQuery({
     queryKey: ['linker', name],
     queryFn: () => fetch(`/linker-name/${name}`).then((res) => res.json()),
+    enabled: !!name, // name 값이 있을 때만 페칭 실행
   });
 
   const {
@@ -51,10 +51,11 @@ export default function ArticleDetails() {
     isError: seriesIsError,
     error: seriesError,
   } = useQuery({
-    queryKey: ['series', topicId],
-    queryFn: () => fetch(`/series/${topicId}`).then((res) => res.json()),
+    queryKey: ['series-topic', topicId],
+    queryFn: () => fetch(`/series-topic/${topicId}`).then((res) => res.json()),
+    enabled: !!topicId, // topicId 값이 있을 때만 페칭 실행
   });
-
+  console.log(seriesData, '**');
   const {
     isPending: recommendPending,
     data: recommendData,
@@ -86,11 +87,11 @@ export default function ArticleDetails() {
 
           <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
 
-          <div className="w-full py-[24px]">
+          <div className="w-full">
             <ArticleSummary data={data} />
-          </div>
 
-          <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+            <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
+          </div>
 
           <div className=" flex h-[1000px] justify-center items-center">
             <p
@@ -135,7 +136,7 @@ export default function ArticleDetails() {
               <div className="flex items-baseline gap-x-[24px] text-left">
                 <span className="w-[78px] text-[13px] font-bold">발행일</span>
                 <span className="font-medium">
-                  {formatDate(articleData[0].createdAt)}
+                  {formatDate(articleData?.[0].createdAt)}
                 </span>
               </div>
               <div className="flex items-baseline gap-x-[24px] text-left">
@@ -166,17 +167,17 @@ export default function ArticleDetails() {
             <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
           </div>
         </div>
-        <div
-          className="relative pb-[104px] max-md:pb-[72px] max-sm:pb-[64px] before:absolute before:inset-0 before:mt-auto before:mx-auto before:w-full before:h-[calc(100%+91px)] before:z-0"
-          style={{
-            background: 'linear-gradient(#ebedec00 0%, #ebedec 100%)',
-            '--tw-before-content': '""',
-          }}
-        >
-          <div className="max-w-[1248px] mx-auto px-[24px] max-md:px-[8px]">
-            <NowArticle seriesData={seriesData} articleId={articleId} />
-            <RecommendArticle recommendData={recommendData} />
-          </div>
+      </div>
+      <div
+        className="relative pb-[104px] max-md:pb-[72px] max-sm:pb-[64px] before:absolute before:inset-0 before:mt-auto before:mx-auto before:w-full before:h-[calc(100%+91px)] before:z-0"
+        style={{
+          background: 'linear-gradient(#ebedec00 0%, #ebedec 100%)',
+          '--tw-before-content': '""',
+        }}
+      >
+        <div className="max-w-[1248px] mx-auto px-[24px] max-md:px-[8px]">
+          <NowArticle seriesData={seriesData} articleId={articleId} />
+          <RecommendArticle recommendData={recommendData} />
         </div>
       </div>
     </main>

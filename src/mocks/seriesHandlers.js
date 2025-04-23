@@ -78,7 +78,8 @@ export const seriesHandlers = [
   }),
 
   // GET /series/20
-  http.get('/series/:topicid', async ({ request }) => {
+  http.get('/series-topic/:topicId', async ({ request, params }) => {
+    const { topicId } = params;
     await sleep(200);
 
     // 현재 URL에서 숫자 추출
@@ -97,7 +98,6 @@ export const seriesHandlers = [
         return acc;
       }, {});
     };
-
     // 현재 ID와 같은 항목 찾기
     const filteredItem = series.find((item) => item.id === currentId);
     if (!filteredItem) {
@@ -108,12 +108,10 @@ export const seriesHandlers = [
     const mergedData = Object.values(filteredItem);
     mergedData.reverse();
 
-    // 해당 ID의 topicId 가져오기
-    const topicId = mergedData.topicId;
-
     // topicId에 해당하는 데이터만 필터링
     const groupedData = groupByTopicId(series);
     const filteredData = groupedData[topicId] || [];
+
     return HttpResponse.json(filteredData);
   }),
 

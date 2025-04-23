@@ -24,21 +24,21 @@ export default function ArticleTitle({
               border: `1px solid ${articleData?.[0].color}`,
             }}
           >
-            {articleData[0].topic}
+            {articleData?.[0].topic}
           </div>
         </Link>
         <div
           className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
           style={{
             backgroundColor: '#fff',
-            border: `1px solid ${articleData[0].color}`,
+            border: `1px solid ${articleData?.[0].color}`,
           }}
         >
-          {articleData[0].tag}
+          {articleData?.[0].tag}
         </div>
       </div>
       <h1 className="text-[28px] font-bold leading-[130%]">
-        {articleData[0].title}
+        {articleData?.[0].title}
       </h1>
       <div className="flex mt-[26px] mb-[28px] justify-between items-center">
         <div className="flex items-center gap-[8px]">
@@ -120,16 +120,16 @@ export default function ArticleTitle({
       </div>
       <div className="mb-[64px] max-sm:mb-[40px]">
         <Link
-          to={`/linker/${linkerData?.[0].id}`}
+          to={`/linker/${linkerData?.[0]?.id}`}
           className="flex gap-[4px] items-center text-[#111]"
         >
           <img
-            src={linkerData?.[0].photo}
+            src={linkerData?.[0]?.photo}
             alt="프로필"
             className="w-[32px] h-[32px] rounded-[50%] object-cover"
           />
-          <span className="font-bold">{linkerData?.[0].name}</span>
-          <span className="font-medium">{linkerData?.[0].job}</span>
+          <span className="font-bold">{linkerData?.[0]?.name}</span>
+          <span className="font-medium">{linkerData?.[0]?.job}</span>
         </Link>
       </div>
     </div>

@@ -5,7 +5,7 @@ export default function SeriesList({ topic }) {
   return (
     <div className="mb-[48px]">
       <Link
-        className="inline-block transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
+        className="inline-block w-full transition-all text-[#111] hover:text-point1 hover:-translate-y-[16px] duration-300"
         onClick={() => {
           window.location.href = `/series/${topic[0].topicId}`;
         }}

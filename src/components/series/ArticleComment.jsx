@@ -7,6 +7,12 @@ import { useState } from 'react';
 export default function ArticleComment({ data }) {
   // 별점매기기
   const [hoverIndex, setHoverIndex] = useState(-1);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
+  const handleClick = (index) => {
+    setSelectedIndex(index);
+  };
+
   // textarea내용유무
   const [text, setText] = useState('');
 
@@ -21,11 +27,16 @@ export default function ArticleComment({ data }) {
           {[...Array(5)].map((_, index) => (
             <img
               key={index}
-              src={index <= hoverIndex ? starG : star}
+              src={
+                index <= (hoverIndex >= 0 ? hoverIndex : selectedIndex)
+                  ? starG
+                  : star
+              }
               alt="별점"
               className="cursor-pointer transition-all w-[32px] h-[32px]"
               onMouseEnter={() => setHoverIndex(index)}
               onMouseLeave={() => setHoverIndex(-1)}
+              onClick={() => handleClick(index)}
             />
           ))}
         </div>
