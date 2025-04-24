@@ -5,6 +5,7 @@ import ArticleBox from '@/components/series/ArticleBox';
 import SeriesPagination from '@/components/series/SeriesPagination';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import Membership from '@/components/home/Membership';
 
 export default function Article() {
   // 현재 페이지 상태 추가
@@ -68,6 +69,7 @@ export default function Article() {
             />
           </div>
         </div>
+        <Membership />
       </div>
     </main>
   );

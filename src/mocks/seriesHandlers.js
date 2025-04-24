@@ -77,6 +77,15 @@ export const seriesHandlers = [
     return HttpResponse.json(filteredData);
   }),
 
+  // GET /series/name
+  http.get('/series/:name', async ({ params }) => {
+    const { name } = params;
+    await sleep(200);
+
+    const filteredData = series.filter((item) => item.author === name);
+    return HttpResponse.json(filteredData);
+  }),
+
   // GET /series/20
   http.get('/series-topic/:topicId', async ({ request, params }) => {
     const { topicId } = params;
