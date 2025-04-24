@@ -6,7 +6,7 @@ import ArticleTitle from '@/components/series/ArticleTitle';
 import ArticleComment from '@/components/series/ArticleComment';
 import NowArticle from '@/components/series/NowArticle';
 import RecommendArticle from '@/components/series/RecommendArticle';
-import Membership from '@/components/home/Membership';
+import Membership from '@/components/Membership';
 
 export default function ArticleDetails() {
   // URL에서 topicId 가져오기
