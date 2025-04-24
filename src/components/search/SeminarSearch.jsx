@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
-export default function SeminarSearch({ data }) {
+export default function SeminarSearch({ data, setShowSeminar, showSeminar }) {
   const [visibleCount, setVisibleCount] = useState(4);
 
   useEffect(() => {
@@ -21,8 +21,14 @@ export default function SeminarSearch({ data }) {
     };
   }, []);
 
-  const showAll = () => {
-    setVisibleCount(data.length);
+  useEffect(() => {
+    if (showSeminar) {
+      setVisibleCount(data?.length);
+    }
+  }, [showSeminar]);
+
+  const handleClick = () => {
+    setShowSeminar(true);
   };
 
   if (!data || data.length === 0) {
@@ -42,7 +48,7 @@ export default function SeminarSearch({ data }) {
           {visibleCount < data.length && (
             <button
               className="text-[12px] font-normal leading-[1.3] underline"
-              onClick={showAll}
+              onClick={handleClick}
             >
               세미나 더 보기
             </button>

@@ -1,13 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
-export default function VideoSearch({ data, total }) {
+export default function VideoSearch({ data, total, setShowVideo, showVideo }) {
   const [visibleCount, setVisibleCount] = useState(6);
 
   const filteredData = data?.filter((item) => item.video === 'Y');
 
-  const showAll = () => {
-    setVisibleCount(filteredData.length);
+  useEffect(() => {
+    if (showVideo) {
+      setVisibleCount(filteredData?.length);
+    }
+  }, [showVideo]);
+
+  const handleClick = () => {
+    setShowVideo(true);
   };
 
   if (!data || data?.length === 0) {
@@ -27,14 +33,14 @@ export default function VideoSearch({ data, total }) {
           {visibleCount < filteredData?.length && (
             <button
               className="text-[12px] font-normal leading-[1.3] underline"
-              onClick={showAll}
+              onClick={handleClick}
             >
               비디오 더 보기
             </button>
           )}
         </div>
         <div className="flex flex-wrap gap-x-[24px] gap-y-[40px] h-full">
-          {data?.slice(0, visibleCount).map((series, index) => (
+          {filteredData?.slice(0, visibleCount).map((series, index) => (
             <div
               className="[width:calc(33.3333%-16px)] mb-[88px] relative hover:-translate-y-5 transition-transform
             duration-500 group"
