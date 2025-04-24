@@ -3,9 +3,9 @@ import TopMenu from '@/components/series/TopMenu';
 import ArrayButton from '@/components/series/ArrayButton';
 import VideoBox from '@/components/series/VideoBox';
 import SeriesPagination from '@/components/series/SeriesPagination';
+import Membership from '@/components/Membership';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import Membership from '@/components/Membership';
 
 export default function Video() {
   // 현재 페이지 상태 추가
