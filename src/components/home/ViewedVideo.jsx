@@ -53,7 +53,7 @@ export default function ViewedVideo() {
             >
               <Link
                 key={slide.id}
-                to={`/articles/${slide.id}`}
+                to={`/video/${slide.id}`}
                 className="text-[18px] text-[#111] font-semibold block relative "
               >
                 <div className="">

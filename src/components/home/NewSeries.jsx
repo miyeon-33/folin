@@ -57,7 +57,7 @@ export default function NewSeries() {
         >
           <Link
             key={latest?.id}
-            to={`/articles/${latest?.id}`}
+            to={`/video/${latest?.id}`}
             className="text-[18px] text-[#111] font-semibold block relative "
           >
             <div className="">
@@ -105,17 +105,16 @@ export default function NewSeries() {
             </div>
           </Link>
         </div>
-
         {/* 3번 */}
         <div
           className="[width:calc(50%-12px)] pt-[364px] max-md:pt-0 max-md:w-[520px] pl-[32px]
         max-md:pl-0 max-md:hidden"
         >
           <div className="">
-            {latestItems?.map((item) => (
+            {latestItems?.map((item, index) => (
               <Link
                 key={item.id}
-                to={`/articles/${item.id}`}
+                to={index === 0 ? `/article/${item.id}` : `/video/${item.id}`}
                 className="hover:-translate-x-5 transition-transform group pl-[16px] 
         duration-500  flex w-full items-center gap-[8px] mb-[4px] py-[8px] px-[10px]
             bg-[#fff] rounded-[6px] max-md:hidden"
@@ -141,7 +140,7 @@ export default function NewSeries() {
           {latestItems?.map((item) => (
             <Link
               key={item.id}
-              to={`/articles/${item.id}`}
+              to={`/article/${item.id}`}
               className="text-[18px] text-[#111] font-semibold block relative mb-[20px] max-sm:mb-[40px]"
             >
               <div className="max-md:w-[143px]  ">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
-export default function SeriesSearch({ data, total, setShowMore, showMore }) {
+export default function SeriesSearch({ data, total, showMore, setShowMore }) {
   const [visibleCount, setVisibleCount] = useState(2);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function SeriesSearch({ data, total, setShowMore, showMore }) {
   };
 
   if (!data || data?.length === 0) {
-    return <p>검색 결과가 없습니다.</p>;
+    return <p className="text-center mb-[20px]">검색 결과가 없습니다.</p>;
   }
 
   return (
@@ -51,7 +51,8 @@ export default function SeriesSearch({ data, total, setShowMore, showMore }) {
                 </div>
                 <div
                   className="h-[40px] border bg-[#fff] transition-transform duration-300
-                    rounded-[6px] py-[8px] px-[12px] break-keep group-hover:translate-y-[-15px]"
+                    rounded-[6px] py-[8px] px-[12px] text-gray-600 font-bold
+                    break-keep group-hover:translate-y-[-15px]"
                   style={{ border: `1px solid ${series.color}` }}
                 >
                   {total?.[index] > 0 ? `${total?.[index]}화` : '0화'}

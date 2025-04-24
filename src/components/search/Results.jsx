@@ -52,7 +52,7 @@ export default function Results({ keyword, setSearchParams }) {
             <input
               onKeyUp={handleEnter}
               ref={inputRef}
-              defaultValue={inputValue}
+              value={inputValue}
               onChange={handleInputChange}
               type="text"
               placeholder="성장의 경험을 찾습니다."

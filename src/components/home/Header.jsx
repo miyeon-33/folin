@@ -23,14 +23,47 @@ const keywords = [
   '트렌드',
 ];
 
-export default function Header() {
+export default function Header({ keyword, setSearchParams }) {
   const [isToggled, setIsToggled] = useState(false);
   const [isSee, setIsSee] = useState(false);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(keyword || '');
   const inputRef = useRef(null);
 
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (keyword) {
+      setInputValue(keyword);
+      const params = new URLSearchParams();
+      params.set('keyword', keyword);
+      setSearchParams(params);
+    }
+  }, [keyword, setSearchParams]);
+
+  function handleInputChange(e) {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+
+    const params = new URLSearchParams();
+    params.set('keyword', newValue);
+    setSearchParams(params);
+  }
+
+  function handleSearch() {
+    const searchValue = inputRef.current.value;
+    setInputValue(searchValue);
+
+    const params = new URLSearchParams();
+    params.set('keyword', searchValue);
+    setSearchParams(params);
+  }
+
+  function handleEnter(e) {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  }
 
   useEffect(() => {
     setIsToggled(false);
@@ -61,6 +94,7 @@ export default function Header() {
     setInputValue(searchValue);
 
     navigate(`/search?keyword=${searchValue}`);
+    setIsSee(false);
   }
 
   function handleEnter(e) {
@@ -104,12 +138,14 @@ export default function Header() {
           </Link>
         </button>
         <div className="flex items-center gap-[6px] absolute right-[6px]">
-          <button
-            className="btn text-[12px] font-bold text-[#fff] bg-[#111] rounded-[9px] 
+          <Link to={'/introduction'}>
+            <button
+              className="btn text-[12px] font-bold text-[#fff] bg-[#111] rounded-[9px] 
         leading-[16px] py-[6px] px-[10px] border-0 max-sm:hidden block"
-          >
-            멤버십 구독
-          </button>
+            >
+              멤버십 구독
+            </button>
+          </Link>
           <Link to={'/login'}>
             <button
               className="btn text-[12px] font-bold text-[#111] bg-[#fff] rounded-[9px] 
@@ -149,8 +185,8 @@ export default function Header() {
                     type="text"
                     placeholder="성장의 경험을 찾습니다."
                     ref={inputRef}
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
+                    defaultValue={inputValue}
+                    onChange={handleInputChange}
                     className="border-0 text-ellipsis whitespace-nowrap font-medium leading-[1.3]
                     caret-point1 placeholder:text-gray-500 w-full py-[1px] px-[2px]"
                   />
@@ -169,6 +205,7 @@ export default function Header() {
                       className="text-gray-600 font-bold leading-[1.3]"
                       to={`/search?keyword=${keyword}`}
                       key={index}
+                      onClick={() => setIsSee(false)}
                     >
                       {keyword}
                     </Link>

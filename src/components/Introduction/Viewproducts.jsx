@@ -3,7 +3,7 @@ import mLogo from '@/assets/images/icon/membership-logo.png';
 
 export default function Viewproducts() {
   return (
-    <div className="w-full px-[24px] max-sm:px-[8px]">
+    <div className="w-full px-[24px] max-md:px-[8px] max-sm:px-[8px]">
       <div
         className=" bg-point1 rounded-[6px] pt-[80px] pb-[64px] max-sm:pb-[8px]
   text-center max-w-[1200px] mx-auto h-auto "

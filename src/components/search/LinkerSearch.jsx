@@ -32,7 +32,7 @@ export default function LinkerSearch({ data, setShowLinker, showLinker }) {
   };
 
   if (!data || data.length === 0) {
-    return <p>검색 결과가 없습니다.</p>;
+    return <p className="text-center mb-[20px]">검색 결과가 없습니다.</p>;
   }
   return (
     <div className="max-sm:top-[8px] px-[24px] max-md:px-[8px] pb-[104px]">

@@ -32,7 +32,7 @@ export default function SeminarSearch({ data, setShowSeminar, showSeminar }) {
   };
 
   if (!data || data.length === 0) {
-    return <p>검색 결과가 없습니다.</p>;
+    return <p className="text-center mb-[20px]">검색 결과가 없습니다.</p>;
   }
 
   return (
