@@ -168,7 +168,6 @@ export default function ArticleDetails() {
             <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
           </div>
         </div>
-        <Membership />
       </div>
       <div
         className="relative pb-[104px] max-md:pb-[72px] max-sm:pb-[64px] before:absolute before:inset-0 before:mt-auto before:mx-auto before:w-full before:h-[calc(100%+91px)] before:z-0"
@@ -181,6 +180,7 @@ export default function ArticleDetails() {
           <NowArticle seriesData={seriesData} articleId={articleId} />
           <RecommendArticle recommendData={recommendData} />
         </div>
+        <Membership />
       </div>
     </main>
   );
