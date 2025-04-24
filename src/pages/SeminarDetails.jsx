@@ -2,23 +2,38 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import open from '@/assets/images/rhr/open.png';
-import LinkerView from '@/components/series/LinkerView';
+import { useNavigate } from 'react-router';
 
 export default function SeminarDetails() {
   const { articleId } = useParams();
+  const navigate = useNavigate();
 
   const { isLoading, data, isError, error } = useQuery({
     queryKey: ['seminar', articleId],
     queryFn: () => fetch(`/seminar/${articleId}`).then((res) => res.json()),
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error: {error.message}</div>;
+  if (isLoading)
+    return (
+      <div className="h-[1300px] w-[100%] bg-[#ebedec] flex justify-center items-center">
+        <p className="font-bold">Loading...</p>
+      </div>
+    );
+  if (isError)
+    return (
+      <div className="h-[1300px] w-[100%] bg-[#ebedec] flex justify-center items-center">
+        <p className="font-bold">Error: {error.message}</p>
+      </div>
+    );
+
+  function handleProfileClick() {
+    navigate(`/linker/${data?.id}`);
+  }
 
   return (
     <main className="bg-[#ebedec]">
       <div className="max-w-[520px] h-[100%] mx-auto flex">
-        <div className="mt-[102px] mb-[40px]">
+        <div className="mt-[102px] mb-[40px] ">
           <div className="flex justify-center ml-[10px]">
             <img
               src={data?.image}
@@ -54,8 +69,21 @@ export default function SeminarDetails() {
           </div>
 
           <div className="flex flex-col mt-[40px]">
+            <p className="text-[#00aa73] m-auto text-[12px] font-bold leading-[30px]">
+              {data?.key.map((keyItem, index) => (
+                <span key={index} className="mr-[10px] cursor-default">
+                  {keyItem}
+                </span>
+              ))}
+            </p>
+
             <h3 className="font-bold text-center text-[28px]">{data?.title}</h3>
-            <p className="text-[15px] text-center mt-[20px]">
+            <p className="text-[15px] text-center mt-[20px] items-center leading-[30px] ">
+              <img
+                src={data?.profile}
+                alt={data?.name}
+                className="rounded-[50%] w-[34px] h-[34px] mr-[10px]"
+              />
               <strong className="font-bold mr-[10px]">{data?.name}</strong>
               {data?.subtitle}
             </p>
@@ -149,8 +177,21 @@ export default function SeminarDetails() {
             </div>
 
             {/* 프로필 */}
-            <div className="mt-[20px]">
-              <LinkerView />
+            <div className="mt-[20px] flex items-start gap-[24px]">
+              <img
+                src={data?.profile}
+                alt={data?.name}
+                className="rounded-[50%] h-[96px] w-[96px]"
+                onClick={handleProfileClick}
+                style={{ cursor: 'pointer' }}
+              />
+              <div className="flex flex-col">
+                <strong className="font-bold text-[18px]">{data?.name}</strong>
+                <p className="text-[18px] cursor-default">{data?.subtitle}</p>
+                <p className="m-[24px_0_24px] text-[18px] leading-[200%] ">
+                  {data?.bio}
+                </p>
+              </div>
             </div>
 
             <div className="">
