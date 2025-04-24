@@ -13,6 +13,8 @@ import { useState } from 'react';
 export default function SeriesDetails() {
   // URL에서 topicId 가져오기
   const { topicId } = useParams();
+  // 팝업제어
+  const [isPopupVisible, setPopupVisible] = useState(false);
 
   const { isPending, data, isError, error } = useQuery({
     queryKey: ['series', topicId],
@@ -30,9 +32,6 @@ export default function SeriesDetails() {
   const formatDate = (date) => {
     return date.replace(/-/g, '.');
   };
-
-  // 팝업제어
-  const [isPopupVisible, setPopupVisible] = useState(false);
 
   return (
     <main className="bg-[#ebedec]">

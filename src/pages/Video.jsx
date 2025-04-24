@@ -5,6 +5,7 @@ import VideoBox from '@/components/series/VideoBox';
 import SeriesPagination from '@/components/series/SeriesPagination';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import Membership from '@/components/home/Membership';
 
 export default function Video() {
   // 현재 페이지 상태 추가
@@ -68,6 +69,7 @@ export default function Video() {
             />
           </div>
         </div>
+        <Membership />
       </div>
     </main>
   );

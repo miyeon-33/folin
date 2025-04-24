@@ -6,6 +6,7 @@ import ArticleTitle from '@/components/series/ArticleTitle';
 import ArticleComment from '@/components/series/ArticleComment';
 import NowArticle from '@/components/series/NowArticle';
 import RecommendArticle from '@/components/series/RecommendArticle';
+import Membership from '@/components/home/Membership';
 
 export default function ArticleDetails() {
   // URL에서 topicId 가져오기
@@ -98,7 +99,7 @@ export default function ArticleDetails() {
               className="text-center text-gray-400"
               style={{ whiteSpace: 'pre-line', lineHeight: '2' }}
             >
-              {data[0].contents}
+              {data?.[0].contents}
             </p>
           </div>
           <div className="flex flex-col items-center bg-point1 rounded-[6px] py-[40px] px-[66px]">
@@ -167,6 +168,7 @@ export default function ArticleDetails() {
             <div className="w-[588px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
           </div>
         </div>
+        <Membership />
       </div>
       <div
         className="relative pb-[104px] max-md:pb-[72px] max-sm:pb-[64px] before:absolute before:inset-0 before:mt-auto before:mx-auto before:w-full before:h-[calc(100%+91px)] before:z-0"
