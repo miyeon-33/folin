@@ -9,13 +9,11 @@ export default function Linker() {
     queryKey: ['linkers', id],
     queryFn: () => fetch(`/linkers/${id}`).then((res) => res.json()),
   });
-  console.log(data, '===');
 
   const name = data?.[0]?.name;
-
-  const { isLoading: articleIsLoading, data: articleData } = useQuery({
-    queryKey: ['article', name],
-    queryFn: () => fetch(`/articles/${name}`).then((res) => res.json()),
+  const { isLoading: seriesIsLoading, data: seriesData } = useQuery({
+    queryKey: ['series-name', name],
+    queryFn: () => fetch(`/series-name/${name}`).then((res) => res.json()),
   });
 
   const { data: seminarData, isLoading: seminarLoading } = useQuery({
@@ -55,19 +53,19 @@ export default function Linker() {
           <p className="text-[15px] mb-[50px] font-medium">{data[0].job}</p>
 
           <div className="border-b-[1px] border-t-[1px] border-[#00d48d] w-[100%] p-[40px_0] max-w-[386px] m-auto">
-            <p className="text-[18px]  leading-[180%] font-medium">
+            <p className="text-[18px] leading-[180%] font-medium">
               {data[0].achievements}
             </p>
           </div>
 
-          {/* 아티클 데이타 가져와 사용 */}
+          {/* 아티클 데이타(series) 가져와 사용 */}
           <div className="mt-[30px] max-w-[400px] m-auto">
             <h3 className="font-bold text-[18px] mb-[40px] text-center">
               아티클·비디오
             </h3>
-            {articleData?.length > 0 && (
-              <ul className="m-[0_0_40px] flex gap-4 p-[20px_20px_20px_20px]">
-                {articleData.map((item) => (
+            {seriesData?.length > 0 && (
+              <ul className="m-[0_0_40px] flex gap-4 p-[10px_10px_10px_10px] ">
+                {seriesData.map((item) => (
                   <li key={item.id}>
                     <ArticleBox art={item} />
                   </li>

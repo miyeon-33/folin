@@ -33,7 +33,7 @@ export default function Login() {
               ref={inputRef}
               placeholder="이메일 주소"
               title="이메일 주소"
-              className="w-[100%] h-[48px] bg-white border-0 rounded-[8px] p-[12px_16px] hover:outline hover:outline-[#00d48d] hover:outline-[1px] caret-[#00d48d]"
+              className="w-[100%] h-[48px] bg-white border-0 rounded-[8px] p-[12px_16px] hover:outline-[#00d48d] hover:outline-[1px] caret-[#00d48d]"
             />
           </form>
         </div>
@@ -45,7 +45,7 @@ export default function Login() {
               ref={inputRef}
               placeholder="비밀번호 입력"
               title="비밀번호 입력"
-              className=" w-[100%] h-[48px] bg-white border-0 rounded-[8px] p-[12px_16px] hover:outline hover:outline-[#00d48d] hover:outline-[1px] caret-[#00d48d]"
+              className=" w-[100%] h-[48px] bg-white border-0 rounded-[8px] p-[12px_16px] hover:outline-[#00d48d] hover:outline-[1px] caret-[#00d48d]"
             ></input>
             <button
               type="button"
