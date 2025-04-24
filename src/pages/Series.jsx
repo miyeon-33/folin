@@ -5,9 +5,9 @@ import SeriesView from '@/components/series/SeriesView';
 import SeriesBox from '@/components/series/SeriesBox';
 import SeriesList from '@/components/series/SeriesList';
 import SeriesPagination from '@/components/series/SeriesPagination';
+import Membership from '@/components/Membership';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import Membership from '@/components/Membership';
 
 export default function Series() {
   // 현재 페이지 상태 추가

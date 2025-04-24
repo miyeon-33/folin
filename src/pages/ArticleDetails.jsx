@@ -170,7 +170,7 @@ export default function ArticleDetails() {
         </div>
       </div>
       <div
-        className="relative pb-[104px] max-md:pb-[72px] max-sm:pb-[64px] before:absolute before:inset-0 before:mt-auto before:mx-auto before:w-full before:h-[calc(100%+91px)] before:z-0"
+        className="relative before:absolute before:inset-0 before:mt-auto before:mx-auto before:w-full before:h-[calc(100%+91px)] before:z-0"
         style={{
           background: 'linear-gradient(#ebedec00 0%, #ebedec 100%)',
           '--tw-before-content': '""',
