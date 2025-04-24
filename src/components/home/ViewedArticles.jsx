@@ -54,7 +54,7 @@ export default function ViewedArticles() {
             >
               <Link
                 key={slide.id}
-                to={`/articles/${slide.id}`}
+                to={`/article/${slide.id}`}
                 className="text-[18px] text-[#111] font-semibold block relative "
               >
                 <div className="">

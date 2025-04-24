@@ -1,6 +1,6 @@
 import HomeSeries from '@/components/home/HomeSeries';
 import Keyword from '@/components/home/Keyword';
-import Membership from '@/components/home/Membership';
+import Membership from '@/components/Membership';
 import NewSeries from '@/components/home/NewSeries';
 import NextSeminar from '@/components/home/NextSeminar';
 import Shorts from '@/components/home/Shorts';

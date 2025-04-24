@@ -37,7 +37,7 @@ export default function ArticleSearch({
   };
 
   if (!data || data?.length === 0) {
-    return <p>검색 결과가 없습니다.</p>;
+    return <p className="text-center mb-[20px]">검색 결과가 없습니다.</p>;
   }
 
   return (
@@ -99,7 +99,7 @@ export default function ArticleSearch({
                       {series.topic}
                     </div>
                     <div
-                      className="border border-[#f2ec72] break-keep text-[12px] py-[6px] px-[8px] rounded-[6px]"
+                      className="border border-[#f2ec72] break-keep text-[12px] font-bold py-[6px] px-[8px] rounded-[6px]"
                       style={{ border: `1px solid ${series.color}` }}
                     >
                       {total?.[index] > 0 ? `${total?.[index]}화` : '0화'}

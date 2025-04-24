@@ -3,14 +3,15 @@ import Person from '/images/ymy/nextseminar1.jpg';
 import Person2 from '/images/ymy/nextseminar2.jpg';
 import Logo2 from '@/assets/images/nextseminar.png';
 
-const seminarLink = [{ id: 1, path: '/seminar/:articleId' }];
+const seminarLink = [{ id: 1, path: '/seminar/1' }];
+const seminarLink2 = [{ id: 1, path: '/seminar/2' }];
 
 export default function NextSeminar() {
   return (
     <div className="px-[24px] max-sm:px-[8px] max-w-[1200px] mb-[104px] mx-auto">
       {/* 1번 */}
       <div className="mb-[64px]">
-        {seminarLink.map((seminar) => (
+        {seminarLink2.map((seminar) => (
           <Link
             key={seminar.id}
             to={seminar.path}

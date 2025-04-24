@@ -11,7 +11,7 @@ import { useQuery } from '@tanstack/react-query';
 import styles from './Slides.module.css';
 
 const menus = [{ path: '/article/:articleId', menu: '아티클' }];
-const arrowMenus = [{ path: '/series/:articleId', menu: '시리즈' }];
+const arrowMenus = [{ path: '/article/:articleId', menu: '시리즈' }];
 
 export default function HomeSeries() {
   const [hovered, setHovered] = useState(false);
@@ -65,7 +65,7 @@ export default function HomeSeries() {
             >
               <Link
                 key={slide.id}
-                to={`/series/${slide.id}`}
+                to={`/article/${slide.id}`}
                 className="text-[18px] text-[#111] font-semibold block relative "
               >
                 <div className="">
