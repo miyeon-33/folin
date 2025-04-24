@@ -78,7 +78,7 @@ export const seriesHandlers = [
   }),
 
   // GET /series/name
-  http.get('/series/:name', async ({ params }) => {
+  http.get('/series-name/:name', async ({ params }) => {
     const { name } = params;
     await sleep(200);
 
