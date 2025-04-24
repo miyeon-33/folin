@@ -29,7 +29,20 @@ export default function VideoDetails() {
     }
   }
 
-  // 다음날 비디오 디테일 핸들러 요청
+  // 별점
+  const [hoverIndex, setHoverIndex] = useState(-1);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
+  const handleClick = (index) => {
+    setSelectedIndex(index);
+  };
+
+  // const { isLoading: postIsLoading, data: postData } = useQuery({
+  //   queryKey: ['post', articleId],
+  //   queryFn: () => fetch(`/post/${articleId}`).then((res) => res.json()),
+  // });
+
+  //비디오 디테일 핸들러 요청
   const { isLoading, data, isError, error } = useQuery({
     queryKey: ['videoDetails', articleId],
     queryFn: () =>
@@ -62,7 +75,7 @@ export default function VideoDetails() {
 
   return (
     <>
-      <main className=" p-[172px_24px_160px_24px]">
+      <main className=" p-[112px_24px_160px_24px]">
         <div className="flex flex-col justify-center items-center m-auto max-w-[1200px] h-[100%] pt-[64px]">
           <div className="">
             <iframe
@@ -73,7 +86,7 @@ export default function VideoDetails() {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="rounded-2xl"
+              className="rounded-[6px]"
             ></iframe>
           </div>
         </div>
@@ -114,7 +127,7 @@ export default function VideoDetails() {
               {data.key.map((keyItem, index) => (
                 <span
                   key={index}
-                  className="mr-[10px] cursor-pointer underline"
+                  className="mr-[10px] cursor-pointer no-underline"
                   onClick={() => navigate(`/search?keyword=${keyItem}`)}
                 >
                   {keyItem}
@@ -160,13 +173,22 @@ export default function VideoDetails() {
           </div>
 
           <div className="flex items-center h-[30px] gap-[8px] mb-[40px]">
-            <img
-              src={data.proplie}
-              alt={data.name}
-              className="rounded-[50%] w-[32px] h-[32px] "
-            />
-            <strong className="font-bold mr-[3px]">{data.name}</strong>
-            <p>{data.job}</p>
+            <Link
+              to={`/linker/${data.linkerId}`}
+              className="flex gap-[10px] leading-[30px]"
+            >
+              <img
+                src={data.proplie}
+                alt={data.name}
+                className="rounded-[50%] w-[32px] h-[32px] flex"
+              />
+              <div className="flex flex-col">
+                <strong className="font-bold mr-[3px] flex">{data.name}</strong>
+              </div>
+              <div className="flex">
+                <p>{data.job}</p>
+              </div>
+            </Link>
           </div>
 
           <span className="border-t-[1px] border-[#00d48d] w-[100%]"></span>
@@ -175,58 +197,79 @@ export default function VideoDetails() {
             <h3 className="font-bold text-[24px]">{data.title}</h3>
 
             <p className="text-[18px] mt-[60px] leading-[180%]">
-              <h2 className="font-bold text-[18px] mb-[5px]">
-                Q.링커들의 노하우와 비결은 뭘까요?
-              </h2>
-              A. 그건 바로 <strong className="font-bold">지속적인 능력</strong>
-              이죠. 단순히 기술을 익히는 것이 아니라, 변화를 받아들이고 계속해서
-              적응하는 태도가 중요해요. 상황에 따라 새로운 방식으로 접근할 줄
-              아는 유연함도 필수예요. 결국,
-              <strong className="font-bold">끊임없는 배움과 실천</strong>
-              이야말로 진짜 비결이죠.
+              <strong className="font-bold text-[18px] mb-[5px]">
+                Q. 링커들의 노하우와 비결은 뭘까요?
+              </strong>
             </p>
 
-            <p className="text-[18px] mt-[60px] leading-[180%]">
-              <h2 className="font-bold text-[18px] mb-[5px]">
-                Q.노하우는 어떻게 쌓아오는 걸까요?
-              </h2>
-              A. 노하우는 쌓으려고 쌓는게 아니에요. 숨쉬듯 만들어가는거죠. 사실
-              만들려고 의도했다기 보단 문제점을 파악하고 고쳐나가는게 가장
-              중요했어요.
-            </p>
+            <div className="text-[18px] mt-[20px] leading-[180%]">
+              <p>
+                A. 그건 바로
+                <strong className="font-bold">지속적인 능력</strong>이죠.
+              </p>
+              <p>
+                단순히 기술을 익히는 것이 아니라, 변화를 받아들이고 계속해서
+                적응하는 태도가 중요해요.
+              </p>
+              <p>
+                상황에 따라 새로운 방식으로 접근할 줄 아는 유연함도 필수예요.
+                결국,
+                <strong className="font-bold">끊임없는 배움과 실천</strong>
+                이야말로 진짜 비결이죠.
+              </p>
+            </div>
 
-            <p className="text-[18px] mt-[50px] mb-[30px] leading-[180%]">
-              <h2 className="font-bold text-[18px] mb-[5px]">Q.어떻게요?</h2>
-              A. 사실 의외로 단순해서, 말하기 민망할 정도지만 그냥 해보세요.
-              일단 부딛쳐보고 문제부터 찾아야해요. 문제도 모르니까 갑갑하고
-              답답해서 미치는거에요.
-            </p>
+            <div className="mt-[60px] leading-[180%]">
+              <p className="text-[18px] mb-[20px]">
+                <strong className="font-bold text-[18px] mb-[5px]">
+                  Q. 노하우는 어떻게 쌓아오는 걸까요?
+                </strong>
+              </p>
+              <p className="text-[18px]">
+                A. 노하우는 쌓으려고 쌓는게 아니에요. 숨쉬듯 만들어가는거죠.
+                사실 만들려고 의도했다기 보단 문제점을 파악하고 고쳐나가는게
+                가장 중요했어요.
+              </p>
+            </div>
+
+            <div className="mt-[50px] mb-[30px] leading-[180%]">
+              <p className="text-[18px] mb-[20px]">
+                <strong className="font-bold text-[18px] mb-[5px]">
+                  Q. 어떻게요?
+                </strong>
+              </p>
+              <p className="text-[18px]">
+                A. 사실 의외로 단순해서, 말하기 민망할 정도지만 그냥 해보세요.
+                일단 부딛쳐보고 문제부터 찾아야해요. 문제도 모르니까 갑갑하고
+                답답해서 미치는거에요.
+              </p>
+            </div>
           </div>
 
           <div className="border-[#00d48d] border-t-[1px] flex flex-col text-[15px] gap-[20px] m-[24px_0_24px]">
             <div className="flex items-start gap-[8px] mt-[24px]">
-              <span className="font-bold">발행일</span>
-              <div className="flex-col gap-[8px]">
-                <p>2025.04.16</p>
+              <span className="font-bold mr-[70px] text-[13px]">발행일</span>
+              <div className="flex-col gap-[8px] ">
+                <p>{data.createdAt}</p>
               </div>
             </div>
 
             <div className="flex items-center justify-between gap-[8px]">
-              <span className="font-bold">PD</span>
-              <div className="flex-col gap-[8px] mr-[250px]">
+              <span className="font-bold text-[13px]">PD</span>
+              <div className="flex-col gap-[8px] mr-[400px]">
                 <p>김수진</p>
               </div>
             </div>
             <div className="flex items-center justify-between gap-[8px]">
-              <span className="font-bold">에디터</span>
-              <div className="flex-col gap-[8px] mr-[250px]">
+              <span className="font-bold text-[13px]">에디터</span>
+              <div className="flex-col gap-[8px] mr-[400px]">
                 <p>채진솔</p>
                 <p>김다희</p>
               </div>
             </div>
             <div className="flex items-center justify-between gap-[8px]">
-              <span className="font-bold">디자이너</span>
-              <div className="flex-col gap-[8px] mr-[250px]">
+              <span className="font-bold text-[13px]">디자이너</span>
+              <div className="flex-col gap-[8px] mr-[400px]">
                 <p>이수연</p>
               </div>
             </div>
@@ -238,64 +281,21 @@ export default function VideoDetails() {
             {/* 별 */}
             <Link to="/Login">
               <div className="flex mb-[10px]">
-                <div
-                  className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
-                    isRate
-                      ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                      : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                  }`}
-                  style={{
-                    backgroundSize: '35px',
-                  }}
-                ></div>
-                <div className="flex">
-                  <div
-                    className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
-                      isRate
-                        ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                        : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                    }`}
-                    style={{
-                      backgroundSize: '35px',
-                    }}
-                  ></div>
-                </div>
-                <div className="flex">
-                  <div
-                    className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
-                      isRate
-                        ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                        : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                    }`}
-                    style={{
-                      backgroundSize: '35px',
-                    }}
-                  ></div>
-                </div>
-                <div className="flex">
-                  <div
-                    className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
-                      isRate
-                        ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                        : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                    }`}
-                    style={{
-                      backgroundSize: '35px',
-                    }}
-                  ></div>
-                </div>
-                <div className="flex">
-                  <div
-                    className={`inset-0 bg-no-repeat bg-center w-[40px] h-[40px] ${
-                      isRate
-                        ? 'bg-transparent bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                        : 'bg-[url("/images/bhj/star.png")] hover:bg-[url("/images/bhj/star-on.png")]'
-                    }`}
-                    style={{
-                      backgroundSize: '35px',
-                    }}
-                  ></div>
-                </div>
+                {[...Array(5)].map((_, index) => (
+                  <img
+                    key={index}
+                    src={
+                      index <= (hoverIndex >= 0 ? hoverIndex : selectedIndex)
+                        ? '/images/bhj/star-on.png'
+                        : '/images/bhj/star.png'
+                    }
+                    alt="별점"
+                    className="cursor-pointer transition-all w-[40px] h-[40px]"
+                    onMouseEnter={() => setHoverIndex(index)}
+                    onMouseLeave={() => setHoverIndex(-1)}
+                    onClick={() => handleClick(index)}
+                  />
+                ))}
               </div>
             </Link>
             {/* 후기입력칸 */}
@@ -305,7 +305,7 @@ export default function VideoDetails() {
                   <label className="items-start">
                     <textarea
                       type="text"
-                      className="w-[100%] h-[116px] p-[15px_15px] bg-[#f7f7f7] rounded-[6px] text-[16px] border-0 placeholder-[#a1a1a1] hover:outline hover:outline-[#00d48d] hover:outline-[1px] caret-[#00d48d]"
+                      className="w-[100%] h-[116px] p-[15px_15px] bg-[#f7f7f7] rounded-[6px] text-[16px] border-0 placeholder-[#a1a1a1] hover:outline-[#00d48d] hover:outline-[1px] caret-[#00d48d]"
                       placeholder="콘텐츠에 대한 의견을 남겨주세요."
                     />
                   </label>
