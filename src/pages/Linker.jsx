@@ -18,18 +18,26 @@ export default function Linker() {
     queryFn: () => fetch(`/articles/${name}`).then((res) => res.json()),
   });
 
-  // 메모 참조해서 월요일 링커 요청
-  const {
-    data: seminarData,
-    isLoading: seminarLoading,
-    isError: seminarError,
-  } = useQuery({
+  const { data: seminarData, isLoading: seminarLoading } = useQuery({
     queryKey: ['seminars'],
     queryFn: () => fetch('/seminars').then((res) => res.json()),
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error: {error.message}</div>;
+  const matchedSeminars =
+    seminarData?.filter((seminars) => seminars.name === name) || [];
+
+  if (isLoading)
+    return (
+      <div className="h-[1300px] w-[100%] bg-[#ebedec] flex justify-center items-center">
+        <p className="font-bold">Loading...</p>
+      </div>
+    );
+  if (isError)
+    return (
+      <div className="h-[1300px] w-[100%] bg-[#ebedec] flex justify-center items-center">
+        <p className="font-bold">Error: {error.message}</p>
+      </div>
+    );
 
   return (
     <main className="bg-[#ebedec]">
@@ -68,10 +76,21 @@ export default function Linker() {
             )}
           </div>
           <span className="border-t-[1px] w-[386px] border-[#00d48d]"></span>
+
+          {/* 세미나 데이타 가져와 사용 */}
           <div className="mt-[30px]">
             <h3 className="font-bold text-[18px]">세미나</h3>
             <div className="">
-              <ul></ul>
+              <ul>
+                {matchedSeminars.map((seminar) => (
+                  <li key={seminar.id}>
+                    <div className="border">
+                      <p>{seminar.title}</p>
+                      <p>{seminar.date}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

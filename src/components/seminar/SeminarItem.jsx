@@ -5,7 +5,6 @@ export default function SeminarItem({ seminar }) {
     ['완료', '신청마감'].includes(category)
   );
   const isReplay = seminar.categories.includes('다시보기');
-  console.log(seminar.id);
 
   return (
     <li className="relative w-[calc(25%-20px)] h-[calc(25%-20px)] hover:text-[#00AA73] group cursor-pointer max-sm:h-[calc(50%-10px)] max-sm:w-[calc(50%-10px)] ">
