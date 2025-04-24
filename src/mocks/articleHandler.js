@@ -26,7 +26,7 @@ export const articleHandlers = [
       itemsPerPage
     );
 
-    console.log(paginatedArticles); // 결과 확인용
+    // console.log(paginatedArticles);
     return HttpResponse.json({ page, totalPages, articles: paginatedArticles });
   }),
 

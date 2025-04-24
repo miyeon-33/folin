@@ -64,8 +64,19 @@ export default function Seminar() {
     setIsRotated((prev) => !prev);
   }
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error: {error.message}</div>;
+  if (isLoading)
+    return (
+      <div className="h-[1300px] w-[100%] bg-[#ebedec] flex justify-center items-center">
+        <p className="font-bold">Loading...</p>
+      </div>
+    );
+  if (isError)
+    return (
+      <div className="h-[1300px] w-[100%] bg-[#ebedec] flex justify-center items-center">
+        {' '}
+        <p className="font-bold">Error: {error.message}</p>
+      </div>
+    );
 
   return (
     <main className="w-full h-full bg-[#ebedec] p-[56px_8px_0]">

@@ -9,12 +9,17 @@ export default function Pagination({ page, totalPage, setPage }) {
     setPageArr(arr);
   }, [page, totalPage]);
 
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="flex gap-x-[8px] justify-center items-center m-[72px_0_0] p-[0_0_160px]">
       <button
         type="button"
         className="btn w-[20px] h-[20px] text-[13px] px-[2px] bg-[#eee] border-0 "
-        onClick={() => setPage(1)}
+        onClick={() => handlePageChange(1)}
       >
         <img
           src={
@@ -44,7 +49,7 @@ export default function Pagination({ page, totalPage, setPage }) {
               className={`btn w-[34px] h-[32px] text-[12px] font-bold p-[7px_12px] rounded-[6px] border-0 ${
                 page === item ? 'text-black bg-[#00D48D]' : 'bg-[#eee]'
               }`}
-              onClick={() => setPage(item)}
+              onClick={() => handlePageChange(item)}
             >
               {item}
             </button>
