@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
-export default function ArticleSearch({ data, total }) {
+export default function ArticleSearch({
+  data,
+  total,
+  setShowArticle,
+  showArticle,
+}) {
   const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
@@ -21,8 +26,14 @@ export default function ArticleSearch({ data, total }) {
     };
   }, []);
 
-  const showAll = () => {
-    setVisibleCount(data?.length);
+  useEffect(() => {
+    if (showArticle) {
+      setVisibleCount(data?.length);
+    }
+  }, [showArticle]);
+
+  const handleClick = () => {
+    setShowArticle(true);
   };
 
   if (!data || data?.length === 0) {
@@ -42,7 +53,7 @@ export default function ArticleSearch({ data, total }) {
           {visibleCount < data?.length && (
             <button
               className="text-[12px] font-normal leading-[1.3] underline"
-              onClick={showAll}
+              onClick={handleClick}
             >
               아티클 더 보기
             </button>

@@ -6,6 +6,7 @@ import { linkerHandlers } from '@/mocks/linkerHandlers.js';
 import { plannerHandler } from '@/mocks/plannerHandler.js';
 import { postHandlers } from '@/mocks/postHandlers.js';
 import { searchHandlers } from '@/mocks/searchHandlers.js';
+import { videoDetailsHandlers } from '@/mocks/videoDetailsHandler.js';
 
 // 배열의 요청 핸들러 함수들을 전개연산자로 전달하여 실행
 export const worker = setupWorker(
@@ -15,5 +16,6 @@ export const worker = setupWorker(
   ...linkerHandlers,
   ...plannerHandler,
   ...postHandlers,
-  ...searchHandlers
+  ...searchHandlers,
+  ...videoDetailsHandlers
 );
