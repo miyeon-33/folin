@@ -248,28 +248,28 @@ export default function VideoDetails() {
 
           <div className="border-[#00d48d] border-t-[1px] flex flex-col text-[15px] gap-[20px] m-[24px_0_24px]">
             <div className="flex items-start gap-[8px] mt-[24px]">
-              <span className="font-bold mr-[70px] text-[13px]">발행일</span>
+              <span className="font-bold mr-[60px] text-[13px]">발행일</span>
               <div className="flex-col gap-[8px] ">
                 <p>{data.createdAt}</p>
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-[8px]">
-              <span className="font-bold text-[13px]">PD</span>
-              <div className="flex-col gap-[8px] mr-[400px]">
+            <div className="flex items-center gap-[8px]">
+              <span className="font-bold text-[13px] mr-[115px]">PD</span>
+              <div className="flex-col gap-[8px]">
                 <p>김수진</p>
               </div>
             </div>
-            <div className="flex items-center justify-between gap-[8px]">
-              <span className="font-bold text-[13px]">에디터</span>
-              <div className="flex-col gap-[8px] mr-[400px]">
+            <div className="flex items-center gap-[8px]">
+              <span className="font-bold text-[13px] mr-[100px]">에디터</span>
+              <div className="flex-col gap-[8px]">
                 <p>채진솔</p>
                 <p>김다희</p>
               </div>
             </div>
-            <div className="flex items-center justify-between gap-[8px]">
-              <span className="font-bold text-[13px]">디자이너</span>
-              <div className="flex-col gap-[8px] mr-[400px]">
+            <div className="flex items-center gap-[8px]">
+              <span className="font-bold text-[13px] mr-[90px]">디자이너</span>
+              <div className="flex-col gap-[8px]">
                 <p>이수연</p>
               </div>
             </div>
