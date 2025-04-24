@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
-export default function LinkerSearch({ data }) {
+export default function LinkerSearch({ data, setShowLinker, showLinker }) {
   const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
@@ -21,8 +21,14 @@ export default function LinkerSearch({ data }) {
     };
   }, []);
 
-  const showAll = () => {
-    setVisibleCount(data.length);
+  useEffect(() => {
+    if (showLinker) {
+      setVisibleCount(data?.length);
+    }
+  }, [showLinker]);
+
+  const handleClick = () => {
+    setShowLinker(true);
   };
 
   if (!data || data.length === 0) {
@@ -41,7 +47,7 @@ export default function LinkerSearch({ data }) {
           {visibleCount < data.length && (
             <button
               className="text-[12px] font-normal leading-[1.3] underline"
-              onClick={showAll}
+              onClick={handleClick}
             >
               링커 더 보기
             </button>

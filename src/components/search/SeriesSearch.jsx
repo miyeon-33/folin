@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
-export default function SeriesSearch({ data, total }) {
+export default function SeriesSearch({ data, total, setShowMore, showMore }) {
   const [visibleCount, setVisibleCount] = useState(2);
 
-  const showAll = () => {
-    setVisibleCount(data?.length);
+  useEffect(() => {
+    if (showMore) {
+      setVisibleCount(data?.length);
+    }
+  }, [showMore]);
+
+  const handleClick = () => {
+    setShowMore(true);
   };
 
   if (!data || data?.length === 0) {
@@ -25,7 +31,7 @@ export default function SeriesSearch({ data, total }) {
           {visibleCount < data?.length && (
             <button
               className="text-[12px] font-normal leading-[1.3] underline"
-              onClick={showAll}
+              onClick={handleClick}
             >
               시리즈 더 보기
             </button>
