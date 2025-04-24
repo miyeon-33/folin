@@ -32,10 +32,11 @@ export default function Popup({ isPopupVisible, setPopupVisible }) {
     Object.assign(toast.style, {
       position: 'fixed',
       left: '50%',
-      top: '46%',
+      top: '50%',
       width: '288px',
       height: '70px',
-      transform: 'translate(-50%)',
+      transform: 'translate(-50%, -50%)',
+      opacity: '0',
       background: '#111111',
       color: 'white',
       fontSize: '13px',
@@ -50,6 +51,10 @@ export default function Popup({ isPopupVisible, setPopupVisible }) {
       zIndex: '10000',
     });
     document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = '1';
+    }, 10);
 
     setTimeout(() => {
       toast.style.opacity = '0';

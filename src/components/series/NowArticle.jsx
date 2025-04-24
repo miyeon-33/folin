@@ -16,21 +16,22 @@ export default function NowArticle({ seriesData, articleId }) {
   const [isToggle, setIsToggle] = useState(true);
 
   // seriesData.data가 배열인지 확인하고 정렬
-  const sortedData = seriesData?.sort((a, b) => {
+  console.log(seriesData, '---');
+  seriesData?.sort((a, b) => {
     return new Date(b.createdAt) - new Date(a.createdAt);
   });
 
   return (
-    <div>
+    <div className="pb-[104px]">
       <div className="flex items-center mb-[20px]">
         <Link
-          to={`/series/${sortedData?.[0].topicId}`}
+          to={`/series/${seriesData?.[0].topicId}`}
           className="flex items-center w-full text-[#111] px-[8px] hover:text-point1 hover:translate-x-[16px]
           transition-transform duration-400 max-md:w-[calc(100%-60px)]"
           onMouseEnter={() => setIsToggle(false)}
           onMouseLeave={() => setIsToggle(true)}
         >
-          <h3 className="text-[24px] font-bold">{sortedData?.[0].topic}</h3>
+          <h3 className="text-[24px] font-bold">{seriesData?.[0].topic}</h3>
           <img
             src={isToggle ? arrow : arrowG}
             alt="showSeriesDetails"
@@ -57,7 +58,7 @@ export default function NowArticle({ seriesData, articleId }) {
           // SeriesBox.module.css
           className={styles.slider}
         >
-          {sortedData?.map((item) => (
+          {seriesData?.map((item) => (
             <SwiperSlide key={item.id} className="max-sm:!w-[calc(80%)]">
               {String(item.id) === articleId && (
                 <div

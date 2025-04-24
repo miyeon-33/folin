@@ -7,6 +7,8 @@ import LinkerView from '@/components/series/LinkerView';
 import PlannerView from '@/components/series/PlannerView';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useParams } from 'react-router';
+import Popup from '@/components/series/Popup';
+import { useState } from 'react';
 
 export default function SeriesDetails() {
   // URL에서 topicId 가져오기
@@ -28,7 +30,9 @@ export default function SeriesDetails() {
   const formatDate = (date) => {
     return date.replace(/-/g, '.');
   };
-  console.log(data);
+
+  // 팝업제어
+  const [isPopupVisible, setPopupVisible] = useState(false);
 
   return (
     <main className="bg-[#ebedec]">
@@ -41,13 +45,26 @@ export default function SeriesDetails() {
             <h2 className="text-[28px] font-bold mb-[16px] mt-[24px]">
               {data[0].topic}
             </h2>
-            <button type="button">
-              <img
-                src={share}
-                alt="공유버튼"
-                className="w-[24px] object-cover"
-              />
-            </button>
+            <div>
+              <button
+                type="button"
+                onClick={() => {
+                  setPopupVisible(true);
+                }}
+              >
+                <img
+                  src={share}
+                  alt="공유버튼"
+                  className="w-[24px] object-cover"
+                />
+              </button>
+              {isPopupVisible ? (
+                <Popup
+                  isPopupVisible={isPopupVisible}
+                  setPopupVisible={setPopupVisible}
+                />
+              ) : null}
+            </div>
           </div>
 
           <div className="w-[588px] mx-[306px] border-t-[1px] border-solid border-point1 max-sm:w-full"></div>
