@@ -7,10 +7,10 @@ export default function SeminarItem({ seminar }) {
   const isReplay = seminar.categories.includes('다시보기');
 
   return (
-    <li className="relative w-[calc(25%-20px)] h-[calc(25%-20px)] hover:text-[#00AA73] group cursor-pointer max-sm:h-[calc(50%-10px)] max-sm:w-[calc(50%-10px)] ">
+    <li className="relative w-[calc(25%-20px)] h-[calc(25%-20px)] hover:text-[#00AA73] group cursor-pointer max-sm:h-[calc(50%-10px)] max-sm:w-[calc(50%-10px)]">
       <Link to={`/seminar/${seminar.id}`}>
         {isReplay && (
-          <div className="flex ">
+          <div className="flex">
             <img
               src="/images/bhj/i-vod.png"
               alt="다시보기"
