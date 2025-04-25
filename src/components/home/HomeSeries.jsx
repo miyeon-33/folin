@@ -11,7 +11,7 @@ import { useQuery } from '@tanstack/react-query';
 import styles from './Slides.module.css';
 
 const menus = [{ path: '/article/:articleId', menu: '아티클' }];
-const arrowMenus = [{ path: '/article/:articleId', menu: '시리즈' }];
+const arrowMenus = [{ path: '/article/18', menu: '시리즈' }];
 
 export default function HomeSeries() {
   const [hovered, setHovered] = useState(false);
