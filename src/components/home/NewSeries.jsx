@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
-import Logo from '@/assets/images/serieslogo.png';
+import Logo from '@/assets/images/ymy/serieslogo.png';
 
 export default function NewSeries() {
   const { data, isLoading, error } = useQuery({
