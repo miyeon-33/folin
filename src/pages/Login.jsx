@@ -20,14 +20,14 @@ export default function Login() {
 
   return (
     <main className="bg-[#ebedec]">
-      <div className="flex max-w-[384px] m-auto items-center flex-col ">
+      <div className="flex max-w-[384px] m-auto items-center flex-col max-sm:w-[320px]">
         <img
           src="/images/bhj/folin-logo-b.png"
           alt="folin"
-          className="mt-[186px] mb-[64px] w-[186px] h-[56px]"
+          className="mt-[186px] mb-[64px] w-[186px] h-[56px] max-sm:w-[140px] max-sm:h-[46px]"
         />
         <div className="mb-[10px]">
-          <form className="w-[380px]">
+          <form className="w-[380px] max-sm:w-[280px]">
             <input
               type="email"
               ref={inputRef}
@@ -39,7 +39,7 @@ export default function Login() {
         </div>
 
         <div className="mb-[10px]">
-          <form className="w-[380px] relative">
+          <form className="w-[380px] relative max-sm:w-[280px]">
             <input
               type={isVisible ? 'text' : 'password'}
               ref={inputRef}
@@ -91,7 +91,7 @@ export default function Login() {
               style={{ backgroundSize: '15px' }}
             ></span>
           </label>
-          <p className="font-bold mr-[130px]">자동로그인</p>
+          <p className="font-bold mr-[130px] max-sm:mr-[20px]">자동로그인</p>
 
           <p>아이디 찾기</p>
           <span className="m-[0_12px] bg-[#d3d3d3] h-[15px] w-[1px] mt-[3px]"></span>
@@ -99,7 +99,7 @@ export default function Login() {
         </div>
 
         <div className="mb-[40px]">
-          <div className="relative w-[100%] max-w-[384px] h-[48px] mb-[10px] rounded-[4px] overflow-hidden">
+          <div className="relative w-[100%] max-w-[384px] h-[48px] mb-[10px] rounded-[4px] overflow-hidden max-sm:w-[280px]">
             <div className="absolute inset-0 bg-[#fee500]"></div>
             <button
               type="button"
@@ -112,7 +112,9 @@ export default function Login() {
                   backgroundSize: '30px',
                 }}
               ></div>
-              <p className="font-bold">카카오로 3초 만에 시작하기</p>
+              <p className="font-bold max-sm:mr-[50px]">
+                카카오로 3초 만에 시작하기
+              </p>
             </button>
           </div>
         </div>
@@ -120,7 +122,7 @@ export default function Login() {
         <span className="border-white border-t-[1px] w-[100%]"></span>
 
         <div className="flex">
-          <p className="text-[13px] text-[#8e8e8e] mt-[30px]">
+          <p className="text-[13px] text-[#8e8e8e] mt-[30px] ">
             간편 로그인 / 회원가입
           </p>
         </div>
