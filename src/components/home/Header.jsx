@@ -105,11 +105,11 @@ export default function Header({ keyword, setSearchParams }) {
 
   return (
     <div
-      className="fixed left-0 top-[4px] max-sm:top-[8px] w-full px-[24px] z-20 
-    max-md:px-[8px] max-sm:px-[8px]"
+      className="fixed left-0 top-[4px] max-sm:top-[8px] px-[24px] z-20 
+    max-md:px-[8px] max-sm:px-[8px] w-full"
     >
       <header
-        className="max-w-[1200px] h-[48px] flex items-center bg-point1 
+        className="max-w-[1200px] h-[48px] flex items-center bg-point1
     p-[8px] rounded-[6px] mx-auto relative before:absolute before:top-[-4px]
     before:left-0 before:w-full
     before:h-[10px] before:-z-1 before:bg-[#ebedec]"
@@ -167,7 +167,7 @@ export default function Header({ keyword, setSearchParams }) {
             max-md:px-[8px] max-sm:px-[8px] max-sm:top-[64px]"
             >
               <div
-                className="max-w-[1200px] h-[103px] flex flex-col
+                className="max-w-[1200px] flex flex-col
                 bg-point1 p-[4px] rounded-[6px] mx-auto"
               >
                 <div
@@ -199,7 +199,10 @@ export default function Header({ keyword, setSearchParams }) {
                     </button>
                   )}
                 </div>
-                <div className="flex items-center gap-[24px] justify-center flex-wrap p-[18px]">
+                <div
+                  className="flex items-center gap-x-[16px] gap-y-[24px]
+                justify-center flex-wrap p-[18px]"
+                >
                   {keywords.map((keyword, index) => (
                     <Link
                       className="text-gray-600 font-bold leading-[1.3]"

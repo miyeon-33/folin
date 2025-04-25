@@ -80,7 +80,7 @@ const menus = [
 
 export default function Subscribe() {
   return (
-    <div className=" w-full px-[24px] max-md:px-[8px] max-sm:px-[8px]">
+    <div className="px-[24px] max-md:px-[8px] max-sm:px-[8px]">
       <div
         className=" bg-point1 rounded-[6px] px-[8px] py-[24px] max-sm:pb-[8px]
       text-center max-w-[1200px] mx-auto h-auto mb-[4px]"
@@ -97,7 +97,7 @@ export default function Subscribe() {
           현업 전문가 `링커(Linker)`의 경험과 인사이트로 내 커리어의 전성기를
           만들어 보세요.
         </p>
-        <ul className="flex justify-center gap-[16px] max-sm:gap-[4px]">
+        <ul className="flex justify-center gap-x-[16px] gap-y-[24px] max-sm:gap-[4px]">
           {menus.map((item) => (
             <li
               key={item.menu}
