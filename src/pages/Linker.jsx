@@ -1,7 +1,6 @@
 import { useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import ArticleBox from '@/components/series/ArticleBox';
-import { Link } from 'react-router';
 
 export default function Linker() {
   const { id } = useParams();
@@ -17,13 +16,13 @@ export default function Linker() {
     queryFn: () => fetch(`/series-name/${name}`).then((res) => res.json()),
   });
 
-  // const { data: seminarData, isLoading: seminarLoading } = useQuery({
-  //   queryKey: ['seminars'],
-  //   queryFn: () => fetch('/seminars').then((res) => res.json()),
-  // });
+  const { data: seminarData, isLoading: seminarLoading } = useQuery({
+    queryKey: ['seminars'],
+    queryFn: () => fetch('/seminars').then((res) => res.json()),
+  });
 
-  // const matchedSeminars =
-  //   seminarData?.filter((seminars) => seminars.name === name) || [];
+  const matchedSeminars =
+    seminarData?.filter((seminars) => seminars.name === name) || [];
 
   if (isLoading)
     return (
@@ -68,16 +67,7 @@ export default function Linker() {
               <ul className="m-[0_0_40px] flex gap-4 p-[10px_10px_10px_10px]">
                 {seriesData.map((item) => (
                   <li key={item.id}>
-                    <Link
-                      to={
-                        item.video === 'N'
-                          ? `/article/${item.id}`
-                          : `/video/${item.id}`
-                      }
-                      className="block"
-                    >
-                      <ArticleBox art={item} />
-                    </Link>
+                    <ArticleBox art={item} />
                   </li>
                 ))}
               </ul>
@@ -90,15 +80,14 @@ export default function Linker() {
             <h3 className="font-bold text-[18px]">세미나</h3>
             <div className="">
               <ul>
-                {/* {matchedSeminars.map((seminar) => ( */}
-                {/* <li key={seminar.id}> */}
-                <li>
-                  <div className="border">
-                    <p>{seminar.title}</p>
-                    <p>{seminar.date}</p>
-                  </div>
-                </li>
-                {/* ))} */}
+                {matchedSeminars.map((seminar) => (
+                  <li key={seminar.id}>
+                    <div className="border">
+                      <p>{seminar.title}</p>
+                      <p>{seminar.date}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

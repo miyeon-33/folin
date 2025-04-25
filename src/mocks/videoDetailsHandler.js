@@ -1,6 +1,6 @@
 // mocks/videoDetailsHandler.js
 import { http, HttpResponse } from 'msw';
-import videoDetails from './videodetails.json';
+import videoDetails from './videoDetails.json';
 
 export const videoDetailsHandlers = [
   // 모든 비디오 데이터 반환
@@ -34,7 +34,7 @@ export const videoDetailsHandlers = [
     const filteredData = videoDetails.find((item) => item.id === parseInt(id));
     if (!filteredData) {
       return HttpResponse.json(
-        { error: `Video details with ID ${id} not found` },
+        { error: `video details with ID ${id} not found` },
         { status: 404 }
       );
     }

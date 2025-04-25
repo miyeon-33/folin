@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import { useRef } from 'react';
-import videoDetails from '@/mocks/videodetails.json';
+// import videoDetails from '@/mocks/videodetails.json';
 import { useNavigate } from 'react-router';
 
 export default function VideoDetails() {
