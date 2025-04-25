@@ -120,15 +120,8 @@ export default function ArticleDetails() {
             </Link>
             <div className=" flex mt-[16px] gap-[3px] items-center">
               <span className="text-[13px]">이미 가입했다면</span>
-              <Link>
-                <span
-                  className="underline text-[#111]"
-                  onClick={() => {
-                    window.location.href = '/login';
-                  }}
-                >
-                  로그인하기
-                </span>
+              <Link to="/Login">
+                <span className="underline text-[#111]">로그인하기</span>
               </Link>
             </div>
           </div>
