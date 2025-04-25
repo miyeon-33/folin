@@ -44,23 +44,23 @@ export default function Linker() {
           <img
             src={data[0].photo}
             alt={data[0].name}
-            className="w-[192px] h-[192px] rounded-[50%]"
+            className="w-[192px] h-[192px] rounded-[50%] max-sm:h-[130px] max-sm:w-[130px]"
           />
 
-          <h2 className=" font-bold text-[28px] mb-[15px] mt-[40px]">
+          <h2 className=" font-bold text-[28px] mb-[15px] mt-[40px] max-sm:text-[20px]">
             {data[0].name}
           </h2>
           <p className="text-[15px] mb-[50px] font-medium">{data[0].job}</p>
 
           <div className="border-b-[1px] border-t-[1px] border-[#00d48d] w-[100%] p-[40px_0] max-w-[386px] m-auto">
-            <p className="text-[18px] leading-[180%] font-medium">
+            <p className="text-[18px] leading-[180%] font-medium max-sm:text-[15px]">
               {data[0].achievements}
             </p>
           </div>
 
           {/* 아티클 데이타(series) 가져와 사용 */}
-          <div className="mt-[30px] max-w-[400px] m-auto">
-            <h3 className="font-bold text-[18px] mb-[40px] text-center">
+          <div className="mt-[30px] max-w-[400px] m-auto max-sm:pr-[120px]">
+            <h3 className="font-bold text-[18px] mb-[40px] text-center ">
               아티클·비디오
             </h3>
             {seriesData?.length > 0 && (
