@@ -32,13 +32,13 @@ export default function SeminarDetails() {
 
   return (
     <main className="bg-[#ebedec]">
-      <div className="max-w-[520px] h-[100%] mx-auto flex">
+      <div className="max-w-[520px] h-[100%] mx-auto flex pr-[10px] pl-[10px] max-sm:max-w-[320px]">
         <div className="mt-[102px] mb-[40px] ">
           <div className="flex justify-center ml-[10px]">
             <img
               src={data?.image}
               alt={data?.title}
-              className="rounded-[6px] h-[342px] w-auto"
+              className="rounded-[6px] h-[342px] w-auto max-sm:w-[220px] max-sm:h-[300px]"
             />
 
             <div className="flex flex-col justify-end ml-[10px]">
@@ -77,7 +77,9 @@ export default function SeminarDetails() {
               ))}
             </p>
 
-            <h3 className="font-bold text-center text-[28px]">{data?.title}</h3>
+            <h3 className="font-bold text-center text-[28px] max-sm:text-[20px]">
+              {data?.title}
+            </h3>
             <p className="text-[15px] text-center mt-[20px] items-center leading-[30px] ">
               <img
                 src={data?.profile}
@@ -88,7 +90,7 @@ export default function SeminarDetails() {
               {data?.subtitle}
             </p>
 
-            <div className="mx-auto mt-[35px] bg-white rounded-[10px] p-4 w-[384px] max-w-full">
+            <div className="mx-auto mt-[35px] bg-white rounded-[10px] p-4 w-[384px] max-w-full max-sm:max-w-[320px]">
               <p className="flex justify-between font-bold mb-2">
                 <strong className="font-bold">개별 구매가</strong>
                 30,000원
@@ -108,7 +110,7 @@ export default function SeminarDetails() {
             </div>
 
             <div className="flex justify-center flex-col mb-[30px]">
-              <div className="mt-[8px] mx-auto">
+              <div className="mt-[8px] mx-auto max-sm:max-w-[320px]">
                 {data?.categories.includes('신청가능') ||
                 data?.categories.includes('다시보기') ? (
                   <Link
@@ -177,57 +179,63 @@ export default function SeminarDetails() {
             </div>
 
             {/* 프로필 */}
-            <div className="mt-[20px] flex items-start gap-[24px]">
+            <div className="mt-[20px] flex items-start gap-[24px] ">
               <img
                 src={data?.profile}
                 alt={data?.name}
-                className="rounded-[50%] h-[96px] w-[96px]"
+                className="rounded-[50%] h-[96px] w-[96px] max-sm:h-[60px]"
                 onClick={handleProfileClick}
                 style={{ cursor: 'pointer' }}
               />
-              <div className="flex flex-col">
-                <strong className="font-bold text-[18px]">{data?.name}</strong>
-                <p className="text-[18px] cursor-default">{data?.subtitle}</p>
-                <p className="m-[24px_0_24px] text-[18px] leading-[200%] ">
+              <div className="flex flex-col ">
+                <strong className="font-bold text-[18px] max-sm:text-[14px]">
+                  {data?.name}
+                </strong>
+                <p className="text-[18px] cursor-default max-sm:text-[14px]">
+                  {data?.subtitle}
+                </p>
+                <p className="m-[24px_0_24px] text-[18px] leading-[200%] max-sm:text-[14px]">
                   {data?.bio}
                 </p>
               </div>
             </div>
 
             <div className="">
-              <div className="border-[#00d48d] border-t-[1px] m-[0_0_24px] flex items-center pt-[40px]">
-                <h3 className="text-[24px] font-bold m-[0px_8px_0px_0px]">
+              <div className="border-[#00d48d] border-t-[1px] m-[0_0_24px] flex items-center pt-[40px] ">
+                <h3 className="text-[24px] font-bold m-[0px_8px_0px_0px] max-sm:text-[18px]">
                   강연
                 </h3>
                 <span className="bg-[#fff] rounded-[8px] p-[5px_8px_5px_8px]">
-                  <p className="text-[#00aa73] text-[11px] font-extrabold">
+                  <p className="text-[#00aa73] text-[11px] font-extrabold max-sm:text-[10px]">
                     30분
                   </p>
                 </span>
               </div>
-              <h3 className="font-bold text-[18px]">{data?.title}</h3>
-              <p className="text-[18px] m-[24px_0_24px] leading-[200%]">
+              <h3 className="font-bold text-[18px] max-sm:text-[15px]">
+                {data?.title}
+              </h3>
+              <p className="text-[18px] m-[24px_0_24px] leading-[200%] max-sm:text-[14px]">
                 {data?.lecture}
               </p>
             </div>
 
             <div className="border-[#fff] border-t-[1px] m-[0_0_24px] flex items-center  pt-[40px]">
-              <h3 className="text-[24px] font-bold m-[0px_8px_0px_0px]">
+              <h3 className="text-[24px] font-bold m-[0px_8px_0px_0px] max-sm:text-[15px]">
                 LIVE Q&A
               </h3>
               <span className="bg-[#fff] rounded-[8px] p-[5px_8px_5px_8px]">
-                <p className="text-[#00aa73] text-[11px] font-extrabold">
+                <p className="text-[#00aa73] text-[11px] font-extrabold max-sm:text-[10px]">
                   30분
                 </p>
               </span>
             </div>
 
             <div className="leading-[200%] text-[18px]">
-              <strong className=" m-[0_0_24px] pt-[40px] font-bold">
+              <strong className=" m-[0_0_24px] pt-[40px] font-bold max-sm:text-[15px] max-sm:mb-[20px] max-sm:pt-[20px]">
                 실시간 댓글로 함께하는 Q&A
               </strong>
 
-              <p className=" m-[24px_0_24px]">
+              <p className=" m-[24px_0_24px] max-sm:text-[14px] max-sm:leading-[170%]">
                 · 신청시 입력한 연락처로 보내드리니, 개인정보를 정확하게
                 입력해주세요.
                 <br />· 시청 링크를 받지 못한 경우, 1:1 문의로 연락주세요.
@@ -235,16 +243,16 @@ export default function SeminarDetails() {
             </div>
 
             <div className="border-[#ffffff] border-t-[1px] leading-[200%] text-[18px]">
-              <h3 className="text-[24px] font-bold m-[0px_8px_0px_0px] pt-[40px]">
+              <h3 className="text-[24px] font-bold m-[0px_8px_0px_0px] pt-[40px] max-sm:text-[15px]">
                 라이브 시청 링크 접속 방법
               </h3>
-              <p className="m-[24px_0_0]">
+              <p className="m-[24px_0_0] max-sm:text-[14px] max-sm:leading-[170%]">
                 세미나 당일 오후 5시, 카카오톡으로 시청 알림을 보내드립니다.
                 <br />
                 (17:00부터 세미나 신청 페이지에서, '세미나 시청하기' 버튼을
                 누르면 라이브 시청 링크로 연결됩니다.)
               </p>
-              <p className="m-[24px_0_24px]">
+              <p className="m-[24px_0_24px] max-sm:text-[14px] max-sm:leading-[170%]">
                 · 신청시 입력한 연락처로 보내드리니, 개인정보를 정확하게
                 입력해주세요.
                 <br />· 시청 링크를 받지 못한 경우, 1:1 문의로 연락주세요.
@@ -252,10 +260,10 @@ export default function SeminarDetails() {
             </div>
 
             <div className="text-[18px] leading-[200%] border-[#00d48d] border-b-[1px] border-t-[1px] w-[100%]">
-              <h3 className="font-bold text-[24px] m-[0_0_24px] pt-[40px]">
+              <h3 className="font-bold text-[24px] m-[0_0_24px] pt-[40px] max-sm:text-[15px]">
                 다시보기 및 환불 안내
               </h3>
-              <p className="m-[24px_0_0]">
+              <p className="m-[24px_0_0] max-sm:text-[14px] max-sm:leading-[170%]">
                 ■ 폴인 Plus 멤버십에 가입하셨다면?
                 <br />
                 - 월 14,800원에 매월 세미나를 무료로 참여하실 수 있습니다.
@@ -264,7 +272,7 @@ export default function SeminarDetails() {
                   ▶ 지금 폴인 멤버십 가입하고 세미나 신청하기
                 </em>
               </p>
-              <p className="m-[24px_0_0]">
+              <p className="m-[24px_0_0] max-sm:text-[14px] max-sm:leading-[170%]">
                 ■ 실시간 참석이 어려우신가요?
                 <br />
                 - 업무 등으로 인하여 실시간 참석이 불가하다면 걱정마세요.
@@ -273,7 +281,7 @@ export default function SeminarDetails() {
                 <em className="underline underline-offset-3">3일간</em> 공개되는
                 '강연 다시 보기' 비밀 링크를 함께 제공해드립니다.
               </p>
-              <p className="m-[24px_0_0]">
+              <p className="m-[24px_0_0] max-sm:text-[14px] max-sm:leading-[170%]">
                 ■ 우리 팀 동료와 친구와 함께 신청하고 싶다면?
                 <br />- 5명 이상 단체 신청은
                 <em className="underline underline-offset-3 ml-[5px]">
@@ -281,8 +289,10 @@ export default function SeminarDetails() {
                 </em>
                 에 신청자 성함과 연락처, 이메일 주소를 남겨 주세요.
               </p>
-              <h3 className="font-bold m-[24px_0_0]">기본 환불 규정</h3>
-              <p className="m-[24px_0_24px]">
+              <h3 className="font-bold m-[24px_0_0] max-sm:text-[15px]">
+                기본 환불 규정
+              </h3>
+              <p className="m-[24px_0_24px] max-sm:text-[14px] max-sm:leading-[170%]">
                 1. 세미나 전일인 23:59:59까지 홈페이지 [마이페이지 -
                 구매내역]에서 직접 취소 가능하며, 전액 100% 환불됩니다.
                 <br />

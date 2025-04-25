@@ -20,7 +20,7 @@ export default function Login() {
 
   return (
     <main className="bg-[#ebedec]">
-      <div className="flex max-w-[384px] m-auto items-center flex-col">
+      <div className="flex max-w-[384px] m-auto items-center flex-col ">
         <img
           src="/images/bhj/folin-logo-b.png"
           alt="folin"
