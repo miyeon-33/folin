@@ -78,23 +78,21 @@ export default function ArticleTitle({
             </span>
           </button>
           <div className="group flex items-center">
-            <button
+            <Link
+              to="/Login"
+              type="button"
               className="[background:url('@/assets/images/icon/favorite.png')_no-repeat_50%_50%/100%] group-hover:[background:url('@/assets/images/icon/favoriteG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"
-              onClick={() => {
-                window.location.href = '/login';
-              }}
-            ></button>
+            ></Link>
             <span className="text-[#111] text-[13px] font-bold leading-[130%] group-hover:text-point1">
               {data[0].favorite}
             </span>
           </div>
           <div className="flex">
-            <button
+            <Link
+              to="/Login"
+              type="button"
               className="[background:url('@/assets/images/icon/save.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/saveG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"
-              onClick={() => {
-                window.location.href = '/login';
-              }}
-            ></button>
+            ></Link>
           </div>
           <div className="flex">
             <button
@@ -112,12 +110,11 @@ export default function ArticleTitle({
           </div>
           <div className="h-[16px] border-r border-[#111] border-1"></div>
           <div className="flex">
-            <button
+            <Link
+              to="/Login"
+              type="button"
               className="[background:url('@/assets/images/icon/gift.png')_no-repeat_50%_50%/100%] hover:[background:url('@/assets/images/icon/giftG.png')_no-repeat_50%_50%/100%] w-[24px] h-[24px]"
-              onClick={() => {
-                window.location.href = '/login';
-              }}
-            ></button>
+            ></Link>
           </div>
         </div>
       </div>

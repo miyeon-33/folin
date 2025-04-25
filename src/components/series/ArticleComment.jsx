@@ -3,6 +3,7 @@ import star from '@/assets/images/rhr/star.png';
 import starG from '@/assets/images/rhr/starG.png';
 import person from '@/assets/images/rhr/person.png';
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 export default function ArticleComment({ data }) {
   // 별점매기기
@@ -51,21 +52,16 @@ export default function ArticleComment({ data }) {
             ></textarea>
           </div>
           <div className="flex justify-end items-center mt-[12px]">
-            <button
-              className={`h-[32px] py-[7px] px-[12px] bg-[#ebedec] rounded-[6px] text-[#bfbfbf] text-[13px] font-medium ${
+            <Link
+              to="/login"
+              className={`h-[32px] py-[7px] px-[12px] rounded-[6px] text-[13px] font-medium ${
                 text.trim() !== ''
                   ? 'bg-point1 text-white cursor-pointer'
-                  : 'cursor-default'
+                  : 'bg-[#ebedec] text-[#bfbfbf] cursor-default'
               }`}
-              disabled={text.trim() === ''}
-              onClick={() => {
-                if (text.trim() !== '') {
-                  window.location.href = '/login';
-                }
-              }}
             >
               확인
-            </button>
+            </Link>
           </div>
         </div>
       </div>
