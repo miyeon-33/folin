@@ -77,7 +77,7 @@ export default function ArticleDetails() {
   return (
     <main className="bg-white">
       <div className="max-w-[1248px] w-full px-[24px] m-auto pt-[52px] h-auto mt-0 max-md:px-[8px] max-md:pt-[56px]">
-        <div className="max-w-[588px] pt-[64px] m-auto max-sm:pt-[100px] max-sm:px-[8px]">
+        <div className="max-w-[588px] pt-[64px] m-auto max-sm:pt-[40px] max-sm:px-[8px]">
           <ArticleTitle
             articleId={articleId}
             topicId={topicId}
@@ -103,7 +103,7 @@ export default function ArticleDetails() {
             </p>
           </div>
           <div className="flex flex-col items-center bg-point1 rounded-[6px] py-[40px] px-[66px]">
-            <span className="font-bold mb-[16px]">
+            <span className="font-bold mb-[16px] break-keep break-words text-center">
               더 많은 콘텐츠가 궁금하신가요?
             </span>
             <span className="text-[18px] font-bold mb-[4px]">
@@ -112,7 +112,7 @@ export default function ArticleDetails() {
             <span className="text-[24px] font-bold">무제한 보기</span>
             <Link
               to={`/introduction`}
-              className="w-[388px] bg-[#111] rounded-[6px] py-[14px] px-[16px] mt-[24px] text-center"
+              className="max-w-[388px] max-sm:w-[246px] bg-[#111] rounded-[6px] py-[14px] px-[16px] mt-[24px] text-center"
             >
               <span className="text-white font-bold">
                 지금 첫 달 무료로 시작하기
@@ -135,18 +135,18 @@ export default function ArticleDetails() {
           <div className="mt-[64px] mb-[40px] border-t border-b border-point1">
             <div className="flex flex-col py-[24px] px-[8px] gap-y-[10px]">
               <div className="flex items-baseline gap-x-[24px] text-left">
-                <span className="w-[78px] text-[13px] font-bold">발행일</span>
+                <span className="w-[74px] text-[13px] font-bold">발행일</span>
                 <span className="font-medium">
                   {formatDate(articleData?.[0].createdAt)}
                 </span>
               </div>
               <div className="flex items-baseline gap-x-[24px] text-left">
-                <span className="w-[78px] text-[13px] font-bold">에디터</span>
-                <div className="flex gap-[8px] font-medium">
+                <span className="w-[74px] text-[13px] font-bold">에디터</span>
+                <div className="flex gap-x-[8px] font-medium">
                   {data[0].editor.map((name, index) => (
                     <span
                       key={index}
-                      className="hover:underline cursor-pointer"
+                      className="hover:underline cursor-pointer tracking-tighter"
                     >
                       {name}
                     </span>

@@ -27,8 +27,8 @@ export default function TopMenu() {
         to="/series"
         onClick={() => handleTabChange('series')}
         className={`btn w-[180px] h-[48px] bg-white rounded-[6px] 
-              text-[15px] text-[#111]text-center font-medium max-md:w-[171px]
-              max-sm:w-[calc(100%/3)] ${
+              text-[15px] text-[#111] text-center font-medium tracking-tight max-md:w-[171px]
+              max-sm:w-[calc(100%/3)] max-sm:p-0 ${
                 activeTab === 'series' ? 'border-point1' : 'border-0'
               }`}
       >
@@ -38,8 +38,8 @@ export default function TopMenu() {
         to="/article"
         onClick={() => handleTabChange('article')}
         className={`btn w-[180px] h-[48px] bg-white rounded-[6px] 
-          text-[15px] text-[#111]text-center font-medium max-md:w-[171px]
-          max-sm:w-[calc(100%/3)] ${
+          text-[15px] text-[#111] text-center font-medium tracking-tight max-md:w-[171px]
+          max-sm:w-[calc(100%/3)] max-sm:p-0 ${
             activeTab === 'article' ? 'border-point1' : 'border-0'
           }`}
       >
@@ -49,8 +49,8 @@ export default function TopMenu() {
         to="/video"
         onClick={() => handleTabChange('video')}
         className={`btn w-[180px] h-[48px] bg-white rounded-[6px] 
-          text-[15px] text-[#111]text-center font-medium max-md:w-[171px]
-          max-sm:w-[calc(100%/3)] ${
+          text-[15px] text-[#111] text-center font-medium tracking-tight max-md:w-[171px]
+          max-sm:w-[calc(100%/3)] max-sm:p-0 ${
             activeTab === 'video' ? 'border-point1' : 'border-0'
           }`}
       >

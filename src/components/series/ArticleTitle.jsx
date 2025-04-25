@@ -131,8 +131,12 @@ export default function ArticleTitle({
             alt="프로필"
             className="w-[32px] h-[32px] rounded-[50%] object-cover"
           />
-          <span className="font-bold">{linkerData?.[0]?.name}</span>
-          <span className="font-medium">{linkerData?.[0]?.job}</span>
+          <span className="font-bold whitespace-nowrap tracking-tight">
+            {linkerData?.[0]?.name}
+          </span>
+          <span className="font-medium overflow-hidden overflow-ellipsis break-all whitespace-nowrap">
+            {linkerData?.[0]?.job}
+          </span>
         </Link>
       </div>
     </div>

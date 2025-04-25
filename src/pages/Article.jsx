@@ -52,7 +52,7 @@ export default function Article() {
               <ArrayButton setSortOrder={setSortOrder} />
             </div>
           </div>
-          <div className="pt-[64px]">
+          <div className="pt-[68px]">
             <ul className="grid grid-cols-3 gap-[24px] max-md:grid-cols-2 max-md:gap-[8px] max-sm:grid-cols-1">
               {sortedData?.map((art) => (
                 <li key={art.id}>

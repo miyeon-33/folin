@@ -26,7 +26,7 @@ export default function ArticleBox({ art }) {
       <div className="relative w-[calc(100%-16px)] h-[auto] p-[10px] -translate-y-[16px] ml-[16px] bg-white rounded-[6px]">
         <div className="flex items-center gap-[2px]">
           <div
-            className=" max-w-[calc(100%-38px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold overflow-hidden whitespace-nowrap text-ellipsis"
+            className=" max-w-[calc(100%-38px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold leading-[150%] overflow-hidden whitespace-nowrap break-all overflow-ellipsis"
             style={{
               backgroundColor: art.color,
               border: `1px solid ${art.color}`,
@@ -35,7 +35,7 @@ export default function ArticleBox({ art }) {
             {art.topic}
           </div>
           <div
-            className="inline-block min-w-[32px] bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+            className="inline-block min-w-[32px] bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold  leading-[150%] whitespace-nowrap"
             style={{
               backgroundColor: '#fff',
               border: `1px solid ${art.color}`,
