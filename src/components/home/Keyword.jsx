@@ -37,7 +37,7 @@ export default function KeywordList() {
         <ul
           key={groupIndex}
           className="flex gap-[8px] mb-[4px] justify-center items-center max-md:flex-wrap
-          max-md:gap-[4px] max-md:w-[520px] mx-auto max-sm:w-[386px]"
+          max-md:gap-[4px]  mx-auto"
         >
           {group.map((keyword, index) => (
             <li

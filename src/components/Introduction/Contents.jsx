@@ -4,8 +4,8 @@ import num3 from '@/assets/images/icon/contents3.png';
 
 export default function Contents() {
   return (
-    <div className="w-[588px] mx-auto max-sm:px-[8px] py-[160px]">
-      <div className="">
+    <div className=" mx-auto max-sm:px-[8px] py-[160px] w-full">
+      <div className="max-w-[588px] mx-auto">
         <h3 className="text-center text-[28px] font-bold">
           지금 하는 일, 잘하고 있나요?
           <br />
