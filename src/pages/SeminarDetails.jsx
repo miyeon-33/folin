@@ -234,7 +234,7 @@ export default function SeminarDetails() {
               </p>
             </div>
 
-            <div className="border-[#fff] border-t-[1px] leading-[200%] text-[18px]">
+            <div className="border-[#ffffff] border-t-[1px] leading-[200%] text-[18px]">
               <h3 className="text-[24px] font-bold m-[0px_8px_0px_0px] pt-[40px]">
                 라이브 시청 링크 접속 방법
               </h3>
