@@ -13,7 +13,7 @@ export default function SeriesList({ topic }) {
         <div className="flex items-center mb-[4px]">
           <div
             className="inline-block max-w-[calc(100%-78px)] h-auto py-[8px] px-[12px] mr-[4px]
-            rounded-[6px] font-bold text-[#111]"
+            rounded-[6px] font-bold text-[#111] overflow-hidden overflow-ellipsis break-all whitespace-nowrap"
             style={{
               backgroundColor: topic[0].color,
               border: `1px solid ${topic[0].color}`,
@@ -22,7 +22,7 @@ export default function SeriesList({ topic }) {
             {topic[topic.length - 1].topic}
           </div>
           <div
-            className="inline-block py-[8px] px-[12px]  bg-white rounded-[6px] font-bold text-[#111]"
+            className="inline-block py-[8px] px-[12px]  bg-white rounded-[6px] font-bold text-[#111] whitespace-nowrap"
             style={{
               border: `1px solid ${topic[0].color}`,
             }}

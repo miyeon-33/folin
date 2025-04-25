@@ -22,16 +22,18 @@ export default function NowArticle({ seriesData, articleId }) {
   });
 
   return (
-    <div className="pb-[104px]">
+    <div className="pb-[104px] max-sm:pb-[64px]">
       <div className="flex items-center mb-[20px]">
         <Link
           to={`/series/${seriesData?.[0].topicId}`}
           className="flex items-center w-full text-[#111] px-[8px] hover:text-point1 hover:translate-x-[16px]
-          transition-transform duration-400 max-md:w-[calc(100%-60px)]"
+          transition-transform duration-400 max-md:w-[calc(100%-60px)] gap-[4px]"
           onMouseEnter={() => setIsToggle(false)}
           onMouseLeave={() => setIsToggle(true)}
         >
-          <h3 className="text-[24px] font-bold">{seriesData?.[0].topic}</h3>
+          <h3 className="text-[24px] font-bold overflow-hidden overflow-ellipsis break-all whitespace-nowrap">
+            {seriesData?.[0].topic}
+          </h3>
           <img
             src={isToggle ? arrow : arrowG}
             alt="showSeriesDetails"
@@ -43,15 +45,17 @@ export default function NowArticle({ seriesData, articleId }) {
       <div className="relative">
         <Swiper
           modules={[Navigation]}
-          spaceBetween={24}
+          spaceBetween={10}
           slidesPerView="auto"
           autoplay={false}
           navigation
           breakpoints={{
             768: {
+              spaceBetween: 10,
               slidesPerView: 2,
             },
             1024: {
+              spaceBetween: 24,
               slidesPerView: 3,
             },
           }}
@@ -103,7 +107,7 @@ export default function NowArticle({ seriesData, articleId }) {
                 <div className="relative w-[calc(100% - 16px)] h-[auto] p-[10px] -translate-y-[16px] ml-[16px] bg-white rounded-[6px]">
                   <div className="flex items-center gap-[2px]">
                     <div
-                      className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                      className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold leading-[150%] overflow-hidden overflow-ellipsis break-all whitespace-nowrap"
                       style={{
                         backgroundColor: item.color,
                         border: `1px solid ${item.color}`,
@@ -112,7 +116,7 @@ export default function NowArticle({ seriesData, articleId }) {
                       {item.topic}
                     </div>
                     <div
-                      className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                      className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold leading-[150%] whitespace-nowrap"
                       style={{
                         backgroundColor: '#fff',
                         border: `1px solid ${item.color}`,

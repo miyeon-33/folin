@@ -58,7 +58,7 @@ export default function Series() {
               <SeriesView isBoxView={isBoxView} setIsBoxView={setIsBoxView} />
             </div>
           </div>
-          <div className="pt-[64px]">
+          <div className="pt-[68px]">
             {isBoxView
               ? sortedData.map((topic) => (
                   <SeriesBox

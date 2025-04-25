@@ -56,7 +56,7 @@ export default function RecommendArticle({ recommendData }) {
   }
 
   return (
-    <div>
+    <div className="pb-[104px] max-sm:pd-[64px]">
       <div className="flex items-center mb-[20px]">
         <div className="flex items-center w-full text-[#111] px-[8px]">
           <h3 className="text-[24px] font-bold">추천 콘텐츠</h3>
@@ -66,15 +66,17 @@ export default function RecommendArticle({ recommendData }) {
       <div className="relative">
         <Swiper
           modules={[Navigation]}
-          spaceBetween={24}
+          spaceBetween={10}
           slidesPerView="auto"
           autoplay={false}
           navigation
           breakpoints={{
             768: {
+              spaceBetween: 10,
               slidesPerView: 2,
             },
             1024: {
+              spaceBetween: 24,
               slidesPerView: 3,
             },
           }}
@@ -114,7 +116,7 @@ export default function RecommendArticle({ recommendData }) {
                 <div className="relative w-[calc(100% - 16px)] h-[auto] p-[10px] -translate-y-[16px] ml-[16px] bg-white rounded-[6px]">
                   <div className="flex items-center gap-[2px]">
                     <div
-                      className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                      className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold leading-[150%] overflow-hidden overflow-ellipsis break-all whitespace-nowrap"
                       style={{
                         backgroundColor: item.color,
                         border: `1px solid ${item.color}`,
@@ -123,7 +125,7 @@ export default function RecommendArticle({ recommendData }) {
                       {item.topic}
                     </div>
                     <div
-                      className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                      className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold leading-[150%] whitespace-nowrap"
                       style={{
                         backgroundColor: '#fff',
                         border: `1px solid ${item.color}`,

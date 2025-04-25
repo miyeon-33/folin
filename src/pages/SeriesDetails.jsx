@@ -145,7 +145,7 @@ export default function SeriesDetails() {
                       <div className="relative w-[calc(100%-16px)] h-auto p-[10px] -translate-y-[16px] ml-[16px] bg-white rounded-[6px] max-sm:w-[calc(100%-127px)] max-sm:translate-y-[30px] max-sm:-translate-x-[16px] max-sm:ml-0 max-sm:h-full">
                         <div className="flex items-center gap-[2px] max-sm:mb-[10px]">
                           <div
-                            className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                            className="max-w-[calc(100% - 35px)] rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold leading-[150%] overflow-hidden overflow-ellipsis break-all whitespace-nowrap"
                             style={{
                               backgroundColor: item.color,
                               border: `1px solid ${item.color}`,
@@ -154,7 +154,7 @@ export default function SeriesDetails() {
                             {item.topic}
                           </div>
                           <div
-                            className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold"
+                            className="inline-block bg-white border rounded-[6px] py-[6px] px-[8px] text-[#111] text-[12px] font-bold leading-[150%] whitespace-nowrap"
                             style={{
                               backgroundColor: '#fff',
                               border: `1px solid ${item.color}`,
