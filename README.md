@@ -1,12 +1,23 @@
-# React + Vite
+# 프로젝트명: 폴인(folin)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 프로젝트 개요
+- 일에 진심인 사람들을 위한 콘텐츠 구독 서비스입니다. 사용자가 원하는 브랜드와 전문가의 레퍼런스를 구독, 검색, 시청할 수 있는 기능들을 구현하여 웹/앱으로 개발했습니다. 
+- React 기반으로 개발
 
-Currently, two official plugins are available:
+## 사용 기술
+- Frontend: React, jQuery
+- Backend: Mock Data
+- 협업 도구: GitHub, Notion
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 팀 구성 및 기여도
+- 3인 팀 프로젝트
+- 본인 기여: GitHub Collaborator 추가 후 GitHub 세팅, UI 설계, 공통파일 관리 (약 60%)
 
-## Expanding the ESLint configuration
+## 주요 화면
+- 메인 화면, 콘텐츠 검색 화면
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 배포 링크
+- https://folin-1uk5.vercel.app
+
+## 기타
+- GitHub Issues와 Pull Request를 활용한 협업 진행
